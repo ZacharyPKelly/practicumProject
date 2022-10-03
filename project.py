@@ -1,58 +1,92 @@
 #IMPORTS
 import os
+import io
+import sys
+import pip
+
 from configparser import ConfigParser
 
 ###### Creating File Folder System ########################################################################
 ###########################################################################################################
 
-###### Creating File Folder System ########################################################################
-
 parent_dir = os.path.expanduser('~')
 parent_dir = parent_dir + "\OneDrive\Documents"
 owd = os.getcwd() #original working directory
-
-#creating Jupyter Directory
 jupyterDirectory = os.path.join(parent_dir, "JupyterDirectory")
-os.mkdir(jupyterDirectory)
 
-#Creating folder to hold Jupyter Books and Jupyter Notebooks folders
-jupyter = os.path.join(jupyterDirectory, "Jupyter")
-os.mkdir(jupyter)
+if (os.path.exists(jupyterDirectory)) is False:
 
-#Creating folder to hold Jupyter Books 
-jupyterBooks = os.path.join(jupyter, "JupyterBooks")
-os.mkdir(jupyterBooks)
+    print("Performing first time setup\n")
+    print("A file system for storing your Jupyter Books and Notebooks, as well as the Eswatini Repository")
+    print("will be created in your documents folder\n")
+    print("Creating File Folder system...\n")
 
-#Creating folder to hold Jupyter Notebooks
-jupyterNotebooks = os.path.join(jupyter, "JupyterNotebooks")
-os.mkdir(jupyterNotebooks)
 
-#Creating folder to hold zipped Jupyter Books
-zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedJupyterBooks")
-os.mkdir(zippedJupyterBooks)
+    ###### Creating File Folder System ########################################################################
 
-#Creating folder to hold Eswatini Repository
-eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
-os.mkdir(eswatiniRepository)
+    #creating Jupyter Directory
+    jupyterDirectory = os.path.join(parent_dir, "JupyterDirectory")
+    os.mkdir(jupyterDirectory)
 
-###########################################################################################################
+    #Creating folder to hold Jupyter Books and Jupyter Notebooks folders
+    jupyter = os.path.join(jupyterDirectory, "Jupyter")
+    os.mkdir(jupyter)
 
-###### Creating Config File ###############################################################################
+    #Creating folder to hold Jupyter Books 
+    jupyterBooks = os.path.join(jupyter, "JupyterBooks")
+    os.mkdir(jupyterBooks)
 
-os.chdir(jupyterDirectory)
+    #Creating folder to hold Jupyter Notebooks
+    jupyterNotebooks = os.path.join(jupyter, "JupyterNotebooks")
+    os.mkdir(jupyterNotebooks)
 
-configObject = ConfigParser()
+    #Creating folder to hold zipped Jupyter Books
+    zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedJupyterBooks")
+    os.mkdir(zippedJupyterBooks)
 
-configObject["USERINFO"] = {
-    "username": "",
-    "PAT": ""
-}
+    #Creating folder to hold Eswatini Repository
+    eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
+    os.mkdir(eswatiniRepository)
 
-configObject["FIRSTTIMESETUP"] = {
-    "firstTimeSetup": "yes"
-}
+    ###### Creating Config File ###############################################################################
 
-with open('config.ini', 'w') as conf:
-    configObject.write(conf)
+    print("Creating configuration file...\n")
 
-###########################################################################################################
+    os.chdir(jupyterDirectory)
+
+    configObject = ConfigParser()
+
+    configObject["USERINFO"] = {
+        "username": "",
+        "PAT": ""
+    }
+
+    configObject["FIRSTTIMESETUP"] = {
+        "firstTimeSetup": "yes"
+    }
+
+    with open('config.ini', 'w') as conf:
+        configObject.write(conf)
+
+    os.chdir(owd)
+
+    ###### Installing GitPython ###############################################################################
+
+    print("Installing GitPython...\n")
+
+    pip.main(["install", "--user", "gitpython"])
+
+    import git
+    from git import Repo
+
+    ###### Cloning Eswatini Repository ########################################################################
+
+    git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)
+
+    ###########################################################################################################
+
+    
+
+else:
+
+    print("First time set up already done\n\n")
