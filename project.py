@@ -76,12 +76,28 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     pip.main(["install", "--user", "gitpython"])
 
+    print()
+
     import git
     from git import Repo
 
     ###### Cloning Eswatini Repository ########################################################################
 
+    print("Cloning Eswatini repository...\n")
+
     git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)
+
+    ###### Installing Jupyter Labs and Books###################################################################
+
+    print("Installing Jupyter Labs...\n")
+    pip.main(["install", "--user", "jupyterlab"]) #os.system('cmd /k "py -m jupyterlab"') opens jupyter lab
+    print()
+
+    print("Installing Jupyter Books...\n")
+    pip.main(["install", "--user", "jupyter-book"])
+    print()
+
+    os.system('cmd /k "jb --help"')
 
     ###########################################################################################################
 
