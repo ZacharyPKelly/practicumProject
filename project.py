@@ -1,13 +1,15 @@
 #IMPORTS
 from ast import main
+from asyncio import subprocess
 import os
 import io
 import sys
 import pip
-
+import subprocess
 from configparser import ConfigParser
 
-###### Creating File Folder System ########################################################################
+###########################################################################################################
+#Creating File Folder System
 ###########################################################################################################
 
 parent_dir = os.path.expanduser('~')
@@ -38,8 +40,9 @@ if (os.path.exists(jupyterDirectory)) is False:
     print("will be created in your documents folder\n")
     print("Creating File Folder system...\n")
 
-
-    ###### Creating File Folder System ########################################################################
+    ###########################################################################################################
+    #Creating File Folder System
+    ###########################################################################################################
 
     #creating Jupyter Directory
     os.mkdir(jupyterDirectory)
@@ -59,7 +62,9 @@ if (os.path.exists(jupyterDirectory)) is False:
     #Creating folder to hold Eswatini Repository
     os.mkdir(eswatiniRepository)
 
-    ###### Creating Config File ###############################################################################
+    ###########################################################################################################
+    #Creating Config File
+    ###########################################################################################################
 
     print("Creating configuration file...\n")
 
@@ -81,7 +86,9 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     os.chdir(owd)
 
-    ###### Installing GitPython ###############################################################################
+    ###########################################################################################################
+    #Installing GitPython
+    ###########################################################################################################
 
     print("Installing GitPython...\n")
 
@@ -92,13 +99,17 @@ if (os.path.exists(jupyterDirectory)) is False:
     import git
     from git import Repo
 
-    ###### Cloning Eswatini Repository ########################################################################
+    ###########################################################################################################
+    #Cloning Eswatini Repository
+    ###########################################################################################################
 
     print("Cloning Eswatini repository...\n")
 
     git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)
 
-    ###### Installing Jupyter Labs and Books###################################################################
+    ###########################################################################################################
+    #Installing Jupyter Labs and BooksInstalling Jupyter Labs and Books
+    ###########################################################################################################
 
     print("Installing Jupyter Labs...\n")
     pip.main(["install", "--user", "jupyterlab"]) #os.system('cmd /k "py -m jupyterlab"') opens jupyter lab
@@ -108,10 +119,8 @@ if (os.path.exists(jupyterDirectory)) is False:
     pip.main(["install", "--user", "jupyter-book"]) #os.system('cmd /k "jb --help"') jupyter books
     print()
 
-    ###### Installing GitHubs CLI commands ####################################################################
-
-    
-
+    ###########################################################################################################
+    #Installing GitHubs CLI commands
     ###########################################################################################################
 
     
@@ -120,13 +129,13 @@ else:
 
     print("First time set up already done\n\n")
 
-mainLoopConditional = 1
+mainLoopConditional = True #True for staying in the loop, False for exiting the loop
 
-while mainLoopConditional == 1:
+while mainLoopConditional == True:
 
-    mainMenuAnswer = False
+    mainMenuAnswer = True #True for staying in the loop, False for exiting the loop
 
-    while mainMenuAnswer == False:
+    while mainMenuAnswer == True:
 
         print("-------------------------------------------------------------------------------")
         print("""
@@ -136,61 +145,121 @@ while mainLoopConditional == 1:
         4)Options Menu
         5)Exit
         """)
+
         mainMenuOption = ''
+
         try:
             mainMenuOption = int(input('Enter your choice: '))
             print("-------------------------------------------------------------------------------")
         except:
             print('Wrong input. Please enter a number.')
+
         if mainMenuOption == 1:
-            mainMenuAnswer = True
+            mainMenuAnswer = False
             break
+
         elif mainMenuOption == 2:
-            mainMenuAnswer = True
+            mainMenuAnswer = False
             break
+
         elif mainMenuOption == 3:
-            mainMenuAnswer = True
+            mainMenuAnswer = False
             break
+
         elif mainMenuOption == 4:
-            mainMenuAnswer = True
+            mainMenuAnswer = False
             break
+
         elif mainMenuOption == 5:
-            mainMenuAnswer = True
+            mainMenuAnswer = False
             break
+
         else:
             print("Invalid choice. Please enter a number between 1 and 5")
     
     #print()
     #print("You chose: " + str(mainMenuOption))
 
+    ###########################################################################################################
+    #1)Open Jupyter Lab where you can create or edit Jupyter Notebooks
+    ###########################################################################################################
+
     if mainMenuOption == 1:
 
-        #print("You chose 1")
-        
-        #print(owd)
-        
+        print("Opening Jupyter Labs")
+        print("This will open in a new terminal")
 
         path = jupyter.replace("\\", "/")
-        print('cmd /k "py -m jupyterlab --notebook-dir=' + path + '"')
+        command = 'cmd /k "py -m jupyterlab --notebook-dir=' + path + '"'
+
         os.chdir(owd)
-        #os.system('cmd /k "py -m jupyterlab"')
-        os.system('cmd /k "py -m jupyterlab --notebook-dir=' + path + '"')
+        subprocess.call(command, creationflags = subprocess.CREATE_NEW_CONSOLE)
+
+        #Exit choice one menu
+
+        choiceOneExitMenuAnswer = True
+
+        while choiceOneExitMenuAnswer == True:
+
+            print("""
+            1)Return to Main Menu
+            2)Exit
+            """)
+
+            choiceOneExitMenuOption = ''
+
+            try:
+                choiceOneExitMenuOption = int(input('Enter your choice: '))
+            except:
+                print('Wrong input. Please enter a number.')
+
+            if choiceOneExitMenuOption == 1:
+                choiceOneExitMenuAnswer = False
+                break
+
+            elif choiceOneExitMenuOption == 2:
+                choiceOneExitMenuAnswer = False
+                mainLoopConditional == False
+                break
+
+            else:
+                print("Invalid choice. Please enter a number between 1 and 2")
+
+    ###########################################################################################################
+    #2)Create a new Jupyter Book
+    ###########################################################################################################
 
     elif mainMenuOption == 2:
 
         print("You choose 2")
 
+    ###########################################################################################################
+    #3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
+    ###########################################################################################################
+
     elif mainMenuOption == 3:
 
         print("You chose 3")
+
+    ###########################################################################################################
+    #4)Options Menu
+    ###########################################################################################################
 
     elif mainMenuOption == 4:
 
         print("You chose 4")
 
+    ###########################################################################################################
+    #5)Exit
+    ###########################################################################################################
+
     elif mainMenuOption == 5:
 
         print("You chose 5")
+
+    ###########################################################################################################
+    #How did you get here?
+    ###########################################################################################################
 
     else:
 
