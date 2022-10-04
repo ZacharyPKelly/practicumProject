@@ -1,4 +1,5 @@
 #IMPORTS
+from ast import main
 import os
 import io
 import sys
@@ -12,7 +13,23 @@ from configparser import ConfigParser
 parent_dir = os.path.expanduser('~')
 parent_dir = parent_dir + "\OneDrive\Documents"
 owd = os.getcwd() #original working directory
+
 jupyterDirectory = os.path.join(parent_dir, "JupyterDirectory")
+jupyter = os.path.join(jupyterDirectory, "Jupyter")
+jupyterBooks = os.path.join(jupyter, "JupyterBooks")
+jupyterNotebooks = os.path.join(jupyter, "JupyterNotebooks")
+zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedJupyterBooks")
+eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
+
+print("---------------------------------")
+print(owd)
+print(jupyterDirectory)
+print(jupyter)
+print(jupyterBooks)
+print(jupyterNotebooks)
+print(zippedJupyterBooks)
+print(eswatiniRepository)
+print("---------------------------------")
 
 if (os.path.exists(jupyterDirectory)) is False:
 
@@ -25,27 +42,21 @@ if (os.path.exists(jupyterDirectory)) is False:
     ###### Creating File Folder System ########################################################################
 
     #creating Jupyter Directory
-    jupyterDirectory = os.path.join(parent_dir, "JupyterDirectory")
     os.mkdir(jupyterDirectory)
 
     #Creating folder to hold Jupyter Books and Jupyter Notebooks folders
-    jupyter = os.path.join(jupyterDirectory, "Jupyter")
     os.mkdir(jupyter)
 
     #Creating folder to hold Jupyter Books 
-    jupyterBooks = os.path.join(jupyter, "JupyterBooks")
     os.mkdir(jupyterBooks)
 
     #Creating folder to hold Jupyter Notebooks
-    jupyterNotebooks = os.path.join(jupyter, "JupyterNotebooks")
     os.mkdir(jupyterNotebooks)
 
     #Creating folder to hold zipped Jupyter Books
-    zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedJupyterBooks")
     os.mkdir(zippedJupyterBooks)
 
     #Creating folder to hold Eswatini Repository
-    eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
     os.mkdir(eswatiniRepository)
 
     ###### Creating Config File ###############################################################################
@@ -94,10 +105,12 @@ if (os.path.exists(jupyterDirectory)) is False:
     print()
 
     print("Installing Jupyter Books...\n")
-    pip.main(["install", "--user", "jupyter-book"])
+    pip.main(["install", "--user", "jupyter-book"]) #os.system('cmd /k "jb --help"') jupyter books
     print()
 
-    os.system('cmd /k "jb --help"')
+    ###### Installing GitHubs CLI commands ####################################################################
+
+    
 
     ###########################################################################################################
 
@@ -106,3 +119,79 @@ if (os.path.exists(jupyterDirectory)) is False:
 else:
 
     print("First time set up already done\n\n")
+
+mainLoopConditional = 1
+
+while mainLoopConditional == 1:
+
+    mainMenuAnswer = False
+
+    while mainMenuAnswer == False:
+
+        print("-------------------------------------------------------------------------------")
+        print("""
+        1)Open Jupyter Lab where you can create or edit Jupyter Notebooks
+        2)Create a new Jupyter Book
+        3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
+        4)Options Menu
+        5)Exit
+        """)
+        mainMenuOption = ''
+        try:
+            mainMenuOption = int(input('Enter your choice: '))
+            print("-------------------------------------------------------------------------------")
+        except:
+            print('Wrong input. Please enter a number.')
+        if mainMenuOption == 1:
+            mainMenuAnswer = True
+            break
+        elif mainMenuOption == 2:
+            mainMenuAnswer = True
+            break
+        elif mainMenuOption == 3:
+            mainMenuAnswer = True
+            break
+        elif mainMenuOption == 4:
+            mainMenuAnswer = True
+            break
+        elif mainMenuOption == 5:
+            mainMenuAnswer = True
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 5")
+    
+    #print()
+    #print("You chose: " + str(mainMenuOption))
+
+    if mainMenuOption == 1:
+
+        #print("You chose 1")
+        
+        #print(owd)
+        
+
+        path = jupyter.replace("\\", "/")
+        print('cmd /k "py -m jupyterlab --notebook-dir=' + path + '"')
+        os.chdir(owd)
+        #os.system('cmd /k "py -m jupyterlab"')
+        os.system('cmd /k "py -m jupyterlab --notebook-dir=' + path + '"')
+
+    elif mainMenuOption == 2:
+
+        print("You choose 2")
+
+    elif mainMenuOption == 3:
+
+        print("You chose 3")
+
+    elif mainMenuOption == 4:
+
+        print("You chose 4")
+
+    elif mainMenuOption == 5:
+
+        print("You chose 5")
+
+    else:
+
+        print("How did you get here?")
