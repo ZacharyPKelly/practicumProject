@@ -1,10 +1,9 @@
 #IMPORTS
 from ast import main
 from asyncio import subprocess
+from genericpath import isfile
 import os
-import io
 import sys
-import pip
 import subprocess
 import pkg_resources
 from configparser import ConfigParser
@@ -234,7 +233,7 @@ while mainLoopConditional == True:
 
             if choiceOneExitMenuOption == 1:
                 print()
-                #choiceOneExitMenuAnswer = False
+                choiceOneExitMenuAnswer = False
 
             elif choiceOneExitMenuOption == 2:
                 print()
@@ -251,8 +250,32 @@ while mainLoopConditional == True:
     ###########################################################################################################
 
     elif mainMenuOption == 2:
+        
+        
+        os.chdir(jupyterBooks)
+        doesBookExist = True
 
-        print("You choose 2")
+        while doesBookExist is True:
+
+            bookName = input("What is the name of your new Jupyter Book(Note that spaces will be removed): ")
+            bookName = bookName.replace(" ","")
+            bookName = bookName.replace("'", "")
+
+            if os.path.exists(os.path.join(jupyterBooks, bookName)) is False:
+
+                doesBookExist = False
+
+                jbCommand = "jupyter-book create " + bookName
+
+                os.chdir(jupyterBooks)
+                subprocess.call(jbCommand)
+            
+            else:
+
+                print("That book already exists, please either delete it or choose a different name\n")
+
+
+        
 
     ###########################################################################################################
     #3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
