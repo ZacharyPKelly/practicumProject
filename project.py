@@ -6,7 +6,26 @@ import io
 import sys
 import pip
 import subprocess
+import pkg_resources
 from configparser import ConfigParser
+
+###########################################################################################################
+#Installing Dependencies
+###########################################################################################################
+
+required  = {'windows-curses', 'gitpython', 'jupyterlab', 'jupyter-book'} 
+installed = {pkg.key for pkg in pkg_resources.working_set}
+missing   = required - installed
+
+if missing:
+    # implement pip as a subprocess:
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing])
+
+import git
+from git import repo
+
+import curses
+from curses import panel
 
 ###########################################################################################################
 #Creating File Folder System
@@ -23,15 +42,15 @@ jupyterNotebooks = os.path.join(jupyter, "JupyterNotebooks")
 zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedJupyterBooks")
 eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
 
-print("---------------------------------")
-print(owd)
-print(jupyterDirectory)
-print(jupyter)
-print(jupyterBooks)
-print(jupyterNotebooks)
-print(zippedJupyterBooks)
-print(eswatiniRepository)
-print("---------------------------------")
+# print("---------------------------------")
+# print(owd)
+# print(jupyterDirectory)
+# print(jupyter)
+# print(jupyterBooks)
+# print(jupyterNotebooks)
+# print(zippedJupyterBooks)
+# print(eswatiniRepository)
+# print("---------------------------------")
 
 if (os.path.exists(jupyterDirectory)) is False:
 
@@ -90,14 +109,11 @@ if (os.path.exists(jupyterDirectory)) is False:
     #Installing GitPython
     ###########################################################################################################
 
-    print("Installing GitPython...\n")
+    #print("Installing GitPython...\n")
 
-    pip.main(["install", "--user", "gitpython"])
+    #pip.main(["install", "--user", "gitpython"])
 
-    print()
-
-    import git
-    from git import Repo
+    #print()
 
     ###########################################################################################################
     #Cloning Eswatini Repository
@@ -111,13 +127,13 @@ if (os.path.exists(jupyterDirectory)) is False:
     #Installing Jupyter Labs and BooksInstalling Jupyter Labs and Books
     ###########################################################################################################
 
-    print("Installing Jupyter Labs...\n")
-    pip.main(["install", "--user", "jupyterlab"]) #os.system('cmd /k "py -m jupyterlab"') opens jupyter lab
-    print()
+    #print("Installing Jupyter Labs...\n")
+    #pip.main(["install", "--user", "jupyterlab"]) #os.system('cmd /k "py -m jupyterlab"') opens jupyter lab
+    #print()
 
-    print("Installing Jupyter Books...\n")
-    pip.main(["install", "--user", "jupyter-book"]) #os.system('cmd /k "jb --help"') jupyter books
-    print()
+    #print("Installing Jupyter Books...\n")
+    #pip.main(["install", "--user", "jupyter-book"]) #os.system('cmd /k "jb --help"') jupyter books
+    #print()
 
     ###########################################################################################################
     #Installing GitHubs CLI commands
@@ -137,42 +153,39 @@ while mainLoopConditional == True:
 
     while mainMenuAnswer == True:
 
-        print("-------------------------------------------------------------------------------")
+        print("-------------------------------------------------------------------------------\n")
+        print("Main Menu")
         print("""
-        1)Open Jupyter Lab where you can create or edit Jupyter Notebooks
-        2)Create a new Jupyter Book
-        3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
-        4)Options Menu
-        5)Exit
+1)Open Jupyter Lab where you can create or edit Jupyter Notebooks
+2)Create a new Jupyter Book
+3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
+4)Options Menu
+5)Exit
         """)
 
         mainMenuOption = ''
 
         try:
             mainMenuOption = int(input('Enter your choice: '))
-            print("-------------------------------------------------------------------------------")
+            print()
+            print("-------------------------------------------------------------------------------\n")
         except:
             print('Wrong input. Please enter a number.')
 
         if mainMenuOption == 1:
             mainMenuAnswer = False
-            break
 
         elif mainMenuOption == 2:
             mainMenuAnswer = False
-            break
 
         elif mainMenuOption == 3:
             mainMenuAnswer = False
-            break
 
         elif mainMenuOption == 4:
             mainMenuAnswer = False
-            break
 
         elif mainMenuOption == 5:
             mainMenuAnswer = False
-            break
 
         else:
             print("Invalid choice. Please enter a number between 1 and 5")
@@ -188,6 +201,9 @@ while mainLoopConditional == True:
 
         print("Opening Jupyter Labs")
         print("This will open in a new terminal")
+        print("This terminal will pause until you have closed the Jupyter Notebook Terminal")
+        print()
+        print("-------------------------------------------------------------------------------")
 
         path = jupyter.replace("\\", "/")
         command = 'cmd /k "py -m jupyterlab --notebook-dir=' + path + '"'
@@ -199,11 +215,14 @@ while mainLoopConditional == True:
 
         choiceOneExitMenuAnswer = True
 
+        print()
+        print('Exit Menu')
+
         while choiceOneExitMenuAnswer == True:
 
             print("""
-            1)Return to Main Menu
-            2)Exit
+1)Return to Main Menu
+2)Exit
             """)
 
             choiceOneExitMenuOption = ''
@@ -214,17 +233,19 @@ while mainLoopConditional == True:
                 print('Wrong input. Please enter a number.')
 
             if choiceOneExitMenuOption == 1:
-                choiceOneExitMenuAnswer = False
-                break
+                print()
+                #choiceOneExitMenuAnswer = False
 
             elif choiceOneExitMenuOption == 2:
+                print()
                 choiceOneExitMenuAnswer = False
                 mainLoopConditional == False
-                break
+                exit()
 
             else:
                 print("Invalid choice. Please enter a number between 1 and 2")
 
+        
     ###########################################################################################################
     #2)Create a new Jupyter Book
     ###########################################################################################################
