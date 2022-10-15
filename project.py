@@ -274,8 +274,7 @@ while mainLoopConditional == True:
 
                 print("That book already exists, please either delete it or choose a different name\n")
 
-
-        
+        os.chdir(owd)
 
     ###########################################################################################################
     #3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
@@ -299,7 +298,8 @@ while mainLoopConditional == True:
 
     elif mainMenuOption == 5:
 
-        print("You chose 5")
+        print("Exiting...")
+        exit()
 
     ###########################################################################################################
     #How did you get here?
