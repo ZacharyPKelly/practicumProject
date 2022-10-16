@@ -22,6 +22,11 @@ if missing:
     # implement pip as a subprocess:
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing])
 
+#Githubs CLI must be installed with Scoop
+
+subprocess.call('C:\Windows\System32\WindowsPowerShell\\v1.0\powershell.exe iwr -useb get.scoop.sh | iex', shell=True)
+#subprocess.Popen("C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe", "iwr -useb get.scoop.sh | iex", stdout=sys.stdout)
+
 import git
 from git import repo
 
@@ -41,6 +46,7 @@ jupyter = os.path.join(jupyterDirectory, "Jupyter")
 jupyterBooks = os.path.join(jupyter, "JupyterBooks")
 jupyterNotebooks = os.path.join(jupyter, "JupyterNotebooks")
 zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedJupyterBooks")
+jupyterImages = os.path.join(jupyter, "jupyterImages")
 eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
 eswatiniRepositoryNotebooks = os.path.join(eswatiniRepository, "static", "books", "juypterNotebooks")
 eswatiniRepositoryBooks = os.path.join(eswatiniRepository, "static", "books", "juypterBooks")
@@ -85,6 +91,9 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     #Creating folder to hold zipped Jupyter Books
     os.mkdir(zippedJupyterBooks)
+
+    #Creating folder to hold images for Notebook/Book Covers
+    os.mkdir(jupyterImages)
 
     #Creating folder to hold Eswatini Repository
     os.mkdir(eswatiniRepository)
@@ -168,7 +177,8 @@ while mainLoopConditional == True:
 2)Create a new Jupyter Book
 3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
 4)Options Menu
-5)Exit
+5)Help
+6)Exit
         """)
 
         mainMenuOption = ''
@@ -193,6 +203,9 @@ while mainLoopConditional == True:
             mainMenuAnswer = False
 
         elif mainMenuOption == 5:
+            mainMenuAnswer = False
+            
+        elif mainMenuOption == 6:
             mainMenuAnswer = False
 
         else:
@@ -321,11 +334,23 @@ while mainLoopConditional == True:
 
             os.chdir(jupyterNotebooks)
 
-            notebookFiles = []
+            existingNotebooks = []
+
+            notebookAuthor = ''
+            notebookClass = ''
+            notebookDescription = ''
+            notebookFile = ''
+            notebookImage = ''
+            notebookName = ''
+            notebookSubject = ''
+            notebookType = 'notebook' #Must always be 'notebook' for notebooks
+            notebookZip = '' #Should always be '' for notebooks
+            
+
 
             for x in os.listdir(): #Getting notebooks that exist in the users Notebook repository
                 if x.endswith(".ipynb"):
-                    notebookFiles.append(x)
+                    existingNotebooks.append(x)
 
             print('Which Jupyter Noteboook would you like to upload?\n')
 
@@ -333,25 +358,25 @@ while mainLoopConditional == True:
 
             while whichNotebookAnswer == False: #Picking which notebook to upload
 
-                for i in range(len(notebookFiles)):
+                for i in range(len(existingNotebooks)):
 
-                    print(i+1, ')', notebookFiles[i], sep=None)
+                    print(i+1, ')', existingNotebooks[i], sep=None)
                 
                 print()
 
                 try:
                     whichNotebookOption = int(input('Enter your choice: '))
                 except:
-                    print('Wrong input. Please enter a number between 1 and ', len(notebookFiles), '.', sep=None)
+                    print('Wrong input. Please enter a number between 1 and ', len(existingNotebooks), '.', sep=None)
                 
-                if whichNotebookOption > 0 and whichNotebookOption <= len(notebookFiles):
+                if whichNotebookOption > 0 and whichNotebookOption <= len(existingNotebooks):
 
                     whichNotebookAnswer = True
-                    notebookToBeUploaded = notebookFiles[whichNotebookOption-1]
+                    notebookToBeUploaded = existingNotebooks[whichNotebookOption-1]
                 
                 else:
 
-                    print("Invalid choice. Please enter a number between 1 and ", len(notebookFiles), sep=None)
+                    print("Invalid choice. Please enter a number between 1 and ", len(existingNotebooks), sep=None)
                     print()
                     print('Which Jupyter Noteboook would you like to upload?\n')
             
@@ -369,26 +394,87 @@ while mainLoopConditional == True:
                 
                 os.chdir(jupyterNotebooks)
                 shutil.copy(notebookToBeUploaded, eswatiniRepositoryNotebooks)
+                notebookFile = "books/juypterNotebooks/" + notebookToBeUploaded
                 exitNotebook = 1
             
-            if exitNotebook == 1:
+            if exitNotebook == 1: #Book did not already exist and the user wishes to upload it
 
                 os.chdir(eswatiniRepository)
 
                 with open('textbooks.json', 'r') as openFile:
 
-                    jsonObject = json.load(openFile)
+                    jsonFile = json.load(openFile)
+                    openFile.close()
                 
                 subjects = []
-
-                print("Json file: ", jsonObject, sep=None)
-                print()
                 
-                for i in jsonObject:
+                for i in jsonFile: #Getting subjects from json file
 
                     subjects.append(i)
 
-                print(subjects)
+                print()
+                print('Which subject does this Jupyter Noteboook belong in?\n')
+
+                whichNotebookSubjectAnswer = False
+
+                while whichNotebookSubjectAnswer == False: #Picking which notebook to upload
+
+                    for i in range(len(subjects)):
+
+                        print(i+1, ')', subjects[i], sep=None)
+                    
+                    print()
+
+                    try:
+                        whichNotebookSubjectOption = int(input('Enter your choice: '))
+                    except:
+                        print('Wrong input. Please enter a number between 1 and ', len(subjects), '.', sep=None)
+                    
+                    if whichNotebookSubjectOption > 0 and whichNotebookSubjectOption <= len(subjects):
+
+                        whichNotebookSubjectAnswer = True
+                        notebookSubject = subjects[whichNotebookSubjectOption-1]
+                    
+                    else:
+
+                        print("Invalid choice. Please enter a number between 1 and ", len(subjects), sep=None)
+                        print()
+                        print('Which subject does this Jupyter Noteboook belong in?\n')
+
+                print()
+                notebookName = input("What is this Notebooks title: ")
+                print()
+                notebookClass = input("What class is this Notebook for: ")
+                print()
+                notebookAuthor = input("Who is the author of this Notebook: ")
+                print()
+                notebookDescription = input("Please enter a short description of your Notebook: ")
+                
+                # Testing to make sure input is saved correctly
+                # print()
+                # print('Name:', notebookName, sep=None)
+                # print('Class:', notebookClass, sep=None)
+                # print('Author:', notebookAuthor, sep=None)
+                # print('Description:', notebookDescription, sep=None)
+                # print('File:', notebookFile, sep=None)
+                # print('File:', 'books/juypterNotebooks/teset.ipynb', sep=None)
+
+                jsonData = {
+                    "file": notebookFile,
+                    "zip": "",
+                    "type": "notebook",
+                    "name": notebookName,
+                    "descript": notebookDescription,
+                    "author": notebookAuthor,
+                    "class": notebookClass,
+                    "image": ""
+                }
+
+                jsonFile[notebookSubject].append(jsonData)
+                jsonOutFile = open("textbooks.json", "w")
+                json.dump(jsonFile, jsonOutFile, indent=3)
+                jsonOutFile.close()
+
 
         elif bookOrNotebookMenuOption == 2: #Uploading a Jupyter Book
 
@@ -396,19 +482,33 @@ while mainLoopConditional == True:
         
         else:
             print('How did you get here?')
+
     ###########################################################################################################
     #4)Options Menu
     ###########################################################################################################
 
     elif mainMenuOption == 4:
 
-        print("You chose 4")
+        print("You chose 4\n")
 
+    ###########################################################################################################
+    #5)Help
+    ###########################################################################################################
+
+    elif mainMenuOption == 5:
+
+        print("This program was created to help upload Jupyter Notebooks and Books to the Eswatini Textbook website\n")
+        print("There are several key things to note when using this program:\n")
+        print("    1) Any Jupyter Books or Notebooks should be kept in the respective folders created by the program, otherwise they will not be available to be selected to be uploaded.")
+        print("       This is also true for images you would like to use for the Jupyter Notebooks or Books cover.\n")
+        print("    2) These folders can be found by navigating to your 'Documents' folder in the file explorer and entering the 'JupyterDirectory' folder.\n")
+        tempEnter = input("Press ENTER to return to the main menu")
+    
     ###########################################################################################################
     #5)Exit
     ###########################################################################################################
 
-    elif mainMenuOption == 5:
+    elif mainMenuOption == 6:
 
         print("Exiting...")
         exit()
