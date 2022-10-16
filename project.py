@@ -1,12 +1,14 @@
 #IMPORTS
 from ast import main
 from asyncio import subprocess
+from configparser import ConfigParser
 from genericpath import isfile
+import json
 import os
+import pkg_resources
+import shutil
 import sys
 import subprocess
-import pkg_resources
-from configparser import ConfigParser
 
 ###########################################################################################################
 #Installing Dependencies
@@ -40,15 +42,22 @@ jupyterBooks = os.path.join(jupyter, "JupyterBooks")
 jupyterNotebooks = os.path.join(jupyter, "JupyterNotebooks")
 zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedJupyterBooks")
 eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
+eswatiniRepositoryNotebooks = os.path.join(eswatiniRepository, "static", "books", "juypterNotebooks")
+eswatiniRepositoryBooks = os.path.join(eswatiniRepository, "static", "books", "juypterBooks")
+eswatiniRepositoryZippedBooks = os.path.join(eswatiniRepository, "static", "books", "zippedJuypterBooks")
 
+#Print out path names for testing
 # print("---------------------------------")
-# print(owd)
-# print(jupyterDirectory)
-# print(jupyter)
-# print(jupyterBooks)
-# print(jupyterNotebooks)
-# print(zippedJupyterBooks)
-# print(eswatiniRepository)
+# print('owd: ', owd, sep=None)
+# print('jupyterDirectory: ', jupyterDirectory, sep=None)
+# print('jupyter: ', jupyter, sep=None)
+# print('jupyterBooks: ', jupyterBooks, sep=None)
+# print('jupyterNotebooks: ', jupyterNotebooks, sep=None)
+# print('zippedJupyterBooks: ', zippedJupyterBooks, sep=None)
+# print('eswatiniRepository: ', eswatiniRepository, sep=None)
+# print('eswatiniRepositoryNotebooks: ', eswatiniRepositoryNotebooks, sep=None)
+# print('eswatiniRepositoryBooks: ', eswatiniRepositoryBooks, sep=None)
+# print('eswatiniRepositoryZippedBooks: ', eswatiniRepositoryZippedBooks, sep=None)
 # print("---------------------------------")
 
 if (os.path.exists(jupyterDirectory)) is False:
@@ -142,7 +151,7 @@ if (os.path.exists(jupyterDirectory)) is False:
 
 else:
 
-    print("First time set up already done\n\n")
+    print("First time set up already done.\n\n")
 
 mainLoopConditional = True #True for staying in the loop, False for exiting the loop
 
@@ -187,10 +196,7 @@ while mainLoopConditional == True:
             mainMenuAnswer = False
 
         else:
-            print("Invalid choice. Please enter a number between 1 and 5")
-    
-    #print()
-    #print("You chose: " + str(mainMenuOption))
+            print("Invalid choice. Please enter a number between 1 and 5.")
 
     ###########################################################################################################
     #1)Open Jupyter Lab where you can create or edit Jupyter Notebooks
@@ -198,9 +204,9 @@ while mainLoopConditional == True:
 
     if mainMenuOption == 1:
 
-        print("Opening Jupyter Labs")
-        print("This will open in a new terminal")
-        print("This terminal will pause until you have closed the Jupyter Notebook Terminal")
+        print("Opening Jupyter Labs.")
+        print("This will open in a new terminal.")
+        print("This terminal will pause until you have closed the Jupyter Notebook Terminal.")
         print()
         print("-------------------------------------------------------------------------------")
 
@@ -242,7 +248,7 @@ while mainLoopConditional == True:
                 exit()
 
             else:
-                print("Invalid choice. Please enter a number between 1 and 2")
+                print("Invalid choice. Please enter a number between 1 and 2.")
 
         
     ###########################################################################################################
@@ -282,8 +288,114 @@ while mainLoopConditional == True:
 
     elif mainMenuOption == 3:
 
-        print("You chose 3")
+        bookOrNotebookMenuAnswer = False
 
+        while bookOrNotebookMenuAnswer == False:
+
+            print("""
+1)Jupyter Notebook
+2)Jupyter Book
+            """)
+
+            bookOrNotebookMenuOption = ''
+
+            try:
+                bookOrNotebookMenuOption = int(input('Enter your choice: '))
+            except:
+                print('Wrong input. Please enter a number.')
+
+            if bookOrNotebookMenuOption == 1:
+                
+                bookOrNotebookMenuAnswer = True
+
+            elif bookOrNotebookMenuOption == 2:
+                
+                bookOrNotebookMenuAnswer = True
+
+            else:
+
+                print("Invalid choice. Please enter a number between 1 and 2.")
+
+
+        if bookOrNotebookMenuOption == 1: #Uploading a Jupyter Notebook
+
+            os.chdir(jupyterNotebooks)
+
+            notebookFiles = []
+
+            for x in os.listdir(): #Getting notebooks that exist in the users Notebook repository
+                if x.endswith(".ipynb"):
+                    notebookFiles.append(x)
+
+            print('Which Jupyter Noteboook would you like to upload?\n')
+
+            whichNotebookAnswer = False
+
+            while whichNotebookAnswer == False: #Picking which notebook to upload
+
+                for i in range(len(notebookFiles)):
+
+                    print(i+1, ')', notebookFiles[i], sep=None)
+                
+                print()
+
+                try:
+                    whichNotebookOption = int(input('Enter your choice: '))
+                except:
+                    print('Wrong input. Please enter a number between 1 and ', len(notebookFiles), '.', sep=None)
+                
+                if whichNotebookOption > 0 and whichNotebookOption <= len(notebookFiles):
+
+                    whichNotebookAnswer = True
+                    notebookToBeUploaded = notebookFiles[whichNotebookOption-1]
+                
+                else:
+
+                    print("Invalid choice. Please enter a number between 1 and ", len(notebookFiles), sep=None)
+                    print()
+                    print('Which Jupyter Noteboook would you like to upload?\n')
+            
+            os.chdir(eswatiniRepositoryNotebooks)
+
+            if os.path.isfile(notebookToBeUploaded) == True:
+
+                print()
+                print("A Jupyter Notebook by that name already exists.")
+                print("Please contact the website moderator to remove the book, or choose a different name for the book.")
+                exitNotebook = 0
+
+            
+            else:
+                
+                os.chdir(jupyterNotebooks)
+                shutil.copy(notebookToBeUploaded, eswatiniRepositoryNotebooks)
+                exitNotebook = 1
+            
+            if exitNotebook == 1:
+
+                os.chdir(eswatiniRepository)
+
+                with open('textbooks.json', 'r') as openFile:
+
+                    jsonObject = json.load(openFile)
+                
+                subjects = []
+
+                print("Json file: ", jsonObject, sep=None)
+                print()
+                
+                for i in jsonObject:
+
+                    subjects.append(i)
+
+                print(subjects)
+
+        elif bookOrNotebookMenuOption == 2: #Uploading a Jupyter Book
+
+            print('Jupyter Book')
+        
+        else:
+            print('How did you get here?')
     ###########################################################################################################
     #4)Options Menu
     ###########################################################################################################
