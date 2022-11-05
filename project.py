@@ -8,6 +8,7 @@ import os
 from tkinter.messagebox import NO
 import pkg_resources
 import shutil
+from shutil import make_archive
 import sys
 import subprocess
 
@@ -417,8 +418,7 @@ while mainLoopConditional == True:
             notebookFile = ''
             notebookImage = ''
             notebookName = ''
-            notebookSubject = ''
-            notebookType = 'notebook' #Must always be 'notebook' for notebooks
+            notebookSubject = '' 
             notebookZip = '' #Should always be '' for notebooks
             
             #####Picking which notebook to upload#####
@@ -427,7 +427,7 @@ while mainLoopConditional == True:
                 if x.endswith(".ipynb"):
                     existingNotebooks.append(x)
 
-            print('Which Jupyter Noteboook would you like to upload?\n')
+            print('Which Jupyter Notebook would you like to upload?\n')
 
             whichNotebookAnswer = False
 
@@ -461,7 +461,7 @@ while mainLoopConditional == True:
 
                 print()
                 print("A Jupyter Notebook by that name already exists.")
-                print("Please contact the website moderator to remove the book, or choose a different name for the book.")
+                print("Please contact the website moderator to remove the Notebook, or choose a different name for the book.")
                 exitNotebook = 0
             
             else:
@@ -487,7 +487,7 @@ while mainLoopConditional == True:
                     subjects.append(i)
 
                 print()
-                print('Which subject does this Jupyter Noteboook belong in?\n')
+                print('Which subject does this Jupyter Notebook belong in?\n')
 
                 whichNotebookSubjectAnswer = False
 
@@ -513,7 +513,7 @@ while mainLoopConditional == True:
 
                         print("Invalid choice. Please enter a number between 1 and ", len(subjects), sep=None)
                         print()
-                        print('Which subject does this Jupyter Noteboook belong in?\n')
+                        print('Which subject does this Jupyter Notebook belong in?\n')
 
                 print()
                 notebookName = input("What is this Notebooks title: ")
@@ -533,9 +533,6 @@ while mainLoopConditional == True:
                 # print('Description:', notebookDescription, sep=None)
                 # print('File:', notebookFile, sep=None)
                 # print('File:', 'books/juypterNotebooks/teset.ipynb', sep=None)
-
-                #git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)
-                #subprocess.run(["powershell", "gh auth login"])
 
                 jsonData = {
                     "file": notebookFile,
@@ -583,8 +580,14 @@ while mainLoopConditional == True:
                 gitFetch.communicate()
 
                 print()
+                print("-----------------------------------------------------------------------------------------------------")
                 print("The program will now create a pull request to the Eswatini Repository")
-                print("")
+                print("Please select the first option 'University-of-Eswatini/Eswatini-Project'")
+                print("The program will then generate a title for your pull request with your username. Please press enter.")
+                print("If you then wish to add comments you can do so by pressing 'e'. Press enter to skip.")
+                print("Finally select the first option 'Submit' to submit your pull request.")
+                print("-----------------------------------------------------------------------------------------------------")
+                print()
 
                 ghPullRequest = subprocess.Popen(['gh', 'pr', 'create'])
                 ghPullRequest.communicate()
@@ -594,17 +597,225 @@ while mainLoopConditional == True:
 
                 gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branchName])
                 gitDeleteBranch.communicate()
+
+        #####Uploading a Jupyter Book#####
+
+        elif bookOrNotebookMenuOption == 2:
+
+            os.chdir(jupyterBooks)
+
+            existingBooks = []
+
+            bookAuthor = ''
+            bookClass = ''
+            bookDescription = ''
+            bookFile = ''
+            bookImage = ''
+            bookName = ''
+            bookSubject = ''
+            bookType = 'book' #Must always be 'book' for notebooks
+            bookZip = ''
+
+            #####Picking which notebook to upload#####
+
+            for x in os.listdir(): #Getting notebooks that exist in the users Notebook repository
+                if x == "ZippedJupyterBooks":
+                    continue
+                else:
+                    existingBooks.append(x)
+
+            print('Which Jupyter Book would you like to upload?\n')
+
+            whichBookAnswer = False
+
+            while whichBookAnswer == False: 
+
+                for i in range(len(existingBooks)):
+
+                    print(i+1, ')', existingBooks[i], sep=None)
                 
+                print()
 
-
-
-
+                try:
+                    whichBookOption = int(input('Enter your choice: '))
+                except:
+                    print('Wrong input. Please enter a number between 1 and ', len(existingBooks), '.', sep=None)
                 
+                if whichBookOption > 0 and whichBookOption <= len(existingBooks):
+
+                    whichBookAnswer = True
+                    bookToBeUploaded = existingBooks[whichBookOption-1]
+                
+                else:
+
+                    print("Invalid choice. Please enter a number between 1 and ", len(existingBooks), sep=None)
+                    print()
+                    print('Which Jupyter Book would you like to upload?\n')
+            
+            os.chdir(eswatiniRepositoryBooks)
+
+            if os.path.isdir(bookToBeUploaded) == True:
+
+                print()
+                print("A Jupyter Book by that name already exists.")
+                print("Please contact the website moderator to remove the book, or choose a different name for the book.")
+                exitBook = 0
+            
+            else:
+                
+                os.chdir(jupyterBooks)
+
+                print("Building Jupyer Book...\n")
+
+                buildBook = subprocess.Popen(['jupyter-book', 'build', bookToBeUploaded])
+                buildBook.communicate()
+
+                tempBookPath = os.path.join(eswatiniRepositoryBooks, bookToBeUploaded)
+                shutil.copytree(bookToBeUploaded, tempBookPath)
+
+                tempBookPath = os.path.join(zippedJupyterBooks, bookToBeUploaded)
+                shutil.copytree(bookToBeUploaded, tempBookPath)
+
+                os.chdir(zippedJupyterBooks)
+                make_archive(bookToBeUploaded, "zip")
+                shutil.rmtree(tempBookPath)
+
+                zippedBook = bookToBeUploaded + ".zip"
+                tempBookPath = os.path.join(eswatiniRepositoryZippedBooks, zippedBook)
+                shutil.copy(zippedBook, eswatiniRepositoryZippedBooks)
 
 
-        elif bookOrNotebookMenuOption == 2: #Uploading a Jupyter Book
+                bookFile = "books/juypterBooks/" + bookToBeUploaded + "/_build/html/index.html"
+                zippedBookFile = "books/zippedJuypterBooks/" + bookToBeUploaded + ".zip"
+                exitBook = 1
 
-            print('Jupyter Book')
+                if exitBook == 1: #Book did not already exist and the user wishes to upload it
+
+                    os.chdir(eswatiniRepository)
+
+                    with open('textbooks.json', 'r') as openFile:
+
+                        jsonFile = json.load(openFile)
+                        openFile.close()
+                    
+                    subjects = []
+                    
+                    for i in jsonFile: #Getting subjects from json file
+
+                        subjects.append(i)
+
+                    print()
+                    print('Which subject does this Jupyter Book belong in?\n')
+
+                    whichBookSubjectAnswer = False
+
+                    while whichBookSubjectAnswer == False: #Picking which notebook to upload
+
+                        for i in range(len(subjects)):
+
+                            print(i+1, ')', subjects[i], sep=None)
+                        
+                        print()
+
+                        try:
+                            whichBookSubjectOption = int(input('Enter your choice: '))
+                        except:
+                            print('Wrong input. Please enter a number between 1 and ', len(subjects), '.', sep=None)
+                        
+                        if whichBookSubjectOption > 0 and whichBookSubjectOption <= len(subjects):
+
+                            whichBookSubjectAnswer = True
+                            bookSubject = subjects[whichBookSubjectOption-1]
+                        
+                        else:
+
+                            print("Invalid choice. Please enter a number between 1 and ", len(subjects), sep=None)
+                            print()
+                            print('Which subject does this Jupyter Book belong in?\n')
+
+                print()
+                bookName = input("What is this Notebooks title: ")
+                print()
+                bookClass = input("What class is this Notebook for: ")
+                print()
+                bookAuthor = input("Who is the author of this Notebook: ")
+                print()
+                bookDescription = input("Please enter a short description of your Notebook: ")
+                print()
+                
+                #Testing to make sure input is saved correctly
+                # print()
+                # print('Name:', bookName, sep=None)
+                # print('Class:', bookClass, sep=None)
+                # print('Author:', bookAuthor, sep=None)
+                # print('Description:', bookDescription, sep=None)
+                # print('Subject:', bookSubject, sep=None)
+                # print('File:', bookFile, sep=None)
+                # print('Zip:', zippedBookFile, sep=None)
+
+                jsonData = {
+                    "file": bookFile,
+                    "zip": zippedBookFile,
+                    "type": "book",
+                    "name": bookName,
+                    "descript": bookDescription,
+                    "author": bookAuthor,
+                    "class": bookClass,
+                    "image": ""
+                }
+
+                jsonFile[bookSubject].append(jsonData)
+                jsonOutFile = open("textbooks.json", "w")
+                json.dump(jsonFile, jsonOutFile, indent=3)
+                jsonOutFile.close()
+
+                os.chdir(jupyterDirectory)
+
+                configOb = ConfigParser()
+                configOb.read('config.ini')
+                userInfo = configOb['USERINFO']
+                tempUsername = userInfo['username']
+
+                os.chdir(eswatiniRepository)
+
+                branchName = input("Enter a name for your pull requests branch: ")
+                branchName = branchName.replace(" ","")
+                branchName = branchName.replace("'", "")
+                branchName = branchName.replace("-", "")
+
+                gitMakeNewBranch = subprocess.Popen(['git', 'branch', branchName])
+                gitMakeNewBranch.communicate()
+
+                gitCheckOutNewBranch = subprocess.Popen(['git', 'checkout', branchName])
+                gitCheckOutNewBranch.communicate()
+
+                gitAdd = subprocess.Popen(['git', 'add', '.'])
+                gitAdd.communicate()
+
+                gitCommit = subprocess.Popen(['git', 'commit', '-m"Pull request for new Notebook for ' + tempUsername + '"'])
+                gitCommit.communicate()
+
+                gitFetch = subprocess.Popen(['git', 'fetch'])
+                gitFetch.communicate()
+
+                print()
+                print("-----------------------------------------------------------------------------------------------------")
+                print("The program will now create a pull request to the Eswatini Repository")
+                print("Please select the first option 'University-of-Eswatini/Eswatini-Project'")
+                print("The program will then generate a title for your pull request with your username. Please press enter.")
+                print("If you then wish to add comments you can do so by pressing 'e'. Press enter to skip.")
+                print("Finally select the first option 'Submit' to submit your pull request.")
+                print("-----------------------------------------------------------------------------------------------------")
+                print()
+
+                ghPullRequest = subprocess.Popen(['gh', 'pr', 'create'])
+                ghPullRequest.communicate()
+
+                gitCheckOutMain = subprocess.Popen(['git', 'checkout', 'main'])
+                gitCheckOutMain.communicate()
+
+                gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branchName])
+                gitDeleteBranch.communicate()
         
         else:
             print('How did you get here?')
@@ -628,7 +839,7 @@ while mainLoopConditional == True:
         print("    1) Any Jupyter Books or Notebooks should be kept in the respective folders created by the program, otherwise they will not be available to be selected to be uploaded.")
         print("       This is also true for images you would like to use for the Jupyter Notebooks or Books cover.\n")
         print("    2) These folders can be found by navigating to your 'Documents' folder in the file explorer and entering the 'JupyterDirectory' folder.\n")
-        tempEnter = input("Press ENTER to return to the main menu")
+        tempEnterToExitHelp = input("Press ENTER to return to the main menu")
     
     ###########################################################################################################
     #5)Exit
