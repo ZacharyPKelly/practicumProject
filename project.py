@@ -5,6 +5,7 @@ from configparser import ConfigParser
 from genericpath import isfile
 import json
 import os
+from tkinter.messagebox import NO
 import pkg_resources
 import shutil
 import sys
@@ -19,13 +20,13 @@ installed = {pkg.key for pkg in pkg_resources.working_set}
 missing   = required - installed
 
 if missing:
-    # implement pip as a subprocess:
+    #implementing pip as a subprocess:
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing])
 
 #Githubs CLI must be installed with Scoop
-
-subprocess.call('C:\Windows\System32\WindowsPowerShell\\v1.0\powershell.exe iwr -useb get.scoop.sh | iex', shell=True)
-#subprocess.Popen("C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe", "iwr -useb get.scoop.sh | iex", stdout=sys.stdout)
+#Installing Scoop
+subprocess.run(["powershell", "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"])
+subprocess.run(["powershell", "-Command", "iwr -useb get.scoop.sh | iex"])
 
 import git
 from git import repo
@@ -55,6 +56,7 @@ eswatiniRepositoryZippedBooks = os.path.join(eswatiniRepository, "static", "book
 #Print out path names for testing
 # print("---------------------------------")
 # print('owd: ', owd, sep=None)
+# print('parentDirectory: ', parent_dir, sep=None)
 # print('jupyterDirectory: ', jupyterDirectory, sep=None)
 # print('jupyter: ', jupyter, sep=None)
 # print('jupyterBooks: ', jupyterBooks, sep=None)
@@ -99,6 +101,20 @@ if (os.path.exists(jupyterDirectory)) is False:
     os.mkdir(eswatiniRepository)
 
     ###########################################################################################################
+    #Installing GitHubs CLI
+    ###########################################################################################################
+
+    os.chdir(jupyterDirectory)
+    bat = open(r'installGhCli.ps1', 'w+')
+    bat.write("scoop install gh")
+    bat.close()
+    
+    p = subprocess.Popen(["powershell.exe", os.path.join(jupyterDirectory, "installGhCli.ps1")], stdout=sys.stdout)
+    p.communicate()
+    os.remove(os.path.join(jupyterDirectory, "installGhCli.ps1"))
+    os.chdir(owd)
+
+    ###########################################################################################################
     #Creating Config File
     ###########################################################################################################
 
@@ -106,31 +122,31 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     os.chdir(jupyterDirectory)
 
+    print("In order to clone the Eswatini repository, you will need a Github Account along with your username and Personal Access Token (PAT)")
+    print("You can generate a PAT by going to:")
+    print("Github Account Settings (Click on your profile icon in top right corner of github and select settings at the bottom of the menu that pops up)")
+    print("Developer Settings (Found at the bottom of the list of options on the left hand side of the page)")
+    print("Personal Access Tokens (Found at the bottom of the list of options on the left hand side of the page)")
+    print("Generate New Token (Found center-right near the top of the page)")
+    print("Give your PAT a descriptive name, set the expiration date to be 'No Expiration' and check off 'REPO', 'WRITE:PACKAGES', 'USER', and 'READ:ORG' (found under ADMIN:ORG)")
+    print("Select Generate Token at the bottom of your page and copy the token into your clip board\n")
+
+    username = input("Enter your GitHub username: ")
+    email = input("Enter your email associated with your Github account: ")
+    personalAccessToken = input("Enter your Personal Access Token: ")
+    
     configObject = ConfigParser()
 
-    configObject["USERINFO"] = {
-        "username": "",
-        "PAT": ""
-    }
-
-    configObject["FIRSTTIMESETUP"] = {
-        "firstTimeSetup": "yes"
-    }
+    configObject.add_section('USERINFO')
+    configObject.set('USERINFO', 'username', username)
+    configObject.set('USERINFO', 'email', email)
+    configObject.set('USERINFO', 'PAT', personalAccessToken)
+    print()
 
     with open('config.ini', 'w') as conf:
         configObject.write(conf)
 
     os.chdir(owd)
-
-    ###########################################################################################################
-    #Installing GitPython
-    ###########################################################################################################
-
-    #print("Installing GitPython...\n")
-
-    #pip.main(["install", "--user", "gitpython"])
-
-    #print()
 
     ###########################################################################################################
     #Cloning Eswatini Repository
@@ -141,26 +157,83 @@ if (os.path.exists(jupyterDirectory)) is False:
     git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)
 
     ###########################################################################################################
-    #Installing Jupyter Labs and BooksInstalling Jupyter Labs and Books
+    #Logging User into Github
     ###########################################################################################################
-
-    #print("Installing Jupyter Labs...\n")
-    #pip.main(["install", "--user", "jupyterlab"]) #os.system('cmd /k "py -m jupyterlab"') opens jupyter lab
-    #print()
-
-    #print("Installing Jupyter Books...\n")
-    #pip.main(["install", "--user", "jupyter-book"]) #os.system('cmd /k "jb --help"') jupyter books
-    #print()
-
-    ###########################################################################################################
-    #Installing GitHubs CLI commands
-    ###########################################################################################################
-
     
+    print("Logging into GitHub...\n")
+
+    loggedOutMessage = (None, b'You are not logged into any GitHub hosts. Run \x1b[0;1;39mgh auth login\x1b[0m to authenticate.\n')
+
+    checkStatus = subprocess.Popen(["powershell", "gh auth status"], stderr=subprocess.PIPE)
+    checkStatusOutput = checkStatus.communicate()
+
+    if checkStatusOutput == loggedOutMessage:
+
+        os.chdir(jupyterDirectory)
+
+        configOb = ConfigParser()
+        configOb.read('config.ini')
+        userInfo = configOb['USERINFO']
+        tempUsername = userInfo['username']
+        tempEmail = userInfo['email']
+        tempPat = userInfo['PAT']
+
+        print('Here is your username:', tempUsername, sep=None)
+        print('Here is your email:', tempEmail, sep=None)
+        print('Here is your PAT:', tempPat, sep=None)
+        print()
+
+        subprocess.run(["powershell", "gh auth login"])
+
+        os.chdir(owd)
+    
+    else:
+
+        subprocess.run(["powershell", "gh auth status"])
+
+###########################################################################################################
+#First Time Setup Already Done
+###########################################################################################################
 
 else:
 
     print("First time set up already done.\n\n")
+    print("Logging into GitHub...\n")
+
+    ###########################################################################################################
+    #Logging User into Github
+    ###########################################################################################################
+    
+    loggedOutMessage = (None, b'You are not logged into any GitHub hosts. Run \x1b[0;1;39mgh auth login\x1b[0m to authenticate.\n')
+
+    checkStatus = subprocess.Popen(["powershell", "gh auth status"], stderr=subprocess.PIPE)
+    checkStatusOutput = checkStatus.communicate()
+
+    if checkStatusOutput == loggedOutMessage:
+
+        os.chdir(jupyterDirectory)
+
+        configOb = ConfigParser()
+        configOb.read('config.ini')
+        userInfo = configOb['USERINFO']
+        tempUsername = userInfo['username']
+        tempEmail = userInfo['email']
+        tempPat = userInfo['PAT']
+
+        print('Here is your username:', tempUsername, sep=None)
+        print('Here is your email:', tempEmail, sep=None)
+        print('Here is your PAT:', tempPat, sep=None)
+        print()
+
+        subprocess.run(["powershell", "gh auth login"])
+
+        os.chdir(owd)
+    
+    else:
+
+        subprocess.run(["powershell", "gh auth status"])
+
+    
 
 mainLoopConditional = True #True for staying in the loop, False for exiting the loop
 
@@ -330,7 +403,9 @@ while mainLoopConditional == True:
                 print("Invalid choice. Please enter a number between 1 and 2.")
 
 
-        if bookOrNotebookMenuOption == 1: #Uploading a Jupyter Notebook
+        #####Uploading a Jupyter Notebook#####
+
+        if bookOrNotebookMenuOption == 1: 
 
             os.chdir(jupyterNotebooks)
 
@@ -346,7 +421,7 @@ while mainLoopConditional == True:
             notebookType = 'notebook' #Must always be 'notebook' for notebooks
             notebookZip = '' #Should always be '' for notebooks
             
-
+            #####Picking which notebook to upload#####
 
             for x in os.listdir(): #Getting notebooks that exist in the users Notebook repository
                 if x.endswith(".ipynb"):
@@ -356,7 +431,7 @@ while mainLoopConditional == True:
 
             whichNotebookAnswer = False
 
-            while whichNotebookAnswer == False: #Picking which notebook to upload
+            while whichNotebookAnswer == False: 
 
                 for i in range(len(existingNotebooks)):
 
@@ -388,7 +463,6 @@ while mainLoopConditional == True:
                 print("A Jupyter Notebook by that name already exists.")
                 print("Please contact the website moderator to remove the book, or choose a different name for the book.")
                 exitNotebook = 0
-
             
             else:
                 
@@ -449,6 +523,7 @@ while mainLoopConditional == True:
                 notebookAuthor = input("Who is the author of this Notebook: ")
                 print()
                 notebookDescription = input("Please enter a short description of your Notebook: ")
+                print()
                 
                 # Testing to make sure input is saved correctly
                 # print()
@@ -458,6 +533,9 @@ while mainLoopConditional == True:
                 # print('Description:', notebookDescription, sep=None)
                 # print('File:', notebookFile, sep=None)
                 # print('File:', 'books/juypterNotebooks/teset.ipynb', sep=None)
+
+                #git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)
+                #subprocess.run(["powershell", "gh auth login"])
 
                 jsonData = {
                     "file": notebookFile,
@@ -474,6 +552,54 @@ while mainLoopConditional == True:
                 jsonOutFile = open("textbooks.json", "w")
                 json.dump(jsonFile, jsonOutFile, indent=3)
                 jsonOutFile.close()
+
+                os.chdir(jupyterDirectory)
+
+                configOb = ConfigParser()
+                configOb.read('config.ini')
+                userInfo = configOb['USERINFO']
+                tempUsername = userInfo['username']
+
+                os.chdir(eswatiniRepository)
+
+                branchName = input("Enter a name for your pull requests branch: ")
+                branchName = branchName.replace(" ","")
+                branchName = branchName.replace("'", "")
+                branchName = branchName.replace("-", "")
+
+                gitMakeNewBranch = subprocess.Popen(['git', 'branch', branchName])
+                gitMakeNewBranch.communicate()
+
+                gitCheckOutNewBranch = subprocess.Popen(['git', 'checkout', branchName])
+                gitCheckOutNewBranch.communicate()
+
+                gitAdd = subprocess.Popen(['git', 'add', '.'])
+                gitAdd.communicate()
+
+                gitCommit = subprocess.Popen(['git', 'commit', '-m"Pull request for new Notebook for ' + tempUsername + '"'])
+                gitCommit.communicate()
+
+                gitFetch = subprocess.Popen(['git', 'fetch'])
+                gitFetch.communicate()
+
+                print()
+                print("The program will now create a pull request to the Eswatini Repository")
+                print("")
+
+                ghPullRequest = subprocess.Popen(['gh', 'pr', 'create'])
+                ghPullRequest.communicate()
+
+                gitCheckOutMain = subprocess.Popen(['git', 'checkout', 'main'])
+                gitCheckOutMain.communicate()
+
+                gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branchName])
+                gitDeleteBranch.communicate()
+                
+
+
+
+
+                
 
 
         elif bookOrNotebookMenuOption == 2: #Uploading a Jupyter Book
