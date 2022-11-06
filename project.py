@@ -16,7 +16,7 @@ import subprocess
 #Installing Dependencies
 ###########################################################################################################
 
-required  = {'windows-curses', 'gitpython', 'jupyterlab', 'jupyter-book'} 
+required  = {'windows-curses', 'gitpython', 'jupyterlab', 'jupyter-book', 'nbconvert[webpdf]'} 
 installed = {pkg.key for pkg in pkg_resources.working_set}
 missing   = required - installed
 
@@ -47,8 +47,10 @@ jupyterDirectory = os.path.join(parent_dir, "JupyterDirectory")
 jupyter = os.path.join(jupyterDirectory, "Jupyter")
 jupyterBooks = os.path.join(jupyter, "JupyterBooks")
 jupyterNotebooks = os.path.join(jupyter, "JupyterNotebooks")
+notebookPDFS = os.path.join(jupyterNotebooks, "NotebookPDFs")
+bookPDFS = os.path.join(jupyterBooks, "BookPDFs")
 zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedJupyterBooks")
-jupyterImages = os.path.join(jupyter, "jupyterImages")
+jupyterImages = os.path.join(jupyter, "JupyterImages")
 eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
 eswatiniRepositoryNotebooks = os.path.join(eswatiniRepository, "static", "books", "juypterNotebooks")
 eswatiniRepositoryBooks = os.path.join(eswatiniRepository, "static", "books", "juypterBooks")
@@ -94,6 +96,12 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     #Creating folder to hold zipped Jupyter Books
     os.mkdir(zippedJupyterBooks)
+
+    #Creating folder to hold Jupyter Book PDFs
+    os.mkdir(bookPDFS)
+
+    #Creating folder to hold Jupyter Notebook PDFs
+    os.mkdir(notebookPDFS)
 
     #Creating folder to hold images for Notebook/Book Covers
     os.mkdir(jupyterImages)
@@ -457,6 +465,8 @@ while mainLoopConditional == True:
             
             os.chdir(eswatiniRepositoryNotebooks)
 
+            #####Checking if that notebook name already exists#####
+
             if os.path.isfile(notebookToBeUploaded) == True:
 
                 print()
@@ -468,6 +478,15 @@ while mainLoopConditional == True:
                 
                 os.chdir(jupyterNotebooks)
                 shutil.copy(notebookToBeUploaded, eswatiniRepositoryNotebooks)
+                shutil.copy(notebookToBeUploaded, notebookPDFS)
+
+                os.chdir(notebookPDFS)
+                convertNotebookToPDF = subprocess.Popen(['jupyter', 'nbconvert', '--to', 'webpdf', '--allow-chromium-download', notebookToBeUploaded])
+                convertNotebookToPDF.communicate()
+                os.remove(notebookToBeUploaded)
+                os.chdir(owd)
+
+
                 notebookFile = "books/juypterNotebooks/" + notebookToBeUploaded
                 exitNotebook = 1
             
@@ -491,7 +510,9 @@ while mainLoopConditional == True:
 
                 whichNotebookSubjectAnswer = False
 
-                while whichNotebookSubjectAnswer == False: #Picking which notebook to upload
+                #####Picking which subject the notebook belongs to#####
+
+                while whichNotebookSubjectAnswer == False:
 
                     for i in range(len(subjects)):
 
@@ -533,6 +554,8 @@ while mainLoopConditional == True:
                 # print('Description:', notebookDescription, sep=None)
                 # print('File:', notebookFile, sep=None)
                 # print('File:', 'books/juypterNotebooks/teset.ipynb', sep=None)
+
+                #####Writing notebook data to json file#####
 
                 jsonData = {
                     "file": notebookFile,
