@@ -16,7 +16,7 @@ import subprocess
 #Installing Dependencies
 ###########################################################################################################
 
-required  = {'windows-curses', 'gitpython', 'jupyterlab', 'jupyter-book', 'nbconvert[webpdf]'} 
+required  = {'gitpython', 'jupyterlab', 'jupyter-book', 'nbconvert[webpdf]'} 
 installed = {pkg.key for pkg in pkg_resources.working_set}
 missing   = required - installed
 
@@ -32,9 +32,6 @@ subprocess.run(["powershell", "-Command", "iwr -useb get.scoop.sh | iex"])
 import git
 from git import repo
 
-import curses
-from curses import panel
-
 ###########################################################################################################
 #Creating File Folder System
 ###########################################################################################################
@@ -47,8 +44,7 @@ jupyterDirectory = os.path.join(parent_dir, "JupyterDirectory")
 jupyter = os.path.join(jupyterDirectory, "Jupyter")
 jupyterBooks = os.path.join(jupyter, "JupyterBooks")
 jupyterNotebooks = os.path.join(jupyter, "JupyterNotebooks")
-notebookPDFS = os.path.join(jupyterNotebooks, "NotebookPDFs")
-bookPDFS = os.path.join(jupyterBooks, "BookPDFs")
+notebookHTMLS = os.path.join(jupyterNotebooks, "NotebookHTMLs")
 zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedJupyterBooks")
 jupyterImages = os.path.join(jupyter, "JupyterImages")
 eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
@@ -97,11 +93,8 @@ if (os.path.exists(jupyterDirectory)) is False:
     #Creating folder to hold zipped Jupyter Books
     os.mkdir(zippedJupyterBooks)
 
-    #Creating folder to hold Jupyter Book PDFs
-    os.mkdir(bookPDFS)
-
-    #Creating folder to hold Jupyter Notebook PDFs
-    os.mkdir(notebookPDFS)
+    #Creating folder to hold Jupyter Notebook HTML files
+    os.mkdir(notebookHTMLS)
 
     #Creating folder to hold images for Notebook/Book Covers
     os.mkdir(jupyterImages)
@@ -242,7 +235,22 @@ else:
 
         subprocess.run(["powershell", "gh auth status"])
 
-    
+    ###########################################################################################################
+    #Updating Repository
+    ###########################################################################################################
+
+    os.chdir(eswatiniRepository)
+
+    gitPullUpdate = subprocess.Popen(['git', 'pull'])
+    gitPullUpdate.communicate()
+
+    os.chdir(owd)
+
+###########################################################################################################
+#PROGRAM MAIN MENU LOOP
+###########################################################################################################
+
+#Main Menu Loop#
 
 mainLoopConditional = True #True for staying in the loop, False for exiting the loop
 
@@ -309,14 +317,14 @@ while mainLoopConditional == True:
         command = 'cmd /k "py -m jupyterlab --notebook-dir=' + path + '"'
 
         os.chdir(owd)
-        subprocess.call(command, creationflags = subprocess.CREATE_NEW_CONSOLE)
+        subprocess.call(command, creationflags = subprocess.CREATE_NEW_CONSOLE) #Opens jupyter lab in a new terminal
 
-        #Exit choice one menu
-
-        choiceOneExitMenuAnswer = True
+        #Exit choice one menu#
 
         print()
         print('Exit Menu')
+
+        choiceOneExitMenuAnswer = True #True for staying in the loop, False for exiting the loop
 
         while choiceOneExitMenuAnswer == True:
 
@@ -344,8 +352,7 @@ while mainLoopConditional == True:
 
             else:
                 print("Invalid choice. Please enter a number between 1 and 2.")
-
-        
+       
     ###########################################################################################################
     #2)Create a new Jupyter Book
     ###########################################################################################################
@@ -381,11 +388,13 @@ while mainLoopConditional == True:
     #3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
     ###########################################################################################################
 
+    #Choosing either a Jupyter Book or Notebook Loop#
+
     elif mainMenuOption == 3:
 
-        bookOrNotebookMenuAnswer = False
+        bookOrNotebookMenuAnswer = True #True for staying in the loop, False for exiting the loop
 
-        while bookOrNotebookMenuAnswer == False:
+        while bookOrNotebookMenuAnswer == True:
 
             print("""
 1)Jupyter Notebook
@@ -399,13 +408,15 @@ while mainLoopConditional == True:
             except:
                 print('Wrong input. Please enter a number.')
 
+            #Jupyter Notebook
             if bookOrNotebookMenuOption == 1:
                 
-                bookOrNotebookMenuAnswer = True
+                bookOrNotebookMenuAnswer = False
 
+            #Jupyter Book
             elif bookOrNotebookMenuOption == 2:
                 
-                bookOrNotebookMenuAnswer = True
+                bookOrNotebookMenuAnswer = False
 
             else:
 
@@ -418,8 +429,9 @@ while mainLoopConditional == True:
 
             os.chdir(jupyterNotebooks)
 
-            existingNotebooks = []
+            existingNotebooks = [] #Will hold all the notebooks stored in the users directory
 
+            #Variables to be written into the textbooks.json file
             notebookAuthor = ''
             notebookClass = ''
             notebookDescription = ''
@@ -429,7 +441,7 @@ while mainLoopConditional == True:
             notebookSubject = '' 
             notebookZip = '' #Should always be '' for notebooks
             
-            #####Picking which notebook to upload#####
+           #Picking which notebook to upload#
 
             for x in os.listdir(): #Getting notebooks that exist in the users Notebook repository
                 if x.endswith(".ipynb"):
@@ -437,9 +449,9 @@ while mainLoopConditional == True:
 
             print('Which Jupyter Notebook would you like to upload?\n')
 
-            whichNotebookAnswer = False
+            whichNotebookAnswer = True #True for staying in the loop, False for exiting the loop
 
-            while whichNotebookAnswer == False: 
+            while whichNotebookAnswer == True: 
 
                 for i in range(len(existingNotebooks)):
 
@@ -454,7 +466,7 @@ while mainLoopConditional == True:
                 
                 if whichNotebookOption > 0 and whichNotebookOption <= len(existingNotebooks):
 
-                    whichNotebookAnswer = True
+                    whichNotebookAnswer = False
                     notebookToBeUploaded = existingNotebooks[whichNotebookOption-1]
                 
                 else:
@@ -472,21 +484,23 @@ while mainLoopConditional == True:
                 print()
                 print("A Jupyter Notebook by that name already exists.")
                 print("Please contact the website moderator to remove the Notebook, or choose a different name for the book.")
-                exitNotebook = 0
+                exitNotebook = 0 #Causes the program to skip back to the main menu
             
             else:
                 
+                #Copying 'notebook to be uploaded' into the HTML folder and creating an HTML version then removing 'notebook to be uploaded' from the HTML folder
+
                 os.chdir(jupyterNotebooks)
                 shutil.copy(notebookToBeUploaded, eswatiniRepositoryNotebooks)
-                shutil.copy(notebookToBeUploaded, notebookPDFS)
+                shutil.copy(notebookToBeUploaded, notebookHTMLS)
 
-                os.chdir(notebookPDFS)
-                convertNotebookToPDF = subprocess.Popen(['jupyter', 'nbconvert', '--to', 'webpdf', '--allow-chromium-download', notebookToBeUploaded])
+                os.chdir(notebookHTMLS)
+                convertNotebookToPDF = subprocess.Popen(['jupyter', 'nbconvert', '--to', 'HTML', notebookToBeUploaded])
                 convertNotebookToPDF.communicate()
                 os.remove(notebookToBeUploaded)
                 os.chdir(owd)
 
-
+                #Creating the path the website will use
                 notebookFile = "books/juypterNotebooks/" + notebookToBeUploaded
                 exitNotebook = 1
             
@@ -494,6 +508,7 @@ while mainLoopConditional == True:
 
                 os.chdir(eswatiniRepository)
 
+                #Appending the top level keys from textbooks.json into an array (ie: the subjects available to be uploaded to)
                 with open('textbooks.json', 'r') as openFile:
 
                     jsonFile = json.load(openFile)
@@ -508,11 +523,11 @@ while mainLoopConditional == True:
                 print()
                 print('Which subject does this Jupyter Notebook belong in?\n')
 
-                whichNotebookSubjectAnswer = False
+                whichNotebookSubjectAnswer = True #True for staying in the loop, False for exiting the loop
 
                 #####Picking which subject the notebook belongs to#####
 
-                while whichNotebookSubjectAnswer == False:
+                while whichNotebookSubjectAnswer == True:
 
                     for i in range(len(subjects)):
 
@@ -527,7 +542,7 @@ while mainLoopConditional == True:
                     
                     if whichNotebookSubjectOption > 0 and whichNotebookSubjectOption <= len(subjects):
 
-                        whichNotebookSubjectAnswer = True
+                        whichNotebookSubjectAnswer = False
                         notebookSubject = subjects[whichNotebookSubjectOption-1]
                     
                     else:
@@ -536,6 +551,7 @@ while mainLoopConditional == True:
                         print()
                         print('Which subject does this Jupyter Notebook belong in?\n')
 
+                #Getting pertinant information from the user and saving to variables that will be written to textbooks.json
                 print()
                 notebookName = input("What is this Notebooks title: ")
                 print()
@@ -555,7 +571,7 @@ while mainLoopConditional == True:
                 # print('File:', notebookFile, sep=None)
                 # print('File:', 'books/juypterNotebooks/teset.ipynb', sep=None)
 
-                #####Writing notebook data to json file#####
+                #Writing notebook data to json file#
 
                 jsonData = {
                     "file": notebookFile,
@@ -575,6 +591,7 @@ while mainLoopConditional == True:
 
                 os.chdir(jupyterDirectory)
 
+                #Getting users username to add to pull request title#
                 configOb = ConfigParser()
                 configOb.read('config.ini')
                 userInfo = configOb['USERINFO']
@@ -587,20 +604,35 @@ while mainLoopConditional == True:
                 branchName = branchName.replace("'", "")
                 branchName = branchName.replace("-", "")
 
+                #Stashing local changes
+                gitStash = subprocess.Popen(['git', 'stash'])
+                gitStash.communicate()
+
+                #Creating new branch for pull request
                 gitMakeNewBranch = subprocess.Popen(['git', 'branch', branchName])
                 gitMakeNewBranch.communicate()
 
+                #Updating local repository before commiting changes
+                gitUpdate= subprocess.Popen(['git', 'pull'])
+                gitUpdate.communicate()
+
+                #Applying stashed local changes
+                gitStashApply = subprocess.Popen(['git', 'stash', 'apply'])
+                gitStashApply.communicate()
+
+                #Checking out new branch for pull request
                 gitCheckOutNewBranch = subprocess.Popen(['git', 'checkout', branchName])
                 gitCheckOutNewBranch.communicate()
 
+                #Git adding all changes to 
                 gitAdd = subprocess.Popen(['git', 'add', '.'])
                 gitAdd.communicate()
 
-                gitCommit = subprocess.Popen(['git', 'commit', '-m"Pull request for new Notebook for ' + tempUsername + '"'])
+                gitCommit = subprocess.Popen(['git', 'commit', '-m"Pull request for new Jupyter Notebook for ' + tempUsername + '"'])
                 gitCommit.communicate()
 
-                gitFetch = subprocess.Popen(['git', 'fetch'])
-                gitFetch.communicate()
+                #gitFetch = subprocess.Popen(['git', 'fetch'])
+                #gitFetch.communicate()
 
                 print()
                 print("-----------------------------------------------------------------------------------------------------")
@@ -612,14 +644,20 @@ while mainLoopConditional == True:
                 print("-----------------------------------------------------------------------------------------------------")
                 print()
 
+                #Creating pull request for commited changes
                 ghPullRequest = subprocess.Popen(['gh', 'pr', 'create'])
                 ghPullRequest.communicate()
 
+                #Checking out the main branch
                 gitCheckOutMain = subprocess.Popen(['git', 'checkout', 'main'])
                 gitCheckOutMain.communicate()
 
+                #Deleting pull request branch to keep local repository up to date and prventing bloat
                 gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branchName])
                 gitDeleteBranch.communicate()
+
+                print()
+                print()
 
         #####Uploading a Jupyter Book#####
 
@@ -815,7 +853,7 @@ while mainLoopConditional == True:
                 gitAdd = subprocess.Popen(['git', 'add', '.'])
                 gitAdd.communicate()
 
-                gitCommit = subprocess.Popen(['git', 'commit', '-m"Pull request for new Notebook for ' + tempUsername + '"'])
+                gitCommit = subprocess.Popen(['git', 'commit', '-m"Pull request for new Jupyter Book for ' + tempUsername + '"'])
                 gitCommit.communicate()
 
                 gitFetch = subprocess.Popen(['git', 'fetch'])
@@ -839,6 +877,9 @@ while mainLoopConditional == True:
 
                 gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branchName])
                 gitDeleteBranch.communicate()
+
+                print()
+                print()
         
         else:
             print('How did you get here?')
@@ -849,7 +890,155 @@ while mainLoopConditional == True:
 
     elif mainMenuOption == 4:
 
-        print("You chose 4\n")
+        optionsMenuLoop = True
+
+        while optionsMenuLoop == True:
+
+            optionsMenuAnswer = True
+
+            while optionsMenuAnswer == True:
+                print("-------------------------------------------------------------------------------\n")
+                print("Options Menu")
+                print("""
+1)Update your Eswatini Repository (Git Pull)
+2)Update your GitHub credentials (Username / Email / Personal Access Token)
+3)Log out of GitHub
+4)Log into GitHub
+5)Exit to Main Menu
+                """)
+
+                optionsMenuOption = ''
+
+                try:
+                    optionsMenuOption = int(input('Enter your choice: '))
+                except:
+                    print('Invalid choice. Please enter a number between 1 and 5.')
+
+                #Update your Eswatini Repository (Git Pull)
+                if optionsMenuOption == 1:
+
+                    print()
+                    optionsMenuAnswer = False
+
+                #Update your GitHub credentials (Username / Email / Personal Access Token)
+                elif optionsMenuOption == 2:
+
+                    print()
+                    optionsMenuAnswer = False
+
+                #Log out of GitHub
+                elif optionsMenuOption == 3:
+
+                    print()
+                    optionsMenuAnswer = False
+
+                #Log into GitHub
+                elif optionsMenuOption == 4:
+
+                    print()
+                    optionsMenuAnswer = False
+                
+                #Exit to Main Menu
+                elif optionsMenuOption == 5:
+
+                    print()
+                    optionsMenuAnswer = False
+
+                else:
+                    print("Invalid choice. Please enter a number between 1 and 5.")
+
+            #Update your Eswatini Repository (Git Pull)
+            if optionsMenuOption == 1:
+
+                os.chdir(eswatiniRepository)
+
+                gitPullUpdate = subprocess.Popen(['git', 'pull'])
+                gitPullUpdate.communicate()
+
+                os.chdir(owd)
+
+            #Update your GitHub credentials (Username / Email / Personal Access Token)
+            if optionsMenuOption == 2:
+
+                os.chdir(jupyterDirectory)
+
+                configOb = ConfigParser()
+                configOb.read('config.ini')
+                userInfo = configOb['USERINFO']
+                tempUsername = userInfo['username']
+                tempEmail = userInfo['email']
+                tempPat = userInfo['PAT']
+
+                print('Here is your current username:', tempUsername, sep=None)
+                print('Here is your current email:', tempEmail, sep=None)
+                print('Here is your current PAT:', tempPat, sep=None)
+                print()
+                print("You can copy paste any information from here that you do not wish to change.")
+                print()
+
+                tempUsername = input("Enter your new GitHub username: ")
+                tempEmail = input("Enter your new email associated with your Github account: ")
+                tempPat = input("Enter your new Personal Access Token: ")
+
+                configOb.set('USERINFO', 'username', tempUsername)
+                configOb.set('USERINFO', 'email', tempEmail)
+                configOb.set('USERINFO', 'PAT', tempPat)
+                print()
+
+                with open('config.ini', 'w') as conf:
+                    configOb.write(conf)
+
+                print("Github Credentials updated.")
+
+                os.chdir(owd)
+
+            #Log out of GitHub
+            if optionsMenuOption == 3:
+
+                subprocess.run(["powershell", "gh auth logout"])
+
+            #Log into GitHub
+            if optionsMenuOption == 4:
+
+                loggedOutMessage = (None, b'You are not logged into any GitHub hosts. Run \x1b[0;1;39mgh auth login\x1b[0m to authenticate.\n')
+
+                checkStatus = subprocess.Popen(["powershell", "gh auth status"], stderr=subprocess.PIPE)
+                checkStatusOutput = checkStatus.communicate()
+
+                if checkStatusOutput == loggedOutMessage:
+
+                    os.chdir(jupyterDirectory)
+
+                    configOb = ConfigParser()
+                    configOb.read('config.ini')
+                    userInfo = configOb['USERINFO']
+                    tempUsername = userInfo['username']
+                    tempEmail = userInfo['email']
+                    tempPat = userInfo['PAT']
+
+                    print('Here is your username:', tempUsername, sep=None)
+                    print('Here is your email:', tempEmail, sep=None)
+                    print('Here is your PAT:', tempPat, sep=None)
+                    print()
+                    print("Please login using GitHub.com, HTTPS, and by Pasting an Authentication Token (found above)")
+                    print()
+
+                    subprocess.run(["powershell", "gh auth login"])
+
+                    os.chdir(owd)
+                
+                else:
+
+                    subprocess.run(["powershell", "gh auth status"])
+
+                    print()
+                    print("You are already logged in. Please logout first before logging in as a new user.")
+
+            #Exit to Main Menu
+            if optionsMenuOption == 5:
+
+                print("Exiting to Main Menu.")
+                optionsMenuLoop = False
 
     ###########################################################################################################
     #5)Help
