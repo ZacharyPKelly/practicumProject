@@ -114,6 +114,9 @@ if (os.path.exists(jupyterDirectory)) is False:
     gitHubCliInstallation.write('rm -rf gh.deb')
     gitHubCliInstallation.close()
 
+    filePermission = subprocess.Popen(['sudo', 'chmod', 'a-x', 'installGitHubCli.sh'])
+    filePermission.communicate()
+
     subprocess.call('./installGitHubCli.sh')
 
     # GITHUB_CLI_VERSION = subprocess.Popen(['curl', '-s', '"https://api.github.com/repos/cli/cli/releases/latest"', '|', 'grep', '-Po', "'" + '"tag_name": "v\K[0-9.]+' + "'"])
