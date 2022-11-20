@@ -272,3 +272,128 @@ else:
     gitPullUpdate.communicate()
 
     os.chdir(owd)
+
+###########################################################################################################
+#PROGRAM MAIN MENU LOOP
+###########################################################################################################
+
+#Main Menu Loop#
+
+mainLoopConditional = True #True for staying in the loop, False for exiting the loop
+
+while mainLoopConditional == True:
+
+    mainMenuAnswer = True #True for staying in the loop, False for exiting the loop
+
+    while mainMenuAnswer == True:
+
+        print("-------------------------------------------------------------------------------\n")
+        print("Main Menu")
+        print("""
+1)Open Jupyter Lab where you can create or edit Jupyter Notebooks
+2)Create a new Jupyter Book
+3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
+4)Options Menu
+5)Help
+6)Exit
+        """)
+
+        mainMenuOption = ''
+
+        try:
+            mainMenuOption = int(input('Enter your choice: '))
+            print()
+            print("-------------------------------------------------------------------------------\n")
+        except:
+            print('Wrong input. Please enter a number.')
+
+        #Open Jupyter Lab where you can create or edit Jupyter Notebooks
+        if mainMenuOption == 1:
+            mainMenuAnswer = False
+
+        #Create a new Jupyter Book
+        elif mainMenuOption == 2:
+            mainMenuAnswer = False
+
+        #Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
+        elif mainMenuOption == 3:
+            mainMenuAnswer = False
+
+        #Options Menu
+        elif mainMenuOption == 4:
+            mainMenuAnswer = False
+
+        #Help
+        elif mainMenuOption == 5:
+            mainMenuAnswer = False
+            
+        #Exit
+        elif mainMenuOption == 6:
+            mainMenuAnswer = False
+
+        else:
+            print("Invalid choice. Please enter a number between 1 and 5.")
+
+    ###########################################################################################################
+    #1)Open Jupyter Lab where you can create or edit Jupyter Notebooks
+    ###########################################################################################################
+
+    if mainMenuOption == 1:
+
+        print('OPEN JUPYTER LABS')
+       
+    ###########################################################################################################
+    #2)Create a new Jupyter Book
+    ###########################################################################################################
+
+    elif mainMenuOption == 2:
+        
+        print('CREATE A JUPYTER BOOK\n')
+
+    ###########################################################################################################
+    #3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
+    ###########################################################################################################
+
+    #Choosing either a Jupyter Book or Notebook Loop
+
+    elif mainMenuOption == 3:
+
+        print("UPLOAD A BOOK/NOTEBOOK\n")
+
+    ###########################################################################################################
+    #4)Options Menu
+    ###########################################################################################################
+
+    elif mainMenuOption == 4:
+
+        print("OPTIONS MENU\n")
+
+    ###########################################################################################################
+    #5)Help
+    ###########################################################################################################
+
+    elif mainMenuOption == 5:
+
+        print("This program was created to help upload Jupyter Notebooks and Books to the Eswatini Textbook website\n")
+        print("There are several key things to note when using this program:\n")
+        print("    1) Any Jupyter Books or Notebooks should be kept in the respective folders created by the program, otherwise they will not be available to be selected to be uploaded.")
+        print("       This is also true for images you would like to use for the Jupyter Notebooks or Books cover.\n")
+        print("    2) These folders can be found by navigating to your 'Documents' folder in the file explorer and entering the 'JupyterDirectory' folder.\n")
+        tempEnterToExitHelp = input("Press ENTER to return to the main menu")
+    
+    ###########################################################################################################
+    #5)Exit
+    ###########################################################################################################
+
+    elif mainMenuOption == 6:
+
+        print("Exiting...")
+        exit()
+
+    ###########################################################################################################
+    #How did you get here?
+    ###########################################################################################################
+
+    else:
+
+        print("How did you get here?")
