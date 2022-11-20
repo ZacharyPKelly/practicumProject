@@ -12,6 +12,8 @@ from shutil import make_archive
 import sys
 import subprocess
 
+#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
+
 ###########################################################################################################
 #Installing Dependencies
 ###########################################################################################################
@@ -104,6 +106,8 @@ if (os.path.exists(jupyterDirectory)) is False:
     #Installing GitHubs CLI
     ###########################################################################################################
 
+    print('Installing GitHubs CLI...\n')
+
     os.chdir(jupyterDirectory)
 
     gitHubCliInstallation = open(r'installGitHubCli.sh', 'w+')
@@ -119,26 +123,37 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     subprocess.call('./installGitHubCli.sh')
 
-    # GITHUB_CLI_VERSION = subprocess.Popen(['curl', '-s', '"https://api.github.com/repos/cli/cli/releases/latest"', '|', 'grep', '-Po', "'" + '"tag_name": "v\K[0-9.]+' + "'"])
-    # GITHUB_CLI_VERSION = GITHUB_CLI_VERSION.communicate()
-    # GITHUB_CLI_VERSION = ''.join(GITHUB_CLI_VERSION)
+    print()
+    print('GitHubs CLI installed!\n')
 
-    # installGitHubCLIOne = subprocess.Popen(['curl', '-Lo', 'gh.deb', '"https://github.com/cli/cli/releases/latest/download/gh_' + GITHUB_CLI_VERSION + '_linux_armv6.deb"'])
-    # installGitHubCLIOne.communicate()
+    ###########################################################################################################
+    #Creating Config File
+    ###########################################################################################################
 
-    # installGitHubCLITwo = subprocess.Popen(['sudo', 'dpkg', '-i', 'gh.deb'])
-    # installGitHubCLITwo.communicate()
+    print("Creating configuration file...\n")
 
-    # installGitHubCLIThree = subprocess.Popen(['rm', '-rf', 'gh.deb'])
-    # installGitHubCLIThree.communicate()
+    print("In order to clone the Eswatini repository, you will need a Github Account along with your username and Personal Access Token (PAT)")
+    print("You can generate a PAT by going to:")
+    print("Github Account Settings (Click on your profile icon in top right corner of github and select settings at the bottom of the menu that pops up)")
+    print("Developer Settings (Found at the bottom of the list of options on the left hand side of the page)")
+    print("Personal Access Tokens (Found at the bottom of the list of options on the left hand side of the page)")
+    print("Generate New Token (Found center-right near the top of the page)")
+    print("Give your PAT a descriptive name, set the expiration date to be 'No Expiration' and check off 'REPO', 'WRITE:PACKAGES', 'USER', and 'READ:ORG' (found under ADMIN:ORG)")
+    print("Select Generate Token at the bottom of your page and copy the token into your clip board\n")
 
-    #curl -Lo gh.deb "https://github.com/cli/cli/releases/latest/download/gh_${GITHUB_CLI_VERSION}_linux_armv6.deb"
+    username = input("Enter your GitHub username: ")
+    email = input("Enter your email associated with your Github account: ")
+    personalAccessToken = input("Enter your Personal Access Token: ")
+    
+    configObject = ConfigParser()
 
-    # GITHUB_CLI_VERSION1=$(curl -s "https://api.github.com/repos/cli/cli/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
-	#         cd ~
-	#         curl -Lo gh.deb "https://github.com/cli/cli/releases/latest/download/gh_${GITHUB_CLI_VERSION}_linux_armv6.deb"
-	#         sudo dpkg -i gh.deb
-	#         rm -rf gh.deb
+    configObject.add_section('USERINFO')
+    configObject.set('USERINFO', 'username', username)
+    configObject.set('USERINFO', 'email', email)
+    configObject.set('USERINFO', 'PAT', personalAccessToken)
+    print()
 
-    #         gitAdd = subprocess.Popen(['git', 'add', '.'])
-    #             gitAdd.communicate()
+    with open('config.ini', 'w') as conf:
+        configObject.write(conf)
+
+    os.chdir(owd)
