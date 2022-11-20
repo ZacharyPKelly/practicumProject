@@ -350,7 +350,7 @@ while mainLoopConditional == True:
         command = 'lxterminal -e jupyter lab --notebook-dir=~/JupyterDirectory/Jupyter'
 
         os.chdir(owd)
-        subprocess.call(command, creationflags = subprocess.CREATE_NEW_CONSOLE) #Opens jupyter lab in a new terminal
+        subprocess.call(command) #Opens jupyter lab in a new terminal
 
         #Exit choice one menu
 
