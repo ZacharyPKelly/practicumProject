@@ -123,6 +123,8 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     subprocess.call('./installGitHubCli.sh')
 
+    os.remove(os.path.join(jupyterDirectory, "installGitHubCli.sh"))
+
     print()
     print('GitHubs CLI installed!\n')
 
