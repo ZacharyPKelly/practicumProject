@@ -401,7 +401,30 @@ while mainLoopConditional == True:
 
     elif mainMenuOption == 2:
         
-        print('CREATE A JUPYTER BOOK\n')
+        os.chdir(jupyterBooks)
+
+        doesBookExist = True #True for staying in the loop, False for exiting the loop
+
+        while doesBookExist is True: 
+
+            bookName = input("What is the name of your new Jupyter Book(Note that spaces will be removed): ")
+            bookName = bookName.replace(" ","")
+            bookName = bookName.replace("'", "")
+
+            if os.path.exists(os.path.join(jupyterBooks, bookName)) is False: #If user doesn't already have a book by that name in their own repository
+
+                doesBookExist = False
+
+                #Creating a new jupyter book with the given name
+                jbCommand = "jupyter-book create " + bookName
+                os.chdir(jupyterBooks)
+                subprocess.call(jbCommand)
+            
+            else:
+
+                print("That book already exists, please either delete it or choose a different name\n")
+
+        os.chdir(owd)
 
     ###########################################################################################################
     #3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
