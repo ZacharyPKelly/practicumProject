@@ -188,6 +188,8 @@ if (os.path.exists(jupyterDirectory)) is False:
         print('Here is your email:', tempEmail, sep=None)
         print('Here is your PAT:', tempPat, sep=None)
         print()
+        print("Please login using GitHub.com, HTTPS, and by Pasting an Authentication Token (found above)")
+        print()
 
         subprocess.run(['gh', 'auth', 'login'])
 
@@ -196,3 +198,11 @@ if (os.path.exists(jupyterDirectory)) is False:
     else:
 
         subprocess.run(['gh', 'auth', 'status'])
+
+    ###########################################################################################################
+    #Cloning Eswatini Repository
+    ###########################################################################################################
+
+    print("Cloning Eswatini repository...\n")
+
+    git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)

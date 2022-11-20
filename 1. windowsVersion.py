@@ -179,6 +179,8 @@ if (os.path.exists(jupyterDirectory)) is False:
         print('Here is your email:', tempEmail, sep=None)
         print('Here is your PAT:', tempPat, sep=None)
         print()
+        print("Please login using GitHub.com, HTTPS, and by Pasting an Authentication Token (found above)")
+        print()
 
         subprocess.run(["powershell", "gh auth login"])
 
