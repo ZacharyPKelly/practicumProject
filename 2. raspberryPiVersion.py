@@ -108,7 +108,7 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     gitHubCliInstallation = open(r'installGitHubCli.sh', 'w+')
     gitHubCliInstallation.write('#!/bin/bash\n')
-    gitHubCliInstallation.write('GITHUB_CLI_VERSION1=$(curl -s "https://api.github.com/repos/cli/cli/releases/latest" | grep -Po \'"tag_name": "v\K[0-9.]+\')\n')
+    gitHubCliInstallation.write('GITHUB_CLI_VERSION=$(curl -s "https://api.github.com/repos/cli/cli/releases/latest" | grep -Po \'"tag_name": "v\K[0-9.]+\')\n')
     gitHubCliInstallation.write('curl -Lo gh.deb "https://github.com/cli/cli/releases/latest/download/gh_${GITHUB_CLI_VERSION}_linux_armv6.deb"\n')
     gitHubCliInstallation.write('sudo dpkg -i gh.deb\n')
     gitHubCliInstallation.write('rm -rf gh.deb')
