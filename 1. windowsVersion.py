@@ -209,12 +209,13 @@ if (os.path.exists(jupyterDirectory)) is False:
 else:
 
     print("First time set up already done.\n\n")
-    print("Logging into GitHub...\n")
 
     ###########################################################################################################
     #Logging User into Github
     ###########################################################################################################
     
+    print("Logging into GitHub...\n")
+
     loggedOutMessage = (None, b'You are not logged into any GitHub hosts. Run \x1b[0;1;39mgh auth login\x1b[0m to authenticate.\n')
 
     checkStatus = subprocess.Popen(["powershell", "gh auth status"], stderr=subprocess.PIPE)

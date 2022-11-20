@@ -190,7 +190,7 @@ if (os.path.exists(jupyterDirectory)) is False:
         print()
         print("Please login using: 1. GitHub.com")
         print("                    2. HTTPS")
-        print("                    3.Paste an authentication token")
+        print("                    3. Paste an authentication token")
         print()
         print("Then please paste your PAT and press enter.")
         print()
@@ -210,3 +210,63 @@ if (os.path.exists(jupyterDirectory)) is False:
     print("Cloning Eswatini repository...\n")
 
     git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)
+
+###########################################################################################################
+#First Time Setup Already Done
+###########################################################################################################
+
+else:
+
+    print("First time set up already done.\n\n")
+
+    ###########################################################################################################
+    #Logging User into Github
+    ###########################################################################################################
+    
+    print("Logging into GitHub...\n")
+
+    loggedOutMessage = (None, b'You are not logged into any GitHub hosts. Run \x1b[0;1;39mgh auth login\x1b[0m to authenticate.\n')
+
+    checkStatus = subprocess.Popen(['gh', 'auth', 'status'], stderr=subprocess.PIPE)
+    checkStatusOutput = checkStatus.communicate()
+
+    if checkStatusOutput == loggedOutMessage:
+
+        os.chdir(jupyterDirectory)
+
+        configOb = ConfigParser()
+        configOb.read('config.ini')
+        userInfo = configOb['USERINFO']
+        tempUsername = userInfo['username']
+        tempEmail = userInfo['email']
+        tempPat = userInfo['PAT']
+
+        print('Here is your username:', tempUsername, sep=None)
+        print('Here is your email:', tempEmail, sep=None)
+        print('Here is your PAT:', tempPat, sep=None)
+        print()
+        print("Please login using: 1. GitHub.com")
+        print("                    2. HTTPS")
+        print("                    3. Paste an authentication token")
+        print()
+        print("Then please paste your PAT and press enter.")
+        print()
+
+        subprocess.run(['gh', 'auth', 'login'])
+
+        os.chdir(owd)
+    
+    else:
+
+        subprocess.run(['gh', 'auth', 'status'])
+
+    ###########################################################################################################
+    #Updating Repository
+    ###########################################################################################################
+
+    os.chdir(eswatiniRepository)
+
+    gitPullUpdate = subprocess.Popen(['git', 'pull'])
+    gitPullUpdate.communicate()
+
+    os.chdir(owd)
