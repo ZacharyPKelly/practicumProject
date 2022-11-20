@@ -24,11 +24,6 @@ if missing:
     #implementing pip as a subprocess:
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing])
 
-#Githubs CLI must be installed with Scoop
-#Installing  Scoop
-subprocess.run(["powershell", "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"])
-subprocess.run(["powershell", "-Command", "iwr -useb get.scoop.sh | iex"])
-
 import git
 from git import repo
 
