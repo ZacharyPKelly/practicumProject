@@ -189,10 +189,10 @@ if (os.path.exists(jupyterDirectory)) is False:
         print('Here is your PAT:', tempPat, sep=None)
         print()
 
-        subprocess.run(["powershell", "gh auth login"])
+        subprocess.run(['gh', 'auth', 'login'])
 
         os.chdir(owd)
     
     else:
 
-        subprocess.run(["powershell", "gh auth status"])
+        subprocess.run(['gh', 'auth', 'status'])
