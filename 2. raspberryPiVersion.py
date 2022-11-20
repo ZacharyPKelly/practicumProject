@@ -47,6 +47,7 @@ eswatiniRepositoryBooks = os.path.join(eswatiniRepository, "static", "books", "j
 eswatiniRepositoryZippedBooks = os.path.join(eswatiniRepository, "static", "books", "zippedJuypterBooks")
 
 #Print out path names for testing
+# print()
 # print("---------------------------------")
 # print('owd: ', owd, sep=None)
 # print('parentDirectory: ', parent_dir, sep=None)
@@ -60,6 +61,7 @@ eswatiniRepositoryZippedBooks = os.path.join(eswatiniRepository, "static", "book
 # print('eswatiniRepositoryBooks: ', eswatiniRepositoryBooks, sep=None)
 # print('eswatiniRepositoryZippedBooks: ', eswatiniRepositoryZippedBooks, sep=None)
 # print("---------------------------------")
+# print()
 
 if (os.path.exists(jupyterDirectory)) is False:
 
@@ -95,3 +97,33 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     #Creating folder to hold Eswatini Repository
     os.mkdir(eswatiniRepository)
+
+    print()
+    print('File Folder system created!\n')
+
+    ###########################################################################################################
+    #Installing GitHubs CLI
+    ###########################################################################################################
+
+    
+    GITHUB_CLI_VERSION = '$(curl -s "https://api.github.com/repos/cli/cli/releases/latest" | grep -Po ' + "'" + '"tag_name": "v\K[0-9.]+' + "')"
+
+    installGitHubCLIOne = subprocess.Popen(['curl', '-Lo', 'gh.deb', '"https://github.com/cli/cli/releases/latest/download/gh_' + GITHUB_CLI_VERSION + '_linux_armv6.deb"'])
+    installGitHubCLIOne.communicate()
+
+    installGitHubCLITwo = subprocess.Popen(['sudo', 'dpkg', '-i', 'gh.deb'])
+    installGitHubCLITwo.communicate()
+
+    installGitHubCLIThree = subprocess.Popen(['rm', '-rf', 'gh.deb'])
+    installGitHubCLIThree.communicate()
+
+
+
+    # GITHUB_CLI_VERSION1=$(curl -s "https://api.github.com/repos/cli/cli/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
+	#         cd ~
+	#         curl -Lo gh.deb "https://github.com/cli/cli/releases/latest/download/gh_${GITHUB_CLI_VERSION}_linux_armv6.deb"
+	#         sudo dpkg -i gh.deb
+	#         rm -rf gh.deb
+
+    #         gitAdd = subprocess.Popen(['git', 'add', '.'])
+    #             gitAdd.communicate()

@@ -102,6 +102,9 @@ if (os.path.exists(jupyterDirectory)) is False:
     #Creating folder to hold Eswatini Repository
     os.mkdir(eswatiniRepository)
 
+    print()
+    print('File Folder system created!\n')
+
     ###########################################################################################################
     #Installing GitHubs CLI
     ###########################################################################################################
