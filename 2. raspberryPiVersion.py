@@ -159,6 +159,8 @@ if (os.path.exists(jupyterDirectory)) is False:
         configObject.write(conf)
 
     os.chdir(owd)
+    print()
+    print("Configuration file created!\n")
 
     ###########################################################################################################
     #Logging User into Github using CLI
@@ -168,7 +170,7 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     loggedOutMessage = (None, b'You are not logged into any GitHub hosts. Run \x1b[0;1;39mgh auth login\x1b[0m to authenticate.\n')
 
-    checkStatus = subprocess.Popen(["powershell", "gh auth status"], stderr=subprocess.PIPE)
+    checkStatus = subprocess.Popen(['gh', 'auth', 'status'], stderr=subprocess.PIPE)
     checkStatusOutput = checkStatus.communicate()
 
     if checkStatusOutput == loggedOutMessage:
