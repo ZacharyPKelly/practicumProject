@@ -159,3 +159,38 @@ if (os.path.exists(jupyterDirectory)) is False:
         configObject.write(conf)
 
     os.chdir(owd)
+
+    ###########################################################################################################
+    #Logging User into Github using CLI
+    ###########################################################################################################
+    
+    print("Logging into GitHub...\n")
+
+    loggedOutMessage = (None, b'You are not logged into any GitHub hosts. Run \x1b[0;1;39mgh auth login\x1b[0m to authenticate.\n')
+
+    checkStatus = subprocess.Popen(["powershell", "gh auth status"], stderr=subprocess.PIPE)
+    checkStatusOutput = checkStatus.communicate()
+
+    if checkStatusOutput == loggedOutMessage:
+
+        os.chdir(jupyterDirectory)
+
+        configOb = ConfigParser()
+        configOb.read('config.ini')
+        userInfo = configOb['USERINFO']
+        tempUsername = userInfo['username']
+        tempEmail = userInfo['email']
+        tempPat = userInfo['PAT']
+
+        print('Here is your username:', tempUsername, sep=None)
+        print('Here is your email:', tempEmail, sep=None)
+        print('Here is your PAT:', tempPat, sep=None)
+        print()
+
+        subprocess.run(["powershell", "gh auth login"])
+
+        os.chdir(owd)
+    
+    else:
+
+        subprocess.run(["powershell", "gh auth status"])
