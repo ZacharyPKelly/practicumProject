@@ -14,6 +14,10 @@ import subprocess
 
 #11211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11211
 
+# python -m pip uninstall gitpython
+# python -m pip uninstall jupyterlab
+# python -m pip uninstall jupyter-book
+
 ###########################################################################################################
 #Installing Dependencies
 ###########################################################################################################
@@ -24,7 +28,8 @@ missing   = required - installed
 
 if missing:
     #implementing pip as a subprocess:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing])
+    # , stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
 
 import git
 from git import repo
