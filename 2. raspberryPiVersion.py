@@ -104,19 +104,30 @@ if (os.path.exists(jupyterDirectory)) is False:
     #Installing GitHubs CLI
     ###########################################################################################################
 
-    
-    GITHUB_CLI_VERSION = subprocess.Popen(['curl', '-s', '"https://api.github.com/repos/cli/cli/releases/latest"', '|', 'grep', '-Po', "'" + '"tag_name": "v\K[0-9.]+' + "'"])
-    GITHUB_CLI_VERSION = GITHUB_CLI_VERSION.communicate()
-    GITHUB_CLI_VERSION = ''.join(GITHUB_CLI_VERSION)
+    os.chdir(jupyterDirectory)
 
-    installGitHubCLIOne = subprocess.Popen(['curl', '-Lo', 'gh.deb', '"https://github.com/cli/cli/releases/latest/download/gh_' + GITHUB_CLI_VERSION + '_linux_armv6.deb"'])
-    installGitHubCLIOne.communicate()
+    gitHubCliInstallation = open(r'installGitHubCli.sh', 'w+')
+    gitHubCliInstallation.write('#!/bin/bash')
+    gitHubCliInstallation.write('GITHUB_CLI_VERSION1=$(curl -s "https://api.github.com/repos/cli/cli/releases/latest" | grep -Po \'"tag_name": "v\K[0-9.]+\')')
+    gitHubCliInstallation.write('curl -Lo gh.deb "https://github.com/cli/cli/releases/latest/download/gh_${GITHUB_CLI_VERSION}_linux_armv6.deb"')
+    gitHubCliInstallation.write('sudo dpkg -i gh.deb')
+    gitHubCliInstallation.write('rm -rf gh.deb')
+    gitHubCliInstallation.close()
 
-    installGitHubCLITwo = subprocess.Popen(['sudo', 'dpkg', '-i', 'gh.deb'])
-    installGitHubCLITwo.communicate()
+    # exit_code = subprocess.call('./practice.sh')
 
-    installGitHubCLIThree = subprocess.Popen(['rm', '-rf', 'gh.deb'])
-    installGitHubCLIThree.communicate()
+    # GITHUB_CLI_VERSION = subprocess.Popen(['curl', '-s', '"https://api.github.com/repos/cli/cli/releases/latest"', '|', 'grep', '-Po', "'" + '"tag_name": "v\K[0-9.]+' + "'"])
+    # GITHUB_CLI_VERSION = GITHUB_CLI_VERSION.communicate()
+    # GITHUB_CLI_VERSION = ''.join(GITHUB_CLI_VERSION)
+
+    # installGitHubCLIOne = subprocess.Popen(['curl', '-Lo', 'gh.deb', '"https://github.com/cli/cli/releases/latest/download/gh_' + GITHUB_CLI_VERSION + '_linux_armv6.deb"'])
+    # installGitHubCLIOne.communicate()
+
+    # installGitHubCLITwo = subprocess.Popen(['sudo', 'dpkg', '-i', 'gh.deb'])
+    # installGitHubCLITwo.communicate()
+
+    # installGitHubCLIThree = subprocess.Popen(['rm', '-rf', 'gh.deb'])
+    # installGitHubCLIThree.communicate()
 
     #curl -Lo gh.deb "https://github.com/cli/cli/releases/latest/download/gh_${GITHUB_CLI_VERSION}_linux_armv6.deb"
 
