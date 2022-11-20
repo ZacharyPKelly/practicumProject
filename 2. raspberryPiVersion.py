@@ -98,7 +98,6 @@ if (os.path.exists(jupyterDirectory)) is False:
     #Creating folder to hold Eswatini Repository
     os.mkdir(eswatiniRepository)
 
-    print()
     print('File Folder system created!\n')
 
     ###########################################################################################################
@@ -117,7 +116,7 @@ if (os.path.exists(jupyterDirectory)) is False:
     installGitHubCLIThree = subprocess.Popen(['rm', '-rf', 'gh.deb'])
     installGitHubCLIThree.communicate()
 
-
+    #curl -Lo gh.deb "https://github.com/cli/cli/releases/latest/download/gh_${GITHUB_CLI_VERSION}_linux_armv6.deb"
 
     # GITHUB_CLI_VERSION1=$(curl -s "https://api.github.com/repos/cli/cli/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
 	#         cd ~
