@@ -273,12 +273,12 @@ while mainLoopConditional == True:
         print("-------------------------------------------------------------------------------\n")
         print("Main Menu")
         print("""
-1)Open Jupyter Lab where you can create or edit Jupyter Notebooks
-2)Create a new Jupyter Book
-3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
-4)Options Menu
-5)Help
-6)Exit
+1) Open Jupyter Lab where you can create or edit Jupyter Notebooks
+2) Create a new Jupyter Book
+3) Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
+4) Options Menu
+5) Help
+6) Exit
         """)
 
         mainMenuOption = ''
@@ -345,8 +345,8 @@ while mainLoopConditional == True:
         while choiceOneExitMenuAnswer == True:
 
             print("""
-1)Return to Main Menu
-2)Exit
+1) Return to Main Menu
+2) Exit
             """)
 
             choiceOneExitMenuOption = ''

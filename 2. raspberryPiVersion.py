@@ -290,12 +290,12 @@ while mainLoopConditional == True:
         print("-------------------------------------------------------------------------------\n")
         print("Main Menu")
         print("""
-1)Open Jupyter Lab where you can create or edit Jupyter Notebooks
-2)Create a new Jupyter Book
-3)Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
-4)Options Menu
-5)Help
-6)Exit
+1) Open Jupyter Lab where you can create or edit Jupyter Notebooks
+2) Create a new Jupyter Book
+3) Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
+4) Options Menu
+5) Help
+6) Exit
         """)
 
         mainMenuOption = ''
@@ -340,7 +340,55 @@ while mainLoopConditional == True:
 
     if mainMenuOption == 1:
 
-        print('OPEN JUPYTER LABS')
+        print("Opening Jupyter Labs.")
+        print("This will open in a new terminal.")
+        print("This terminal will pause until you have closed the Jupyter Notebook Terminal.")
+        print()
+        print("-------------------------------------------------------------------------------")
+
+        path = jupyter.replace("\\", "/")
+        command = 'lxterminal -e jupyter lab --notebook-dir=~/JupyterDirectory/Jupyter'
+
+        os.chdir(owd)
+        subprocess.call(command, creationflags = subprocess.CREATE_NEW_CONSOLE) #Opens jupyter lab in a new terminal
+
+        #Exit choice one menu
+
+        print()
+        print('Exit Menu')
+
+        choiceOneExitMenuAnswer = True #True for staying in the loop, False for exiting the loop
+
+        while choiceOneExitMenuAnswer == True:
+
+            print("""
+1) Return to Main Menu
+2) Exit
+            """)
+
+            choiceOneExitMenuOption = ''
+
+            try:
+                choiceOneExitMenuOption = int(input('Enter your choice: '))
+            except:
+                print('Wrong input. Please enter a number.')
+
+            #Return to Main Menu
+            if choiceOneExitMenuOption == 1:
+
+                print()
+                choiceOneExitMenuAnswer = False
+
+            #Exit
+            elif choiceOneExitMenuOption == 2:
+
+                print()
+                choiceOneExitMenuAnswer = False
+                mainLoopConditional == False
+                exit()
+
+            else:
+                print("Invalid choice. Please enter a number between 1 and 2.")
        
     ###########################################################################################################
     #2)Create a new Jupyter Book
