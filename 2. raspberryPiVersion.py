@@ -22,7 +22,7 @@ missing   = required - installed
 
 if missing:
     #implementing pip as a subprocess:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 import git
 from git import repo
@@ -107,6 +107,7 @@ if (os.path.exists(jupyterDirectory)) is False:
     
     GITHUB_CLI_VERSION = subprocess.Popen(['curl', '-s', '"https://api.github.com/repos/cli/cli/releases/latest"', '|', 'grep', '-Po', "'" + '"tag_name": "v\K[0-9.]+' + "'"])
     GITHUB_CLI_VERSION = GITHUB_CLI_VERSION.communicate()
+    GITHUB_CLI_VERSION = ''.join(GITHUB_CLI_VERSION)
 
     installGitHubCLIOne = subprocess.Popen(['curl', '-Lo', 'gh.deb', '"https://github.com/cli/cli/releases/latest/download/gh_' + GITHUB_CLI_VERSION + '_linux_armv6.deb"'])
     installGitHubCLIOne.communicate()
