@@ -134,14 +134,14 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     print("Creating configuration file...\n")
 
-    print("In order to clone the Eswatini repository, you will need a Github Account along with your username and Personal Access Token (PAT)")
+    print("In order to clone the Eswatini repository, you will need a Github Account along with your username and Personal Access Token (PAT)\n")
     print("You can generate a PAT by going to:")
-    print("Github Account Settings (Click on your profile icon in top right corner of github and select settings at the bottom of the menu that pops up)")
-    print("Developer Settings (Found at the bottom of the list of options on the left hand side of the page)")
-    print("Personal Access Tokens (Found at the bottom of the list of options on the left hand side of the page)")
-    print("Generate New Token (Found center-right near the top of the page)")
-    print("Give your PAT a descriptive name, set the expiration date to be 'No Expiration' and check off 'REPO', 'WRITE:PACKAGES', 'USER', and 'READ:ORG' (found under ADMIN:ORG)")
-    print("Select Generate Token at the bottom of your page and copy the token into your clip board\n")
+    print("1. Github Account Settings (Click on your profile icon in top right corner of github and select settings at the bottom of the menu that pops up)")
+    print("2. Developer Settings (Found at the bottom of the list of options on the left hand side of the page)")
+    print("3. Personal Access Tokens (Found at the bottom of the list of options on the left hand side of the page)")
+    print("4. Generate New Token (Found center-right near the top of the page)")
+    print("5. Give your PAT a descriptive name, set the expiration date to be 'No Expiration' and check off 'REPO', 'WRITE:PACKAGES', 'USER', and 'READ:ORG' (found under ADMIN:ORG)")
+    print("6. Select Generate Token at the bottom of your page and copy the token into your clip board\n")
 
     username = input("Enter your GitHub username: ")
     email = input("Enter your email associated with your Github account: ")
@@ -159,7 +159,7 @@ if (os.path.exists(jupyterDirectory)) is False:
         configObject.write(conf)
 
     os.chdir(owd)
-    print()
+
     print("Configuration file created!\n")
 
     ###########################################################################################################
@@ -188,7 +188,11 @@ if (os.path.exists(jupyterDirectory)) is False:
         print('Here is your email:', tempEmail, sep=None)
         print('Here is your PAT:', tempPat, sep=None)
         print()
-        print("Please login using GitHub.com, HTTPS, and by Pasting an Authentication Token (found above)")
+        print("Please login using: 1. GitHub.com")
+        print("                    2. HTTPS")
+        print("                    3.Paste an authentication token")
+        print()
+        print("Then please paste your PAT and press enter.")
         print()
 
         subprocess.run(['gh', 'auth', 'login'])
