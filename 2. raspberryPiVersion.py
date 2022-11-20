@@ -266,6 +266,8 @@ else:
 
     os.chdir(eswatiniRepository)
 
+    gitRebase = subprocess.Popen(['git', 'config', 'pull.rebase', 'false'])
+
     gitPullUpdate = subprocess.Popen(['git', 'pull'])
     gitPullUpdate.communicate()
 
