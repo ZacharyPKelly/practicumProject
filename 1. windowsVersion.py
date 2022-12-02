@@ -52,6 +52,7 @@ jupyterImages = os.path.join(jupyter, "Images")
 #Eswatini Repository Paths
 eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
 eswatiniRepositoryNotebooks = os.path.join(eswatiniRepository, "static", "books", "juypterNotebooks")
+eswatiniRepositoryHTML = os.path.join(eswatiniRepository, "static", "books", "jupyterNotebookHTML")
 eswatiniRepositoryBooks = os.path.join(eswatiniRepository, "static", "books", "juypterBooks")
 eswatiniRepositoryZippedBooks = os.path.join(eswatiniRepository, "static", "books", "zippedJuypterBooks")
 eswatiniRepositoryImages = os.path.join(eswatiniRepository, "static", "Img")
@@ -349,10 +350,8 @@ while mainLoopConditional == True:
 
         while choiceOneExitMenuAnswer == True:
 
-            print("""
-1) Return to Main Menu
-2) Exit
-            """)
+            print("1) Return to Main Menu")
+            print("2) Exit")
 
             choiceOneExitMenuOption = ''
 
@@ -457,6 +456,7 @@ while mainLoopConditional == True:
             notebookAuthor = ""
             notebookClass = ""
             notebookDescription = ""
+            notebookHTML = ""
             notebookFile = ""
             notebookImage = ""
             notebookName = ""
@@ -516,13 +516,19 @@ while mainLoopConditional == True:
                 shutil.copy(notebookToBeUploaded, notebookHTMLS)
 
                 os.chdir(notebookHTMLS)
-                convertNotebookToPDF = subprocess.Popen(['jupyter', 'nbconvert', '--to', 'HTML', notebookToBeUploaded])
-                convertNotebookToPDF.communicate()
+                convertNotebookToHTML = subprocess.Popen(['jupyter', 'nbconvert', '--to', 'HTML', notebookToBeUploaded])
+                convertNotebookToHTML.communicate()
+
+                #getting html filename (with .html file ending) and moving it to correct folder
+                htmlFile = os.path.splitext(notebookToBeUploaded)[0] + '.html' 
+                shutil.copy(htmlFile, eswatiniRepositoryHTML)
+
                 os.remove(notebookToBeUploaded)
                 os.chdir(owd)
 
                 #Creating the path the website will use
                 notebookFile = "books/juypterNotebooks/" + notebookToBeUploaded
+                notebookHTML = "books/jupyterHTML/" + htmlFile
                 exitNotebook = 1
             
             if exitNotebook == 1: #Book did not already exist and the user wishes to upload it
@@ -667,6 +673,7 @@ while mainLoopConditional == True:
                 jsonData = {
                     "file": notebookFile,
                     "zip": "", #Should always be "" for notebooks
+                    "html": notebookHTML,
                     "type": "notebook", #Should always be "notebook" for notebooks
                     "name": notebookName,
                     "descript": notebookDescription,
@@ -964,13 +971,13 @@ while mainLoopConditional == True:
 
                 #Getting pertinant information from the user and saving to variables that will be written to textbooks.json
                 print()
-                bookName = input("What is this Notebooks title: ")
+                bookName = input("What is this Books title: ")
                 print()
-                bookClass = input("What class is this Notebook for: ")
+                bookClass = input("What class is this Book for: ")
                 print()
-                bookAuthor = input("Who is the author of this Notebook: ")
+                bookAuthor = input("Who is the author of this Book: ")
                 print()
-                bookDescription = input("Please enter a short description of your Notebook: ")
+                bookDescription = input("Please enter a short description of your Book: ")
                 print()
                 
                 #Testing to make sure input is saved correctly
@@ -988,6 +995,7 @@ while mainLoopConditional == True:
                 jsonData = {
                     "file": bookFile,
                     "zip": zippedBookFile,
+                    "html" : "", #Should always be "" for Jupyter Books
                     "type": "book", #Should always be "book" for Jupyter Books
                     "name": bookName,
                     "descript": bookDescription,
@@ -1237,6 +1245,7 @@ while mainLoopConditional == True:
         print("    1) Any Jupyter Books or Notebooks should be kept in the respective folders created by the program, otherwise they will not be available to be selected to be uploaded.")
         print("       This is also true for images you would like to use for the Jupyter Notebooks or Books cover.\n")
         print("    2) These folders can be found by navigating to your 'Documents' folder in the file explorer and entering the 'JupyterDirectory' folder.\n")
+        print("    3) It is recomended that you regularly go to 'Options' and update your local repository. It is also recomended you do this before choosing to upload a new Book or Notebook.\n")
         tempEnterToExitHelp = input("Press ENTER to return to the main menu")
     
     ###########################################################################################################

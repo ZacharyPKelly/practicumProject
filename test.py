@@ -27,11 +27,17 @@ import platform
 
 # print(checkStatusOutput)
 
-is_windows = hasattr(sys, 'getwindowsversion')
+# is_windows = hasattr(sys, 'getwindowsversion')
 
-print()
-print('-------------------------------------------------------------\n')
-print(os.name)
-print(platform.release())
-print()
-print('-------------------------------------------------------------')
+# print()
+# print('-------------------------------------------------------------\n')
+# print(os.name)
+# print(platform.release())
+# print()
+# print('-------------------------------------------------------------')
+
+file = 'test.ipynb'
+
+newFile = os.path.splitext(file)[0] + '.html'
+
+print(newFile)
