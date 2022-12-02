@@ -37,20 +37,24 @@ from git import repo
 ###########################################################################################################
 
 parent_dir = os.path.expanduser('~')
-parent_dir = parent_dir + "\OneDrive\Documents"
+parent_dir = parent_dir + "\Documents"
 
 owd = os.getcwd() #original working directory
+#Local Repository Paths
 jupyterDirectory = os.path.join(parent_dir, "JupyterDirectory")
 jupyter = os.path.join(jupyterDirectory, "Jupyter")
-jupyterBooks = os.path.join(jupyter, "JupyterBooks")
-jupyterNotebooks = os.path.join(jupyter, "JupyterNotebooks")
+jupyterBooks = os.path.join(jupyter, "Books")
+jupyterNotebooks = os.path.join(jupyter, "Notebooks")
 notebookHTMLS = os.path.join(jupyterNotebooks, "NotebookHTMLs")
-zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedJupyterBooks")
-jupyterImages = os.path.join(jupyter, "JupyterImages")
+zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedBooks")
+jupyterImages = os.path.join(jupyter, "Images")
+
+#Eswatini Repository Paths
 eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
 eswatiniRepositoryNotebooks = os.path.join(eswatiniRepository, "static", "books", "juypterNotebooks")
 eswatiniRepositoryBooks = os.path.join(eswatiniRepository, "static", "books", "juypterBooks")
 eswatiniRepositoryZippedBooks = os.path.join(eswatiniRepository, "static", "books", "zippedJuypterBooks")
+eswatiniRepositoryImages = os.path.join(eswatiniRepository, "static", "Img")
 
 #Print out path names for testing
 # print("---------------------------------")
@@ -65,6 +69,7 @@ eswatiniRepositoryZippedBooks = os.path.join(eswatiniRepository, "static", "book
 # print('eswatiniRepositoryNotebooks: ', eswatiniRepositoryNotebooks, sep=None)
 # print('eswatiniRepositoryBooks: ', eswatiniRepositoryBooks, sep=None)
 # print('eswatiniRepositoryZippedBooks: ', eswatiniRepositoryZippedBooks, sep=None)
+# print('eswatiniRepositoryImages: ', eswatiniRepositoryImages, sep=None)
 # print("---------------------------------")
 
 if (os.path.exists(jupyterDirectory)) is False:
@@ -249,6 +254,8 @@ else:
     #Updating Repository
     ###########################################################################################################
 
+    print('Updating Eswatini Repository\n')
+
     os.chdir(eswatiniRepository)
 
     gitPullUpdate = subprocess.Popen(['git', 'pull'])
@@ -272,14 +279,12 @@ while mainLoopConditional == True:
 
         print("-------------------------------------------------------------------------------\n")
         print("Main Menu")
-        print("""
-1) Open Jupyter Lab where you can create or edit Jupyter Notebooks
-2) Create a new Jupyter Book
-3) Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
-4) Options Menu
-5) Help
-6) Exit
-        """)
+        print("1) Open Jupyter Lab where you can create or edit Jupyter Notebooks")
+        print("2) Create a new Jupyter Book")
+        print("3) Upload a Jupyter Notebook or Book to the Eswatini textbook resource website")
+        print("4) Options Menu")
+        print("5) Help")
+        print("6) Exit")
 
         mainMenuOption = ''
 
@@ -416,10 +421,8 @@ while mainLoopConditional == True:
 
         while bookOrNotebookMenuAnswer == True:
 
-            print("""
-1)Jupyter Notebook
-2)Jupyter Book
-            """)
+            print("1)Jupyter Notebook")
+            print("2)Jupyter Book")
 
             bookOrNotebookMenuOption = ''
 
@@ -451,16 +454,15 @@ while mainLoopConditional == True:
             existingNotebooks = [] #Will hold all the notebooks stored in the users directory
 
             #Variables to be written into the textbooks.json file
-            notebookAuthor = ''
-            notebookClass = ''
-            notebookDescription = ''
-            notebookFile = ''
-            notebookImage = ''
-            notebookName = ''
-            notebookSubject = '' 
-            notebookZip = '' #Should always be '' for notebooks
+            notebookAuthor = ""
+            notebookClass = ""
+            notebookDescription = ""
+            notebookFile = ""
+            notebookImage = ""
+            notebookName = ""
+            notebookSubject = ""
             
-           #Picking which notebook to upload
+            #Picking which notebook to upload
 
             for x in os.listdir(): #Getting notebooks that exist in the users Notebook repository
                 if x.endswith(".ipynb"):
@@ -557,7 +559,7 @@ while mainLoopConditional == True:
                     try:
                         whichNotebookSubjectOption = int(input('Enter your choice: '))
                     except:
-                        print('Wrong input. Please enter a number between 1 and ', len(subjects), '.', sep=None)
+                        print('Invalid choice. Please enter a number between 1 and ', len(subjects), '.', sep=None)
                     
                     if whichNotebookSubjectOption > 0 and whichNotebookSubjectOption <= len(subjects):
 
@@ -569,6 +571,76 @@ while mainLoopConditional == True:
                         print("Invalid choice. Please enter a number between 1 and ", len(subjects), sep=None)
                         print()
                         print('Which subject does this Jupyter Notebook belong in?\n')
+
+
+                #Getting from the user which image they wish to upload, if any
+                
+                uploadImageForNotebook = True #True for staying in the loop, False otherwise
+
+                while uploadImageForNotebook == True:
+
+                    print()
+                    print("Is there an image you would like to upload with this Notebook?")
+                    print()
+                    print("1) Yes")
+                    print("2) No")
+
+                    try:
+                        uploadImageForNotebookOption = int(input('Enter your choice: '))
+                    except:
+                        print('Wrong input. Please enter either 1 or 2.')
+                    
+                    if uploadImageForNotebookOption == 1 or uploadImageForNotebookOption == 2:
+
+                        uploadImageForNotebook = False
+
+                    else:
+
+                        print("Invalid choice. Please enter either 1 or 2.")
+
+                os.chdir(jupyterImages)
+                existingNotebookImages = []
+
+                for x in os.listdir(): #Getting images from users image directory
+                    existingNotebookImages.append(x)
+
+                if uploadImageForNotebookOption == 1:
+
+                    whichImageToUploadNotebook = True
+
+                    while whichImageToUploadNotebook == True:
+                    
+                        print('Which image would you like to upload?\n')
+
+                        for i in range(len(existingNotebookImages)):
+                        
+                            print(i+1, ')', existingNotebookImages[i], sep=None)
+                        
+                        print()
+
+                        try:
+                            whichImageToUploadNotebookOption = int(input('Enter your choice: '))
+
+                        except:
+                            print('Wrong input. Please enter a number between 1 and ', len(existingNotebookImages), '.', sep=None)
+                        
+                        if whichImageToUploadNotebookOption > 0 and whichImageToUploadNotebookOption <= len(existingNotebookImages):
+
+                            whichImageToUploadNotebook = False
+                            nImage = existingNotebookImages[whichImageToUploadNotebookOption - 1]
+                            shutil.copy(nImage, eswatiniRepositoryImages)
+                            notebookImage = 'Img/' + nImage
+                        
+                        else:
+
+                            print('Invalid choice. Please enter a number between 1 and ', len(existingNotebookImages), sep=None)
+                            print()
+
+                if uploadImageForNotebookOption == 2:
+
+                    continue            
+
+                os.chdir(eswatiniRepository)
 
                 #Getting pertinant information from the user and saving to variables that will be written to textbooks.json
                 print()
@@ -594,13 +666,13 @@ while mainLoopConditional == True:
 
                 jsonData = {
                     "file": notebookFile,
-                    "zip": "",
-                    "type": "notebook",
+                    "zip": "", #Should always be "" for notebooks
+                    "type": "notebook", #Should always be "notebook" for notebooks
                     "name": notebookName,
                     "descript": notebookDescription,
                     "author": notebookAuthor,
                     "class": notebookClass,
-                    "image": ""
+                    "image": notebookImage
                 }
 
                 jsonFile[notebookSubject].append(jsonData)
@@ -685,20 +757,19 @@ while mainLoopConditional == True:
             existingBooks = [] #Will hold all the notebooks stored in the users directory
 
             #Variables to be written into the textbooks.json file
-            bookAuthor = ''
-            bookClass = ''
-            bookDescription = ''
-            bookFile = ''
-            bookImage = ''
-            bookName = ''
-            bookSubject = ''
-            bookType = 'book' #Must always be 'book' for notebooks
+            bookAuthor = ""
+            bookClass = ""
+            bookDescription = ""
+            bookFile = ""
+            bookImage = ""
+            bookName = ""
+            bookSubject = ""
             bookZip = ''
 
             #Picking which notebook to upload
 
             for x in os.listdir(): #Getting notebooks that exist in the users Notebook repository
-                if x == "ZippedJupyterBooks":
+                if x == "ZippedBooks":
                     continue
                 else:
                     existingBooks.append(x)
@@ -822,6 +893,75 @@ while mainLoopConditional == True:
                         print()
                         print('Which subject does this Jupyter Book belong in?\n')
 
+                #Getting from the user which image the wish to upload, if any
+
+                uploadImageForBook = True #True for staying in the loop, False otherwise
+
+                while uploadImageForBook == True:
+                    
+                    print()
+                    print("Is there an image you would like to upload with this Book?")
+                    print("1) Yes")
+                    print("2) No")
+
+                    try:
+                        uploadImageForBookOption = int(input('Enter your choice: '))
+                    
+                    except:
+                        print('Wrong input. Please enter either 1 or 2')
+                    
+                    if uploadImageForBookOption == 1 or uploadImageForBookOption == 2:
+
+                        uploadImageForBook = False
+
+                    else:
+
+                        print("Invalid choice. Please enter either 1 or 2")
+                
+                os.chdir(jupyterImages)
+                existingBookImages = []
+
+                for x in os.listdir(): #Getting images from users image directory
+                    existingBookImages.append(x)
+                
+                if uploadImageForBookOption == 1:
+
+                    whichImageToUploadBook = True
+
+                    while whichImageToUploadBook == True:
+
+                        print('Which image would you like to upload?\n')
+
+                        for i in range(len(existingBookImages)):
+
+                            print(i+1, ')', existingBookImages[i], sep=None)
+
+                        print()
+
+                        try:
+                            whichImageToUploadBookOption = int(input('Enter you choice: '))
+                        
+                        except:
+                            print('Wrong input. Please enter a number between 1 and ', len(existingBookImages), '.', sep=None)
+                        
+                        if whichImageToUploadBookOption > 0 and whichImageToUploadBookOption <= len(existingBookImages):
+
+                            whichImageToUploadBook = False
+                            bImage = existingBookImages[whichImageToUploadBook - 1]
+                            shutil.copy(bImage, eswatiniRepositoryImages)
+                            bookImage = 'Img/' + bImage
+
+                        else:
+
+                            print('Invalid choice. Please enter a number between 1 and ', len(existingBookImages), sep=None)
+                            print()
+                
+                if uploadImageForBookOption == 2:
+
+                    continue
+
+                os.chdir(eswatiniRepository)
+
                 #Getting pertinant information from the user and saving to variables that will be written to textbooks.json
                 print()
                 bookName = input("What is this Notebooks title: ")
@@ -848,12 +988,12 @@ while mainLoopConditional == True:
                 jsonData = {
                     "file": bookFile,
                     "zip": zippedBookFile,
-                    "type": "book",
+                    "type": "book", #Should always be "book" for Jupyter Books
                     "name": bookName,
                     "descript": bookDescription,
                     "author": bookAuthor,
                     "class": bookClass,
-                    "image": ""
+                    "image": bookImage
                 }
 
                 jsonFile[bookSubject].append(jsonData)
@@ -947,13 +1087,11 @@ while mainLoopConditional == True:
             while optionsMenuAnswer == True:
                 print("-------------------------------------------------------------------------------\n")
                 print("Options Menu")
-                print("""
-1)Update your Eswatini Repository (Git Pull)
-2)Update your GitHub credentials (Username / Email / Personal Access Token)
-3)Log out of GitHub
-4)Log into GitHub
-5)Exit to Main Menu
-                """)
+                print("1) Update your Eswatini Repository (Git Pull)")
+                print("2) Update your GitHub credentials (Username / Email / Personal Access Token)")
+                print("3) Log out of GitHub")
+                print("4) Log into GitHub")
+                print("5) Exit to Main Menu")
 
                 optionsMenuOption = ''
 
@@ -1085,7 +1223,7 @@ while mainLoopConditional == True:
             #Exit to Main Menu
             if optionsMenuOption == 5:
 
-                print("Exiting to Main Menu.")
+                print("Exiting to Main Menu.\n")
                 optionsMenuLoop = False
 
     ###########################################################################################################

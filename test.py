@@ -11,6 +11,7 @@ import shutil
 from shutil import make_archive
 import sys
 import subprocess
+import platform
 
 # GITHUB_CLI_VERSION = '$(curl -s "https://api.github.com/repos/cli/cli/releases/latest" | grep -Po ' + "'" + '"tag_name": "v\K[0-9.]+' + "')"
 # print()
@@ -21,7 +22,16 @@ import subprocess
 # test = "'" + '"tag_name": "v\K[0-9.]+' + "'"
 # print(test)
 
-checkStatus = subprocess.Popen(["gh auth status"], stderr=subprocess.PIPE)
-checkStatusOutput = checkStatus.communicate()
+# checkStatus = subprocess.Popen(["gh auth status"], stderr=subprocess.PIPE)
+# checkStatusOutput = checkStatus.communicate()
 
-print(checkStatusOutput)
+# print(checkStatusOutput)
+
+is_windows = hasattr(sys, 'getwindowsversion')
+
+print()
+print('-------------------------------------------------------------\n')
+print(os.name)
+print(platform.release())
+print()
+print('-------------------------------------------------------------')
