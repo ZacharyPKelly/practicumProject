@@ -206,7 +206,10 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     print("Cloning Eswatini repository...\n")
 
-    git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)
+    
+    gitClone = subprocess.Popen(['git', 'clone', 'https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository])
+    gitClone.communicate()
+    #git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)
 
 ###########################################################################################################
 #First Time Setup Already Done
