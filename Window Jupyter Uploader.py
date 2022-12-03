@@ -29,8 +29,8 @@ if missing:
 subprocess.run(["powershell", "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"])
 subprocess.run(["powershell", "-Command", "iwr -useb get.scoop.sh | iex"])
 
-import git
-from git import repo
+#import git
+#from git import repo
 
 ###########################################################################################################
 #Creating File Folder System
