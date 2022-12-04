@@ -782,7 +782,7 @@ while mainLoopConditional == True:
                 print()
                 print()
 
-        #Uploading a Jupyter Book
+        # Uploading a Jupyter Book
 
         elif bookOrNotebookMenuOption == 2:
 
