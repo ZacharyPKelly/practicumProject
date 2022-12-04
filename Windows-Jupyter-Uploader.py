@@ -22,7 +22,7 @@ missing   = required - installed
 
 if missing:
     #implementing pip as a subprocess:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 #Githubs CLI must be installed with Scoop
 #Installing Scoop
@@ -39,7 +39,9 @@ subprocess.run(["powershell", "-Command", "iwr -useb get.scoop.sh | iex"])
 parent_dir = os.path.expanduser('~')
 parent_dir = parent_dir + "\Documents"
 
-owd = os.getcwd() #original working directory
+#original working directory
+owd = os.getcwd()
+
 #Local Repository Paths
 jupyterDirectory = os.path.join(parent_dir, "JupyterDirectory")
 jupyter = os.path.join(jupyterDirectory, "Jupyter")
@@ -108,7 +110,6 @@ if (os.path.exists(jupyterDirectory)) is False:
     #Creating folder to hold Eswatini Repository
     os.mkdir(eswatiniRepository)
 
-    print()
     print('File Folder system created!\n')
 
     ###########################################################################################################
@@ -211,6 +212,29 @@ if (os.path.exists(jupyterDirectory)) is False:
     gitClone.communicate()
     #git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)
 
+    ###########################################################################################################
+    #Setting Git Config user and email settings
+    ###########################################################################################################
+    
+    print()
+    print('Setting git config settings...\n')
+
+    os.chdir(jupyterDirectory)
+
+    gitConfigOb = ConfigParser()
+    gitConfigOb.read('config.ini')
+    gitUserInfo = gitConfigOb['USERINFO']
+    gitUsername = gitUserInfo['username']
+    gitEmail = gitUserInfo['email']
+
+    gitConfigUsername = subprocess.Popen(['git', 'config', '--global', 'user.name', gitUsername])
+    gitConfigUsername.communicate()
+
+    gitConfigEmail = subprocess.Popen(['git', 'config', '--global', 'user.email', gitEmail])
+    gitConfigEmail.communicate()
+
+    print('Git config settings set!\n')
+
 ###########################################################################################################
 #First Time Setup Already Done
 ###########################################################################################################
@@ -230,7 +254,7 @@ else:
     checkStatus = subprocess.Popen(["powershell", "gh auth status"], stderr=subprocess.PIPE)
     checkStatusOutput = checkStatus.communicate()
 
-    if checkStatusOutput == loggedOutMessage:
+    if checkStatusOutput == loggedOutMessage: #If user not logged in, log them in
 
         os.chdir(jupyterDirectory)
 
@@ -250,7 +274,7 @@ else:
 
         os.chdir(owd)
     
-    else:
+    else: #If user logged in, show them who they are logged in as
 
         subprocess.run(["powershell", "gh auth status"])
 
@@ -647,7 +671,7 @@ while mainLoopConditional == True:
 
                 if uploadImageForNotebookOption == 2:
 
-                    continue            
+                    notebookImage = ""           
 
                 os.chdir(eswatiniRepository)
 
@@ -968,7 +992,7 @@ while mainLoopConditional == True:
                 
                 if uploadImageForBookOption == 2:
 
-                    continue
+                    bookImage = ""
 
                 os.chdir(eswatiniRepository)
 
