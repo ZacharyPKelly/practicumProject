@@ -8,7 +8,7 @@ There are several requirements for running this program:
           
 2. You will need Python version >3.8 and <3.9.2, though 3.9.2 is recomended. You can find the link to download Python 3.9.2 [here](https://www.python.org/downloads/release/python-392/).
 
-3. You will need a GitHub account, and will need to be added as a contributer with writing privlages to the Eswatini Website Repository. Please contact the moderater of the website in order to added as a contributer.
+3. You will need a GitHub account, and will need to be added as a contributer with writing privileges to the Eswatini Website Repository. Please contact the moderater of the website in order to added as a contributer.
 
 4. Next you will need to make sure your Python Scripts folder is on you PATH. You can do this easily by pressing WIN + R, typing in 'cmd' then pressing enter. You can then type in 'pip' into the Command Terminal and press enter. If you are told: 'pip is not recognized as an internal or external command, operable program or batch file' then you're Python Scripts folder is not on your PATH.
 
@@ -24,7 +24,7 @@ If you are given a list of commands that you can use with pip, congratulations y
   <img src="https://user-images.githubusercontent.com/92888996/205693336-47b16c8c-1215-44ad-8d39-393657b8ac90.png" width="650"/>
 </p>
 
-6. Navigate to your Python Scripts folder and copy the path. This folder can found at:C:\Users\"Your Username"\AppData\Local\Programs\Python\Python39\Scripts. You can copy the path by right click on 'Scripts' and selecting 'Copy address as text'.
+6. Navigate to your Python Scripts folder and copy the path. This folder can found at: C:\Users\\"Your Username"\AppData\Local\Programs\Python\Python39\Scripts. You can copy the path by right clicking on 'Scripts' and selecting 'Copy address as text'.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/92888996/205694490-25d0bbb6-7d31-4b1b-a57f-2b9d889184c7.png" width="650"/>
