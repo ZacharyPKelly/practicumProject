@@ -10,7 +10,7 @@ There are several requirements for running this program:
 
 3. You will need a GitHub account, and will need to be added as a contributer with writing privileges to the Eswatini Website Repository. Please contact the moderater of the website in order to added as a contributer.
 
-4. Next you will need to make sure your Python Scripts folder is on you PATH. You can do this easily by pressing WIN + R, typing in 'cmd' then pressing enter. You can then type in 'pip' into the Command Terminal and press enter. If you are told: 'pip is not recognized as an internal or external command, operable program or batch file' then you're Python Scripts folder is not on your PATH.
+4. Next you will need to make sure your Python Scripts folder is on you PATH. You can do this easily by pressing WIN + R, typing in 'cmd' then pressing enter. You can then type in 'pip' into the Command Terminal and press enter. If you are told: 'pip is not recognized as an internal or external command, operable program or batch file' then your Python Scripts folder is not on your PATH.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/92888996/205692010-32ac5eb0-5b44-450e-99e2-2c81eba6dffa.png" width="650"/>
@@ -54,7 +54,7 @@ If you are given a list of commands that you can use with pip, congratulations y
   <img src="https://user-images.githubusercontent.com/92888996/205698498-cf23b9e5-e4b4-44b4-89fb-5741348f126f.png" width="650"/>
 </p>
 
-11. You can now test to see if your Python Scripts folder is correctly on path. Once again press 'WIN+R' and type in 'cmd' to open your command terminal. Enter 'pip' and press enter; You should see a list of commands like in the picture below.
+11. You can now test to see if your Python Scripts folder is correctly on path. Once again press 'WIN+R' and type in 'cmd' to open your Command Terminal. Make sure you have closed your Command Terminal after updating your PATH in order to reset the PATH it is using. Enter 'pip' and press enter; You should see a list of commands like in the picture below.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/92888996/205699479-2c8159fe-9195-4712-b5be-c2e68d81998b.png" width="650"/>
