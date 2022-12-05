@@ -48,9 +48,18 @@ If you are given a list of commands that you can use with pip, congratulations y
   <img src="https://user-images.githubusercontent.com/92888996/205697890-c6255d85-6a04-496d-a87f-ce2f51bdefd0.png" width="650"/>
 </p>
 
-10. In the 'Edit environment variable' window that will have opened press new. A blank line should appear at the bottom of the list of PATH where you can now paste the Python Scripts path.
+10. In the 'Edit environment variable' window that will have opened press new. A blank line should appear at the bottom of the list of PATH where you can now paste the Python Scripts path. You can now press 'OK' on each of three windows that will be open in order to close them out.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/92888996/205698498-cf23b9e5-e4b4-44b4-89fb-5741348f126f.png" width="650"/>
 </p>
 
+11. You can now test to see if your Python Scripts folder is correctly on path. Once again press 'WIN+R' and type in 'cmd' to open your command terminal. Enter 'pip' and press enter; You should see a list of commands like in the picture below.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/92888996/205699479-2c8159fe-9195-4712-b5be-c2e68d81998b.png" width="650"/>
+</p>
+
+## Known Issues/Bugs
+
+-When running for the first time, if GitHubs CLI commands are being installed for the first time you may need to restart the program in order to for the GH commands to work.
