@@ -63,3 +63,4 @@ If you are given a list of commands that you can use with pip, congratulations y
 ## Known Issues/Bugs
 
 -When running for the first time, if GitHubs CLI commands are being installed for the first time you may need to restart the program in order to for the GH commands to work.
+-If you have OneDrive in your PATH, your repository will be found in "C:\Users\"Your username"\Documents"
