@@ -16,7 +16,7 @@ import subprocess
 #Installing Dependencies
 ###########################################################################################################
 
-required  = {'gitpython', 'jupyterlab', 'jupyter-book', 'nbconvert[webpdf]'} 
+required  = {'jupyterlab', 'jupyter-book', 'nbconvert[webpdf]'} 
 installed = {pkg.key for pkg in pkg_resources.working_set}
 missing   = required - installed
 
@@ -207,10 +207,8 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     print("Cloning Eswatini repository...\n")
 
-    
     gitClone = subprocess.Popen(['git', 'clone', 'https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository])
     gitClone.communicate()
-    #git.Repo.clone_from('https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository)
 
     ###########################################################################################################
     #Setting Git Config user and email settings
@@ -1171,10 +1169,15 @@ while mainLoopConditional == True:
             #Update your Eswatini Repository (Git Pull)
             if optionsMenuOption == 1:
 
-                os.chdir(eswatiniRepository)
+                os.chdir(jupyterDirectory)
+                shutil.rmtree(eswatiniRepository)
+                os.mkdir(eswatiniRepository)
 
-                gitPullUpdate = subprocess.Popen(['git', 'pull'])
-                gitPullUpdate.communicate()
+                gitReclone = subprocess.Popen(['git', 'clone', 'https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository])
+                gitReclone.communicate()
+
+                #gitPullUpdate = subprocess.Popen(['git', 'pull'])
+                #gitPullUpdate.communicate()
 
                 os.chdir(owd)
 
