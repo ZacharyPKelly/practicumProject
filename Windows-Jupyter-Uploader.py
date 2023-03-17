@@ -378,7 +378,7 @@ while forceSkipAnswer == True:
 #gitAS = subprocess.Popen(['git', 'log'])
 #gitAS.communicate()
 
-tempRestart = input("WAIT") #RESTARTING BUT NOT TAKING IO AFTER RESTARTING
+tempRestart = input("WAIT")
 exit()
 ###########################################################################################################
 #Creating File Folder System
