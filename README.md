@@ -60,6 +60,14 @@ If you are given a list of commands that you can use with pip, congratulations y
   <img src="https://user-images.githubusercontent.com/92888996/205699479-2c8159fe-9195-4712-b5be-c2e68d81998b.png" width="650"/>
 </p>
 
+## Starting the program
+
+1. Download the program by selecting 'CODE' (the green button in the top right corner) and selecting download zip.
+
+2. Unzip the folder, and place both the Windows-Jupyter-uploader.py and StartFile.bat on your desktop.
+
+3. Double click the StartFile.bat to start the program.
+
 ## Known Issues/Bugs
 
 -When running for the first time, if GitHubs CLI commands are being installed for the first time you may need to restart the program in order to for the GH commands to work.
