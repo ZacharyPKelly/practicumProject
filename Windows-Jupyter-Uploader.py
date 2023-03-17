@@ -11,80 +11,87 @@ import shutil
 from shutil import make_archive
 import sys
 import subprocess
+import time
 
 ###########################################################################################################
-#Installing Dependencies
+#Functions
 ###########################################################################################################
 
-required  = {'jupyterlab', 'jupyter-book', 'nbconvert[webpdf]'} 
-installed = {pkg.key for pkg in pkg_resources.working_set}
-missing   = required - installed
+def createPaths():
 
-if missing:
-    #implementing pip as a subprocess:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    """createPaths:
+        
+        Determines whether the user has OneDrice in their path or not and creates paths
+        for file folders for the users repository"""
 
-#Githubs CLI must be installed with Scoop
-#Installing Scoop
-subprocess.run(["powershell", "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"])
-subprocess.run(["powershell", "-Command", "iwr -useb get.scoop.sh | iex"])
+    global parent_dir
 
-#import git
-#from git import repo
+    global jupyterDirectory
+    global jupyter
+    global jupyterBooks
+    global jupyterNotebooks
+    global notebookHTMLS
+    global zippedJupyterBooks
+    global jupyterImages
 
-###########################################################################################################
-#Creating File Folder System
-###########################################################################################################
+    #Eswatini Repository Paths
+    global eswatiniRepository
+    global eswatiniRepositoryNotebooks
+    global eswatiniRepositoryHTML
+    global eswatiniRepositoryBooks
+    global eswatiniRepositoryZippedBooks 
+    global eswatiniRepositoryImages
 
-parent_dir = os.path.expanduser('~')
-parent_dir = parent_dir + "\Documents"
+    #Creating Paths Names for repository
 
-#original working directory
-owd = os.getcwd()
+    if os.path.isdir(parent_dir + "OneDrive\Documents"): #The user has OneDrive in their path
 
-#Local Repository Paths
-jupyterDirectory = os.path.join(parent_dir, "JupyterDirectory")
-jupyter = os.path.join(jupyterDirectory, "Jupyter")
-jupyterBooks = os.path.join(jupyter, "Books")
-jupyterNotebooks = os.path.join(jupyter, "Notebooks")
-notebookHTMLS = os.path.join(jupyterNotebooks, "NotebookHTMLs")
-zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedBooks")
-jupyterImages = os.path.join(jupyter, "Images")
+        parent_dir = parent_dir + "OneDrive\Documents"
 
-#Eswatini Repository Paths
-eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
-eswatiniRepositoryNotebooks = os.path.join(eswatiniRepository, "static", "books", "juypterNotebooks")
-eswatiniRepositoryHTML = os.path.join(eswatiniRepository, "static", "books", "jupyterNotebookHTML")
-eswatiniRepositoryBooks = os.path.join(eswatiniRepository, "static", "books", "juypterBooks")
-eswatiniRepositoryZippedBooks = os.path.join(eswatiniRepository, "static", "books", "zippedJuypterBooks")
-eswatiniRepositoryImages = os.path.join(eswatiniRepository, "static", "Img")
+        #Local Repository Paths
+        jupyterDirectory = os.path.join(parent_dir, "JupyterDirectory")
+        jupyter = os.path.join(jupyterDirectory, "Jupyter")
+        jupyterBooks = os.path.join(jupyter, "Books")
+        jupyterNotebooks = os.path.join(jupyter, "Notebooks")
+        notebookHTMLS = os.path.join(jupyterNotebooks, "NotebookHTMLs")
+        zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedBooks")
+        jupyterImages = os.path.join(jupyter, "Images")
 
-#Print out path names for testing
-# print("---------------------------------")
-# print('owd: ', owd, sep=None)
-# print('parentDirectory: ', parent_dir, sep=None)
-# print('jupyterDirectory: ', jupyterDirectory, sep=None)
-# print('jupyter: ', jupyter, sep=None)
-# print('jupyterBooks: ', jupyterBooks, sep=None)
-# print('jupyterNotebooks: ', jupyterNotebooks, sep=None)
-# print('zippedJupyterBooks: ', zippedJupyterBooks, sep=None)
-# print('eswatiniRepository: ', eswatiniRepository, sep=None)
-# print('eswatiniRepositoryNotebooks: ', eswatiniRepositoryNotebooks, sep=None)
-# print('eswatiniRepositoryBooks: ', eswatiniRepositoryBooks, sep=None)
-# print('eswatiniRepositoryZippedBooks: ', eswatiniRepositoryZippedBooks, sep=None)
-# print('eswatiniRepositoryImages: ', eswatiniRepositoryImages, sep=None)
-# print("---------------------------------")
+        #Eswatini Repository Paths
+        eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
+        eswatiniRepositoryNotebooks = os.path.join(eswatiniRepository, "static", "books", "juypterNotebooks")
+        eswatiniRepositoryHTML = os.path.join(eswatiniRepository, "static", "books", "jupyterNotebookHTML")
+        eswatiniRepositoryBooks = os.path.join(eswatiniRepository, "static", "books", "juypterBooks")
+        eswatiniRepositoryZippedBooks = os.path.join(eswatiniRepository, "static", "books", "zippedJuypterBooks")
+        eswatiniRepositoryImages = os.path.join(eswatiniRepository, "static", "Img")
 
-if (os.path.exists(jupyterDirectory)) is False:
+    elif os.path.isdir(parent_dir + "\Documents"): #The user does not have OneDrive in their path
+        
+        parent_dir = parent_dir + "\Documents"
 
-    print("Performing first time setup\n")
-    print("A file system for storing your Jupyter Books and Notebooks, as well as the Eswatini Repository")
-    print("will be created in your documents folder\n")
-    print("Creating File Folder system...\n")
+        #Local Repository Paths
+        jupyterDirectory = os.path.join(parent_dir, "JupyterDirectory")
+        jupyter = os.path.join(jupyterDirectory, "Jupyter")
+        jupyterBooks = os.path.join(jupyter, "Books")
+        jupyterNotebooks = os.path.join(jupyter, "Notebooks")
+        notebookHTMLS = os.path.join(jupyterNotebooks, "NotebookHTMLs")
+        zippedJupyterBooks = os.path.join(jupyterBooks, "ZippedBooks")
+        jupyterImages = os.path.join(jupyter, "Images")
 
-    ###########################################################################################################
-    #Creating File Folder System
-    ###########################################################################################################
+        #Eswatini Repository Paths
+        eswatiniRepository = os.path.join(jupyterDirectory, "EswatiniRepository")
+        eswatiniRepositoryNotebooks = os.path.join(eswatiniRepository, "static", "books", "juypterNotebooks")
+        eswatiniRepositoryHTML = os.path.join(eswatiniRepository, "static", "books", "jupyterNotebookHTML")
+        eswatiniRepositoryBooks = os.path.join(eswatiniRepository, "static", "books", "juypterBooks")
+        eswatiniRepositoryZippedBooks = os.path.join(eswatiniRepository, "static", "books", "zippedJuypterBooks")
+        eswatiniRepositoryImages = os.path.join(eswatiniRepository, "static", "Img")
+
+    else:
+        print('Unable to create the file folder system.')
+        print('Exiting...')
+        quit()
+
+def createFileFolders():
 
     #creating Jupyter Directory
     os.mkdir(jupyterDirectory)
@@ -112,23 +119,7 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     print('File Folder system created!\n')
 
-    ###########################################################################################################
-    #Installing GitHubs CLI
-    ###########################################################################################################
-
-    os.chdir(jupyterDirectory)
-    bat = open(r'installGhCli.ps1', 'w+')
-    bat.write("scoop install gh")
-    bat.close()
-    
-    p = subprocess.Popen(["powershell.exe", os.path.join(jupyterDirectory, "installGhCli.ps1")], stdout=sys.stdout)
-    p.communicate()
-    os.remove(os.path.join(jupyterDirectory, "installGhCli.ps1"))
-    os.chdir(owd)
-
-    ###########################################################################################################
-    #Creating Config File
-    ###########################################################################################################
+def createConfigFile():
 
     print("Creating configuration file...\n")
 
@@ -141,7 +132,8 @@ if (os.path.exists(jupyterDirectory)) is False:
     print("3. Personal Access Tokens (Found at the bottom of the list of options on the left hand side of the page)")
     print("4. Generate New Token (Found center-right near the top of the page)")
     print("5. Give your PAT a descriptive name, set the expiration date to be 'No Expiration' and check off 'REPO', 'WRITE:PACKAGES', 'USER', and 'READ:ORG' (found under ADMIN:ORG)")
-    print("6. Select Generate Token at the bottom of your page and copy the token into your clip board\n")
+    print("6. Select Generate Token at the bottom of your page and copy the token into your clip board")
+    print("       |-> It is good practice to also copy your PAT to a notepad file as it is unrecoverable from GitHub after leaving the page\n")
 
     username = input("Enter your GitHub username: ")
     email = input("Enter your email associated with your Github account: ")
@@ -160,10 +152,8 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     os.chdir(owd)
 
-    ###########################################################################################################
-    #Logging User into Github using CLI
-    ###########################################################################################################
-    
+def logIntoGitHub():
+
     print("Logging into GitHub...\n")
 
     loggedOutMessage = (None, b'You are not logged into any GitHub hosts. Run \x1b[0;1;39mgh auth login\x1b[0m to authenticate.\n')
@@ -188,7 +178,7 @@ if (os.path.exists(jupyterDirectory)) is False:
         print()
         print("Please login using: 1. GitHub.com")
         print("                    2. HTTPS")
-        print("                    3.Paste an authentication token")
+        print("                    3. Paste an authentication token")
         print()
         print("Then please paste your PAT and press enter.")
         print()
@@ -201,19 +191,17 @@ if (os.path.exists(jupyterDirectory)) is False:
 
         subprocess.run(["powershell", "gh auth status"])
 
-    ###########################################################################################################
-    #Cloning Eswatini Repository
-    ###########################################################################################################
+        print("\nIf this is not you, you can log out and back in in the options menu.\n")
+
+def cloneRepository():
 
     print("Cloning Eswatini repository...\n")
 
     gitClone = subprocess.Popen(['git', 'clone', 'https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository])
     gitClone.communicate()
 
-    ###########################################################################################################
-    #Setting Git Config user and email settings
-    ###########################################################################################################
-    
+def setGitConfig():
+
     print()
     print('Setting git config settings...\n')
 
@@ -233,61 +221,225 @@ if (os.path.exists(jupyterDirectory)) is False:
 
     print('Git config settings set!\n')
 
+def updateRepository():
+
+    print('Updating Eswatini Repository\n')
+
+    os.chdir(jupyterDirectory)
+
+    configOb = ConfigParser()
+    configOb.read('config.ini')
+    userInfo = configOb['USERINFO']
+    tempPat = userInfo['PAT']
+
+    gitAuth = "https://[{}]@github.com/University-of-Eswatini/Eswatini-Project.git".format(tempPat)
+
+    os.chdir(eswatiniRepository)
+
+    gitRemoteSet = subprocess.Popen(['git', 'remote', 'set-url', 'origin', gitAuth])
+
+    gitPullUpdate = subprocess.Popen(['git', 'pull', gitAuth])
+    
+    gitPullUpdate.communicate()
+
+    os.chdir(owd)
+
+def restart():
+    
+    restart = "C:\\Users\\zacha\\practicumProject\\Windows-Jupyter-Uploader.py"
+    subprocess.call(restart, creationflags = subprocess.CREATE_NEW_CONSOLE)
+    quit()
+
+###########################################################################################################
+#Creating File Folder Path Names
+###########################################################################################################
+
+parent_dir = os.path.expanduser('~')
+
+#original working directory
+owd = os.getcwd()
+
+#Local Repository Paths
+jupyterDirectory = ''
+jupyter = ''
+jupyterBooks = ''
+jupyterNotebooks = ''
+notebookHTMLS = ''
+zippedJupyterBooks = ''
+jupyterImages = ''
+
+#Eswatini Repository Paths
+eswatiniRepository = ''
+eswatiniRepositoryNotebooks = ''
+eswatiniRepositoryHTML = ''
+eswatiniRepositoryBooks = ''
+eswatiniRepositoryZippedBooks = ''
+eswatiniRepositoryImages = ''
+
+createPaths()
+
+#Print out path names for testing
+# print("---------------------------------")
+# print('owd: ', owd, sep=None)
+# print('parentDirectory: ', parent_dir, sep=None)
+# print('jupyterDirectory: ', jupyterDirectory, sep=None)
+# print('jupyter: ', jupyter, sep=None)
+# print('jupyterBooks: ', jupyterBooks, sep=None)
+# print('jupyterNotebooks: ', jupyterNotebooks, sep=None)
+# print('zippedJupyterBooks: ', zippedJupyterBooks, sep=None)
+# print('eswatiniRepository: ', eswatiniRepository, sep=None)
+# print('eswatiniRepositoryNotebooks: ', eswatiniRepositoryNotebooks, sep=None)
+# print('eswatiniRepositoryBooks: ', eswatiniRepositoryBooks, sep=None)
+# print('eswatiniRepositoryZippedBooks: ', eswatiniRepositoryZippedBooks, sep=None)
+# print('eswatiniRepositoryImages: ', eswatiniRepositoryImages, sep=None)
+# print("---------------------------------")
+
+###########################################################################################################
+#Installing Dependencies
+###########################################################################################################
+
+required  = {'jupyterlab', 'jupyter-book', 'nbconvert[webpdf]'} 
+installed = {pkg.key for pkg in pkg_resources.working_set}
+missing   = required - installed
+
+if missing:
+    #implementing pip as a subprocess:
+    #print('Installing ' + missing)
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+#Githubs CLI must be installed with Scoop
+#Installing Scoop
+subprocess.run(["powershell", "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"]) #sets permissions on PowerShell so that scoop can be installed
+
+updateScoop = os.path.expanduser('~')
+updateScoop = updateScoop + "\scoop\shims\scoop update scoop"
+
+try: #Try to update Scoop
+    subprocess.run(["powershell", "-Command", updateScoop], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+except subprocess.CalledProcessError: #If we can't update scoop it must not be installed so install scoop
+
+    subprocess.run(["powershell", "-Command", "iwr -useb get.scoop.sh | iex"])
+
+#Installing GitHubs CLI
+installGH = os.path.expanduser('~')
+installGH = installGH + "\scoop\shims\scoop install gh"
+
+updateGH = os.path.expanduser('~')
+updateGH = updateGH + "\scoop\shims\scoop update gh"
+
+ghPath = os.path.expanduser('~')
+ghPath = ghPath + "\scoop\shims\gh.exe"
+
+if os.path.isfile(ghPath) == False:
+
+    subprocess.run(["powershell", "-Command", installGH])
+
+    # print('This program needs to restart in order to ensure Scoop and GH are on PATH')
+    # print('The program will close in 10 seconds, please run it again.')
+    # time.sleep(10)
+    # quit()
+    tempRestart = input("Press enter to restart") #RESTARTING BUT NOT TAKING IO AFTER RESTARTING
+    exit()
+    #restart()
+
+forceSkipAnswer = True #True for staying in the loop, False for exiting the loop
+
+while forceSkipAnswer == True:
+
+    print("-------------------------------------------------------------------------------\n")
+    print("Main Menu")
+    print("1) Force Update")
+    print("2) Skip")
+
+
+    forceSkipOption = ''
+
+    try:
+        forceSkipOption = int(input('Enter your choice: '))
+        print()
+        print("-------------------------------------------------------------------------------\n")
+    except:
+        print('Wrong input. Please enter a number.')
+
+    #Open Jupyter Lab where you can create or edit Jupyter Notebooks
+    if forceSkipOption == 1:
+        gitAS = subprocess.Popen(['git', 'checkout', '-f', 'main'])
+        gitAS.communicate()
+        forceSkipAnswer = False
+
+    #Create a new Jupyter Book
+    elif forceSkipOption == 2:
+        forceSkipAnswer = False
+
+    else:
+        print("Invalid choice. Please enter a number between 1 and 2.")
+
+#gitAS = subprocess.Popen(['git', 'log'])
+#gitAS.communicate()
+
+tempRestart = input("WAIT") #RESTARTING BUT NOT TAKING IO AFTER RESTARTING
+exit()
+###########################################################################################################
+#Creating File Folder System
+###########################################################################################################
+
+if (os.path.exists(jupyterDirectory)) is False:
+
+    print("Performing first time setup\n")
+    print("A file system for storing your Jupyter Books and Notebooks, as well as the Eswatini Repository")
+    print("will be created in your documents folder\n")
+    print("Creating File Folder system...\n")
+
+    ###########################################################################################################
+    #Creating File Folder System
+    ###########################################################################################################
+
+    createFileFolders()
+
+    ###########################################################################################################
+    #Creating Config File
+    ###########################################################################################################
+
+    createConfigFile()
+
+    ###########################################################################################################
+    #Logging User into Github using CLI
+    ###########################################################################################################
+    
+    logIntoGitHub()
+
+    ###########################################################################################################
+    #Cloning Eswatini Repository
+    ###########################################################################################################
+
+    cloneRepository()
+
+    ###########################################################################################################
+    #Setting Git Config user and email settings
+    ###########################################################################################################
+    
+    setGitConfig()
+
 ###########################################################################################################
 #First Time Setup Already Done
 ###########################################################################################################
 
 else:
 
-    print("First time set up already done.\n\n")
+    print("First time set up already done.\n")
 
     ###########################################################################################################
     #Logging User into Github
     ###########################################################################################################
     
-    print("Logging into GitHub...\n")
-
-    loggedOutMessage = (None, b'You are not logged into any GitHub hosts. Run \x1b[0;1;39mgh auth login\x1b[0m to authenticate.\n')
-
-    checkStatus = subprocess.Popen(["powershell", "gh auth status"], stderr=subprocess.PIPE)
-    checkStatusOutput = checkStatus.communicate()
-
-    if checkStatusOutput == loggedOutMessage: #If user not logged in, log them in
-
-        os.chdir(jupyterDirectory)
-
-        configOb = ConfigParser()
-        configOb.read('config.ini')
-        userInfo = configOb['USERINFO']
-        tempUsername = userInfo['username']
-        tempEmail = userInfo['email']
-        tempPat = userInfo['PAT']
-
-        print('Here is your username:', tempUsername, sep=None)
-        print('Here is your email:', tempEmail, sep=None)
-        print('Here is your PAT:', tempPat, sep=None)
-        print()
-
-        subprocess.run(["powershell", "gh auth login"])
-
-        os.chdir(owd)
-    
-    else: #If user logged in, show them who they are logged in as
-
-        subprocess.run(["powershell", "gh auth status"])
+    logIntoGitHub()
 
     ###########################################################################################################
     #Updating Repository
     ###########################################################################################################
 
-    print('Updating Eswatini Repository\n')
-
-    os.chdir(eswatiniRepository)
-
-    gitPullUpdate = subprocess.Popen(['git', 'pull'])
-    gitPullUpdate.communicate()
-
-    os.chdir(owd)
+    updateRepository()
 
 ###########################################################################################################
 #PROGRAM MAIN MENU LOOP
@@ -767,7 +919,10 @@ while mainLoopConditional == True:
 
                 #Creating pull request for commited changes
                 ghPullRequest = subprocess.Popen(['gh', 'pr', 'create'])
-                ghPullRequest.communicate()
+                prOutput = ghPullRequest.communicate()
+                print("\n-----------------------------------------\n")
+                print(prOutput)
+                print("\n-----------------------------------------\n")
 
                 #Checking out the main branch
                 gitCheckOutMain = subprocess.Popen(['git', 'checkout', 'main'])
@@ -780,7 +935,7 @@ while mainLoopConditional == True:
                 print()
                 print()
 
-        #      Uploading a Jupyter Book
+        #Uploading a Jupyter Book
 
         elif bookOrNotebookMenuOption == 2:
 
@@ -1168,18 +1323,20 @@ while mainLoopConditional == True:
 
             #Update your Eswatini Repository (Git Pull)
             if optionsMenuOption == 1:
+                
+                updateRepository()
 
-                os.chdir(jupyterDirectory)
-                shutil.rmtree(eswatiniRepository)
-                os.mkdir(eswatiniRepository)
+                # os.chdir(jupyterDirectory)
+                # shutil.rmtree(eswatiniRepository)
+                # os.mkdir(eswatiniRepository)
 
-                gitReclone = subprocess.Popen(['git', 'clone', 'https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository])
-                gitReclone.communicate()
+                # gitReclone = subprocess.Popen(['git', 'clone', 'https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository])
+                # gitReclone.communicate()
 
-                #gitPullUpdate = subprocess.Popen(['git', 'pull'])
-                #gitPullUpdate.communicate()
+                # gitPullUpdate = subprocess.Popen(['git', 'pull'])
+                # gitPullUpdate.communicate()
 
-                os.chdir(owd)
+                # os.chdir(owd)
 
             #Update your GitHub credentials (Username / Email / Personal Access Token)
             if optionsMenuOption == 2:
