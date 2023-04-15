@@ -11,7 +11,9 @@ import shutil
 from shutil import make_archive
 import sys
 import subprocess
-import time
+from subprocess import STDOUT, DEVNULL
+import cutie
+from datetime import datetime
 
 ###########################################################################################################
 #Functions
@@ -145,6 +147,8 @@ def createConfigFile():
     configObject.set('USERINFO', 'username', username)
     configObject.set('USERINFO', 'email', email)
     configObject.set('USERINFO', 'PAT', personalAccessToken)
+    configObject.set('USERINFO', 'branch', '')
+    configObject.set('USERINFO', 'book', '')
     print()
 
     with open('config.ini', 'w') as conf:
@@ -236,7 +240,7 @@ def updateRepository():
 
     os.chdir(eswatiniRepository)
 
-    gitRemoteSet = subprocess.Popen(['git', 'remote', 'set-url', 'origin', gitAuth])
+    #gitRemoteSet = subprocess.Popen(['git', 'remote', 'set-url', 'origin', gitAuth])
 
     gitPullUpdate = subprocess.Popen(['git', 'pull', gitAuth])
     
@@ -244,11 +248,59 @@ def updateRepository():
 
     os.chdir(owd)
 
-def restart():
-    
-    restart = "C:\\Users\\zacha\\practicumProject\\Windows-Jupyter-Uploader.py"
-    subprocess.call(restart, creationflags = subprocess.CREATE_NEW_CONSOLE)
-    quit()
+def deleteBranch():
+
+    os.chdir(jupyterDirectory)
+
+    configOb = ConfigParser()
+    configOb.read('config.ini')
+    userInfo = configOb['USERINFO']
+    branch = userInfo['branch']
+    book = userInfo['book']
+
+    if branch != '':
+
+        os.chdir(eswatiniRepository)
+
+        gitFetch = subprocess.Popen(['git', 'fetch'])
+        gitFetch.communicate()
+
+        gitStash = subprocess.Popen(['git', 'stash'])
+        gitStash.communicate()
+
+        gitStashDrop = subprocess.Popen(['git', 'stash', 'drop'])
+        gitStashDrop.communicate()
+
+        gitClean = subprocess.Popen(['git', 'clean', '-fd'])
+        gitClean.communicate()
+
+        gitCheckOutMain = subprocess.Popen(['git', 'checkout', 'main'])
+        gitCheckOutMain.communicate()
+
+        gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branch])
+        gitDeleteBranch.communicate()
+
+        if book != '':
+
+            os.chdir(eswatiniRepositoryBooks)
+
+            shutil.rmtree(book)
+
+        os.chdir(jupyterDirectory)
+
+        configOb.set('USERINFO', 'branch', '')
+        configOb.set('USERINFO', 'book', '')
+
+        with open('config.ini', 'w') as conf:
+            configOb.write(conf)
+
+def launchJupyterLabs():
+
+    path = jupyter.replace("\\", "/")
+    command = 'cmd /k "py -m jupyterlab --notebook-dir=' + path + '"'
+
+    os.chdir(owd)
+    subprocess.Popen(command, creationflags = subprocess.CREATE_NEW_CONSOLE) #Opens jupyter lab in a new terminal
 
 ###########################################################################################################
 #Creating File Folder Path Names
@@ -294,94 +346,55 @@ createPaths()
 # print('eswatiniRepositoryImages: ', eswatiniRepositoryImages, sep=None)
 # print("---------------------------------")
 
+# ###########################################################################################################
+# #Installing Dependencies
+# ###########################################################################################################
+
+# required  = {'jupyterlab', 'jupyter-book', 'nbconvert[webpdf]'} 
+# installed = {pkg.key for pkg in pkg_resources.working_set}
+# missing   = required - installed
+
+# if missing:
+
+#     #implementing pip as a subprocess:
+#     subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+# #Githubs CLI must be installed with Scoop
+# #Installing Scoop
+# subprocess.run(["powershell", "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"]) #sets permissions on PowerShell so that scoop can be installed
+
+# updateScoop = os.path.expanduser('~')
+# updateScoop = updateScoop + "\scoop\shims\scoop update scoop"
+
+# try: #Try to update Scoop
+#     subprocess.run(["powershell", "-Command", updateScoop], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+# except subprocess.CalledProcessError: #If we can't update scoop it must not be installed so install scoop
+
+#     subprocess.run(["powershell", "-Command", "iwr -useb get.scoop.sh | iex"])
+
+# #Installing GitHubs CLI
+# installGH = os.path.expanduser('~')
+# installGH = installGH + "\scoop\shims\scoop install gh"
+
+# updateGH = os.path.expanduser('~')
+# updateGH = updateGH + "\scoop\shims\scoop update gh"
+
+# ghPath = os.path.expanduser('~')
+# ghPath = ghPath + "\scoop\shims\gh.exe"
+
+# if os.path.isfile(ghPath) == False:
+
+#     subprocess.run(["powershell", "-Command", installGH])
+
+#     print('Your computer now needs to restart in order to ensure Scoop and GH are on PATH')
+#     print('Once this program has closed, please restart your computer before running this program again')
+#     print('Running this program before restarting your computer may result in errors in the program.')
+#     tempRestart = input("Press enter to exit") #RESTARTING BUT NOT TAKING IO AFTER RESTARTING
+#     exit()
+
 ###########################################################################################################
-#Installing Dependencies
-###########################################################################################################
-
-required  = {'jupyterlab', 'jupyter-book', 'nbconvert[webpdf]'} 
-installed = {pkg.key for pkg in pkg_resources.working_set}
-missing   = required - installed
-
-if missing:
-    #implementing pip as a subprocess:
-    #print('Installing ' + missing)
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-#Githubs CLI must be installed with Scoop
-#Installing Scoop
-subprocess.run(["powershell", "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"]) #sets permissions on PowerShell so that scoop can be installed
-
-updateScoop = os.path.expanduser('~')
-updateScoop = updateScoop + "\scoop\shims\scoop update scoop"
-
-try: #Try to update Scoop
-    subprocess.run(["powershell", "-Command", updateScoop], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-except subprocess.CalledProcessError: #If we can't update scoop it must not be installed so install scoop
-
-    subprocess.run(["powershell", "-Command", "iwr -useb get.scoop.sh | iex"])
-
-#Installing GitHubs CLI
-installGH = os.path.expanduser('~')
-installGH = installGH + "\scoop\shims\scoop install gh"
-
-updateGH = os.path.expanduser('~')
-updateGH = updateGH + "\scoop\shims\scoop update gh"
-
-ghPath = os.path.expanduser('~')
-ghPath = ghPath + "\scoop\shims\gh.exe"
-
-if os.path.isfile(ghPath) == False:
-
-    subprocess.run(["powershell", "-Command", installGH])
-
-    # print('This program needs to restart in order to ensure Scoop and GH are on PATH')
-    # print('The program will close in 10 seconds, please run it again.')
-    # time.sleep(10)
-    # quit()
-    tempRestart = input("Press enter to restart") #RESTARTING BUT NOT TAKING IO AFTER RESTARTING
-    exit()
-    #restart()
-
-forceSkipAnswer = True #True for staying in the loop, False for exiting the loop
-
-while forceSkipAnswer == True:
-
-    print("-------------------------------------------------------------------------------\n")
-    print("Main Menu")
-    print("1) Force Update")
-    print("2) Skip")
-
-
-    forceSkipOption = ''
-
-    try:
-        forceSkipOption = int(input('Enter your choice: '))
-        print()
-        print("-------------------------------------------------------------------------------\n")
-    except:
-        print('Wrong input. Please enter a number.')
-
-    #Open Jupyter Lab where you can create or edit Jupyter Notebooks
-    if forceSkipOption == 1:
-        gitAS = subprocess.Popen(['git', 'checkout', '-f', 'main'])
-        gitAS.communicate()
-        forceSkipAnswer = False
-
-    #Create a new Jupyter Book
-    elif forceSkipOption == 2:
-        forceSkipAnswer = False
-
-    else:
-        print("Invalid choice. Please enter a number between 1 and 2.")
-
-#gitAS = subprocess.Popen(['git', 'log'])
-#gitAS.communicate()
-
-tempRestart = input("WAIT")
-exit()
-###########################################################################################################
-#Creating File Folder System
+#First Time Setup
 ###########################################################################################################
 
 if (os.path.exists(jupyterDirectory)) is False:
@@ -390,6 +403,53 @@ if (os.path.exists(jupyterDirectory)) is False:
     print("A file system for storing your Jupyter Books and Notebooks, as well as the Eswatini Repository")
     print("will be created in your documents folder\n")
     print("Creating File Folder system...\n")
+
+    ###########################################################################################################
+    #Installing Dependencies
+    ###########################################################################################################
+
+    required  = {'jupyterlab', 'jupyter-book', 'nbconvert[webpdf]'} 
+    installed = {pkg.key for pkg in pkg_resources.working_set}
+    missing   = required - installed
+
+    if missing:
+
+        #implementing pip as a subprocess:
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    #Githubs CLI must be installed with Scoop
+    #Installing Scoop
+    subprocess.run(["powershell", "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"]) #sets permissions on PowerShell so that scoop can be installed
+
+    updateScoop = os.path.expanduser('~')
+    updateScoop = updateScoop + "\scoop\shims\scoop update scoop"
+
+    try: #Try to update Scoop
+        subprocess.run(["powershell", "-Command", updateScoop], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    except subprocess.CalledProcessError: #If we can't update scoop it must not be installed so install scoop
+
+        subprocess.run(["powershell", "-Command", "iwr -useb get.scoop.sh | iex"])
+
+    #Installing GitHubs CLI
+    installGH = os.path.expanduser('~')
+    installGH = installGH + "\scoop\shims\scoop install gh"
+
+    updateGH = os.path.expanduser('~')
+    updateGH = updateGH + "\scoop\shims\scoop update gh"
+
+    ghPath = os.path.expanduser('~')
+    ghPath = ghPath + "\scoop\shims\gh.exe"
+
+    if os.path.isfile(ghPath) == False:
+
+        subprocess.run(["powershell", "-Command", installGH])
+
+        print('Your computer now needs to restart in order to ensure Scoop and GH are on PATH')
+        print('Once this program has closed, please restart your computer before running this program again')
+        print('Running this program before restarting your computer may result in errors in the program.')
+        tempRestart = input("Press enter to exit") #RESTARTING BUT NOT TAKING IO AFTER RESTARTING
+        exit()
 
     ###########################################################################################################
     #Creating File Folder System
@@ -441,13 +501,21 @@ else:
 
     updateRepository()
 
+    ###########################################################################################################
+    #Deleteing existing branch
+    ###########################################################################################################
+
+    deleteBranch()
+
 ###########################################################################################################
 #PROGRAM MAIN MENU LOOP
 ###########################################################################################################
 
-#Main Menu Loop#
+#Main Menu Loop
 
 mainLoopConditional = True #True for staying in the loop, False for exiting the loop
+
+print("\n-------------------------------------------------------------------------------\n")
 
 while mainLoopConditional == True:
 
@@ -455,46 +523,47 @@ while mainLoopConditional == True:
 
     while mainMenuAnswer == True:
 
-        print("-------------------------------------------------------------------------------\n")
-        print("Main Menu")
-        print("1) Open Jupyter Lab where you can create or edit Jupyter Notebooks")
-        print("2) Create a new Jupyter Book")
-        print("3) Upload a Jupyter Notebook or Book to the Eswatini textbook resource website")
-        print("4) Options Menu")
-        print("5) Help")
-        print("6) Exit")
+        mainMenu = [
+            "Main Menu",
+            "Open Jupyter Lab where you can create or edit Jupyter Notebooks",
+            "Create a new Jupyter Book",
+            "Upload a Jupyter Notebook or Book to the Eswatini textbook resource website",
+            "Options Menu",
+            "Help",
+            "Exit",
+        ]
 
-        mainMenuOption = ''
-
-        try:
-            mainMenuOption = int(input('Enter your choice: '))
-            print()
-            print("-------------------------------------------------------------------------------\n")
-        except:
-            print('Wrong input. Please enter a number.')
+        mainMenuCaptions = [0]
+        mainMenuChoice = mainMenu[cutie.select(mainMenu, caption_indices = mainMenuCaptions, selected_index = 1)]
 
         #Open Jupyter Lab where you can create or edit Jupyter Notebooks
-        if mainMenuOption == 1:
+        if mainMenuChoice == "Open Jupyter Lab where you can create or edit Jupyter Notebooks":
+            mainMenuOption = 1
             mainMenuAnswer = False
 
         #Create a new Jupyter Book
-        elif mainMenuOption == 2:
+        elif  mainMenuChoice ==  "Create a new Jupyter Book":
+            mainMenuOption = 2
             mainMenuAnswer = False
 
         #Upload a Jupyter Notebook or Book to the Eswatini textbook resource website
-        elif mainMenuOption == 3:
+        elif mainMenuChoice == "Upload a Jupyter Notebook or Book to the Eswatini textbook resource website":
+            mainMenuOption = 3
             mainMenuAnswer = False
 
         #Options Menu
-        elif mainMenuOption == 4:
+        elif mainMenuChoice == "Options Menu":
+            mainMenuOption = 4
             mainMenuAnswer = False
 
         #Help
-        elif mainMenuOption == 5:
+        elif mainMenuChoice == "Help":
+            mainMenuOption = 5
             mainMenuAnswer = False
             
         #Exit
-        elif mainMenuOption == 6:
+        elif mainMenuChoice == "Exit":
+            mainMenuOption = 6
             mainMenuAnswer = False
 
         else:
@@ -506,48 +575,41 @@ while mainLoopConditional == True:
 
     if mainMenuOption == 1:
 
+        print("\n-------------------------------------------------------------------------------\n")
         print("Opening Jupyter Labs.")
         print("This will open in a new terminal.")
         print("This terminal will pause until you have closed the Jupyter Notebook Terminal.")
         print()
-        print("-------------------------------------------------------------------------------")
 
-        path = jupyter.replace("\\", "/")
-        command = 'cmd /k "py -m jupyterlab --notebook-dir=' + path + '"'
-
-        os.chdir(owd)
-        subprocess.call(command, creationflags = subprocess.CREATE_NEW_CONSOLE) #Opens jupyter lab in a new terminal
-
-        #Exit choice one menu
+        launchJupyterLabs()
 
         print()
         print('Exit Menu')
 
-        choiceOneExitMenuAnswer = True #True for staying in the loop, False for exiting the loop
+        #Exit choice one menu
 
-        while choiceOneExitMenuAnswer == True:
+        jupyterLabsExitMenuAnswer = True #True for staying in the loop, False for exiting the loop
 
-            print("1) Return to Main Menu")
-            print("2) Exit")
+        while jupyterLabsExitMenuAnswer == True:
 
-            choiceOneExitMenuOption = ''
+            jupyterLabsMenu = [
+                "Return to Main Menu",
+                "Exit",
+            ]
 
-            try:
-                choiceOneExitMenuOption = int(input('Enter your choice: '))
-            except:
-                print('Wrong input. Please enter a number.')
+            jupyterLabsExitMenuChoice = jupyterLabsMenu[cutie.select(jupyterLabsMenu, selected_index = 0)]
 
             #Return to Main Menu
-            if choiceOneExitMenuOption == 1:
+            if jupyterLabsExitMenuChoice == "Return to Main Menu":
 
-                print()
-                choiceOneExitMenuAnswer = False
+                print("\n-------------------------------------------------------------------------------\n")
+                jupyterLabsExitMenuAnswer = False
 
             #Exit
-            elif choiceOneExitMenuOption == 2:
+            elif jupyterLabsExitMenuChoice == "Exit":
 
                 print()
-                choiceOneExitMenuAnswer = False
+                jupyterLabsExitMenuAnswer = False
                 mainLoopConditional == False
                 exit()
 
@@ -562,26 +624,50 @@ while mainLoopConditional == True:
         
         os.chdir(jupyterBooks)
 
-        doesBookExist = True #True for staying in the loop, False for exiting the loop
+        createJupyterBook = True #True for staying in the loop, False for exiting the loop
 
-        while doesBookExist is True: 
+        while createJupyterBook is True: 
 
-            bookName = input("What is the name of your new Jupyter Book(Note that spaces will be removed): ")
+            print("\n-------------------------------------------------------------------------------")
+
+            bookName = input("\nWhat is the name of your new Jupyter Book(Note that spaces will be removed): ")
             bookName = bookName.replace(" ","")
             bookName = bookName.replace("'", "")
 
             if os.path.exists(os.path.join(jupyterBooks, bookName)) is False: #If user doesn't already have a book by that name in their own repository
 
-                doesBookExist = False
+                createJupyterBook = False
 
                 #Creating a new jupyter book with the given name
                 jbCommand = "jupyter-book create " + bookName
                 os.chdir(jupyterBooks)
                 subprocess.call(jbCommand)
+                print("-------------------------------------------------------------------------------\n")
             
             else:
 
-                print("That book already exists, please either delete it or choose a different name\n")
+                print("\nThat book already exists, please either delete it or choose a different name\n")
+
+                jupyterBookMenu = [
+                    "Return to Main Menu",
+                    "Choose a New Name",
+                ]
+
+                jupyterBookMenuChoice = jupyterBookMenu[cutie.select(jupyterBookMenu, selected_index = 0)]
+
+                if jupyterBookMenuChoice == "Return to Main Menu":
+
+                    print("\n-------------------------------------------------------------------------------\n")
+                    createJupyterBook = False
+
+                #Exit
+                elif jupyterBookMenuChoice == "Choose a New Name":
+
+                    continue
+
+                else:
+                    print("Invalid choice")
+                
 
         os.chdir(owd)
 
@@ -597,33 +683,79 @@ while mainLoopConditional == True:
 
         while bookOrNotebookMenuAnswer == True:
 
-            print("1)Jupyter Notebook")
-            print("2)Jupyter Book")
+            print("\n-------------------------------------------------------------------------------\n")
 
-            bookOrNotebookMenuOption = ''
+            bookOrNoteBookMenu = [
+                "What would you like to upload?",
+                "Jupyter Notebook",
+                "Jupyter Book",
+                "Return to Main Menu",
+            ]
 
-            try:
-                bookOrNotebookMenuOption = int(input('Enter your choice: '))
-            except:
-                print('Wrong input. Please enter a number.')
+            bookOrNotebookCaptions = [0]
+            bookOrNotebookChoice = bookOrNoteBookMenu[cutie.select(bookOrNoteBookMenu, caption_indices = bookOrNotebookCaptions, selected_index = 1)]
 
             #Jupyter Notebook
-            if bookOrNotebookMenuOption == 1:
+            if bookOrNotebookChoice == "Jupyter Notebook":
                 
+                bookOrNotebookMenuOption = 1
                 bookOrNotebookMenuAnswer = False
+                print()
 
             #Jupyter Book
-            elif bookOrNotebookMenuOption == 2:
+            elif bookOrNotebookChoice == "Jupyter Book":
                 
+                bookOrNotebookMenuOption = 2
                 bookOrNotebookMenuAnswer = False
+                print()
+
+            #Return to Main Menu
+            elif bookOrNotebookChoice == "Return to Main Menu":
+
+                bookOrNotebookMenuOption = 3
+                bookOrNotebookMenuAnswer = False
+                print("\n-------------------------------------------------------------------------------\n")
 
             else:
 
-                print("Invalid choice. Please enter a number between 1 and 2.")
+                print("Invalid choice.")
 
         #Uploading a Jupyter Notebook
 
-        if bookOrNotebookMenuOption == 1: 
+        if bookOrNotebookMenuOption == 1:
+
+            #Creating new branch to apply changes to
+            updateRepository()
+
+            os.chdir(jupyterDirectory)
+
+            time = datetime.now().strftime('%H:%M:%S')
+
+            configOb = ConfigParser()
+            configOb.read('config.ini')
+            userInfo = configOb['USERINFO']
+            tempBranchUsername = userInfo['username']
+
+            branchName = tempBranchUsername + "_PullRequest_" + time
+            branchName = branchName.replace(" ","")
+            branchName = branchName.replace("'", "")
+            branchName = branchName.replace(":", "")
+
+            configOb.set('USERINFO', 'branch', branchName)
+
+            with open('config.ini', 'w') as conf:
+                configOb.write(conf)
+
+            os.chdir(eswatiniRepository)
+
+            gitMakeNewBranch = subprocess.Popen(['git', 'branch', branchName])
+            gitMakeNewBranch.communicate()
+
+            #Checking out new branch for pull request
+            gitCheckOutNewBranch = subprocess.Popen(['git', 'checkout', branchName])
+            gitCheckOutNewBranch.communicate()
+
+            print()
 
             os.chdir(jupyterNotebooks)
 
@@ -639,75 +771,225 @@ while mainLoopConditional == True:
             notebookName = ""
             notebookSubject = ""
             
-            #Picking which notebook to upload
-
+            #Getting Books from user directory for Jupyter Notebooks
             for x in os.listdir(): #Getting notebooks that exist in the users Notebook repository
                 if x.endswith(".ipynb"):
                     existingNotebooks.append(x)
 
-            print('Which Jupyter Notebook would you like to upload?\n')
-
             whichNotebookAnswer = True #True for staying in the loop, False for exiting the loop
 
-            while whichNotebookAnswer == True: 
+            skipIsFileCheck = 0 #Causes program to skip checking if the picked file exists in the Eswatini Repository (0: check, 1: skip)
 
-                for i in range(len(existingNotebooks)):
+            if not existingNotebooks: #No notebooks in the users repository
 
-                    print(i+1, ')', existingNotebooks[i], sep=None)
+                print('You have no Jupyter Notebooks in this directory.')
+                print('Returning to Main Menu\n')
+                deleteBranch()
+                print("\n-------------------------------------------------------------------------------\n")
                 
+                skipIsFileCheck = 1 #Causes the program to skip the isFile check next.
+                whichNotebookAnswer = False #True for staying in the loop, False for exiting the loop
+            
+            else:
+
+                existingNotebooks.insert(0, "Which Jupyter Notebook would you like to upload?")
+
+            #Getting the user to select which notebook they want to upload
+            while whichNotebookAnswer == True:
+
+                print("-------------------------------------------------------------------------------\n")
+
+                existingNotebooksCaptions = [0]
+                notebookToBeUploaded = existingNotebooks[cutie.select(existingNotebooks, caption_indices = existingNotebooksCaptions, selected_index = 1)]
+
                 print()
 
-                try:
-                    whichNotebookOption = int(input('Enter your choice: '))
-                except:
-                    print('Wrong input. Please enter a number between 1 and ', len(existingNotebooks), '.', sep=None)
-                
-                if whichNotebookOption > 0 and whichNotebookOption <= len(existingNotebooks):
+                if cutie.prompt_yes_or_no("You have selected " + notebookToBeUploaded + ". Is this correct?"):
 
+                    print()
                     whichNotebookAnswer = False
-                    notebookToBeUploaded = existingNotebooks[whichNotebookOption-1]
                 
                 else:
 
-                    print("Invalid choice. Please enter a number between 1 and ", len(existingNotebooks), sep=None)
                     print()
-                    print('Which Jupyter Noteboook would you like to upload?\n')
+
+                    if cutie.prompt_yes_or_no("Would you like to select a different Notebook?"):
+                        
+                        print()
+                        continue
+
+                    else:
+
+                        whichNotebookAnswer = False
+                        skipIsFileCheck = 1
+                        print("\nReturning to Main Menu\n")
+                        deleteBranch()
+                        print("\n-------------------------------------------------------------------------------\n")
+
             
             os.chdir(eswatiniRepositoryNotebooks)
 
-            #Checking if that notebook name already exists
+            #Seeing if the choosen notebook is already in the repository
+            if skipIsFileCheck == 0:
 
-            if os.path.isfile(notebookToBeUploaded) == True: #Stops user from uploading a Notebook thats name already exists
-                                                             #Prevents pathing issues on the website
-                print()
-                print("A Jupyter Notebook by that name already exists.")
-                print("Please contact the website moderator to remove the Notebook, or choose a different name for the book.")
-                exitNotebook = 0 #Causes the program to skip back to the main menu
-            
-            else:
+                #Checking if that notebook name already exists
+                if os.path.isfile(notebookToBeUploaded) == True: #Stops user from uploading a Notebook thats name already exists
+                                                                 #Prevents pathing issues on the website
+                    print()
+                    print("A Jupyter Notebook by that name already exists.")
+                    print("Please contact the website moderator to remove the Notebook, or choose a different name for the book.")
+                    print("Returning to the Main Menu\n")
+                    deleteBranch()
+                    print("\n-------------------------------------------------------------------------------\n")
+                    exitNotebook = 0 #Causes the program to skip back to the main menu
+
+                else:
+                    
+                    #Copying 'notebook to be uploaded' into the HTML folder and creating an HTML version then removing 'notebook to be uploaded' from the HTML folder
+
+                    os.chdir(jupyterNotebooks)
+                    shutil.copy(notebookToBeUploaded, eswatiniRepositoryNotebooks)
+                    shutil.copy(notebookToBeUploaded, notebookHTMLS)
+
+                    os.chdir(notebookHTMLS)
+                    convertNotebookToHTML = subprocess.Popen(['jupyter', 'nbconvert', '--to', 'HTML', notebookToBeUploaded], stdout=DEVNULL, stderr=STDOUT)
+                    convertNotebookToHTML.communicate()
+
+                    #getting html filename (with .html file ending) and moving it to correct folder
+                    htmlFile = os.path.splitext(notebookToBeUploaded)[0] + '.html' 
+                    shutil.copy(htmlFile, eswatiniRepositoryHTML)
+
+                    os.remove(notebookToBeUploaded)
+                    os.chdir(owd)
+
+                    #Creating the path the website will use
+                    notebookFile = "books/juypterNotebooks/" + notebookToBeUploaded
+                    notebookHTML = "books/jupyterHTML/" + htmlFile
+                    exitNotebook = 1
                 
-                #Copying 'notebook to be uploaded' into the HTML folder and creating an HTML version then removing 'notebook to be uploaded' from the HTML folder
+            else:
 
-                os.chdir(jupyterNotebooks)
-                shutil.copy(notebookToBeUploaded, eswatiniRepositoryNotebooks)
-                shutil.copy(notebookToBeUploaded, notebookHTMLS)
+                exitNotebook = 0
 
-                os.chdir(notebookHTMLS)
-                convertNotebookToHTML = subprocess.Popen(['jupyter', 'nbconvert', '--to', 'HTML', notebookToBeUploaded])
-                convertNotebookToHTML.communicate()
+            #Getting from the user which image they wish to upload, if any
+            if exitNotebook == 1:
 
-                #getting html filename (with .html file ending) and moving it to correct folder
-                htmlFile = os.path.splitext(notebookToBeUploaded)[0] + '.html' 
-                shutil.copy(htmlFile, eswatiniRepositoryHTML)
+                uploadImageForNotebook = True #True for staying in the loop, False otherwise
 
-                os.remove(notebookToBeUploaded)
-                os.chdir(owd)
+                while uploadImageForNotebook == True:
+                    
+                    print("-------------------------------------------------------------------------------\n")
 
-                #Creating the path the website will use
-                notebookFile = "books/juypterNotebooks/" + notebookToBeUploaded
-                notebookHTML = "books/jupyterHTML/" + htmlFile
-                exitNotebook = 1
-            
+                    if cutie.prompt_yes_or_no("Is there an image you would like to upload with this Notebook?"):
+
+                        print()
+                        uploadImageForNotebookOption = 1
+                        uploadImageForNotebook = False
+                    
+                    else:
+
+                        uploadImageForNotebookOption = 2
+                        uploadImageForNotebook = False
+
+                os.chdir(jupyterImages)
+
+                existingNotebookImages = []
+
+                for x in os.listdir(): #Getting images from users image directory
+                    existingNotebookImages.append(x)
+
+                #No images in the users repository but user wants one.
+                if not existingNotebookImages and uploadImageForNotebookOption == 1: 
+                        
+                    noNotebookImages = True
+
+                    while noNotebookImages == True:
+                        
+                        print()
+                        print('There are no images currently in your Image directory, would you like to continue without an image?')
+                        if cutie.prompt_yes_or_no("Selecting NO will return you to the Main Menu"):
+
+                            noNotebookImages = False
+                            uploadImageForNotebookOption = 2
+
+                        else:
+
+                            uploadImageForNotebookOption = 3
+                            exitNotebook = 0
+                            noNotebookImages = False
+                            print("\nReturning to Main Menu\n")
+                            deleteBranch()
+                            print("\n-------------------------------------------------------------------------------\n")
+
+
+                if uploadImageForNotebookOption == 1:
+
+                    whichImageToUploadNotebook = True
+
+                    existingNotebookImages.insert(0, 'Which image would you like to upload?')
+
+                    while whichImageToUploadNotebook == True:
+
+                        existingNotebookImagesCaptions = [0]
+                        nImage = existingNotebookImages[cutie.select(existingNotebookImages, caption_indices = existingNotebookImagesCaptions, selected_index = 1)]
+
+                        print()
+
+                        if cutie.prompt_yes_or_no("You have selected " + nImage + ". Is this correct?"):
+
+                            os.chdir(eswatiniRepositoryImages)
+
+                            if os.path.isfile(nImage) == True:
+
+                                print()
+                                print("An image by that name already exists.")
+                                print("Please rename your image before attempting to upload this Notebook again.")
+                                print("Returning to the Main Menu\n")
+                                deleteBranch()
+                                print("\n-------------------------------------------------------------------------------\n")
+
+                                whichImageToUploadNotebook = False #Causes the program to skip back to the main menu
+                                uploadImageForNotebookOption = 3
+                                exitNotebook = 0 
+
+                            else:
+
+                                os.chdir(jupyterImages)
+                                whichImageToUploadNotebook = False
+                                shutil.copy(nImage, eswatiniRepositoryImages)
+                                notebookImage = 'Img/' + nImage
+                        
+                        else:
+
+                            print()
+
+                            if cutie.prompt_yes_or_no("Would you like to select a different Image?"):
+
+                                print()
+                                continue
+
+                            else:
+
+                                print()
+
+                                if cutie.prompt_yes_or_no("Would you like to continue without an Image?"):
+
+                                    uploadImageForNotebookOption = 2
+                                    whichImageToUploadNotebook = False
+                                
+                                else:
+
+                                    uploadImageForNotebookOption = 3 #Causes the program to skip back to the main menu
+                                    exitNotebook = 0
+                                    whichImageToUploadNotebook = False
+                                    print("\nReturning to Main Menu\n")
+                                    deleteBranch()
+                                    print("\n-------------------------------------------------------------------------------\n")
+
+                if uploadImageForNotebookOption == 2:
+
+                    notebookImage = ""  
+
             if exitNotebook == 1: #Book did not already exist and the user wishes to upload it
 
                 os.chdir(eswatiniRepository)
@@ -724,104 +1006,29 @@ while mainLoopConditional == True:
 
                     subjects.append(i)
 
-                print()
-                print('Which subject does this Jupyter Notebook belong in?\n')
-        
-                #Picking which subject the Notebook belongs to
+                print("\n-------------------------------------------------------------------------------\n")
 
+                #Picking which subject the Notebook belongs to
                 whichNotebookSubjectAnswer = True #True for staying in the loop, False for exiting the loop
+
+                subjects.insert(0, 'Which subject does this Jupyter Notebook belong in?')
 
                 while whichNotebookSubjectAnswer == True:
 
-                    for i in range(len(subjects)):
+                    subjectsCaptions = [0]
+                    notebookSubject = subjects[cutie.select(subjects, caption_indices = subjectsCaptions, selected_index = 1)]
 
-                        print(i+1, ')', subjects[i], sep=None)
-                    
                     print()
 
-                    try:
-                        whichNotebookSubjectOption = int(input('Enter your choice: '))
-                    except:
-                        print('Invalid choice. Please enter a number between 1 and ', len(subjects), '.', sep=None)
-                    
-                    if whichNotebookSubjectOption > 0 and whichNotebookSubjectOption <= len(subjects):
+                    if cutie.prompt_yes_or_no("You have selected " + notebookSubject + ". Is this correct?"):
 
                         whichNotebookSubjectAnswer = False
-                        notebookSubject = subjects[whichNotebookSubjectOption-1]
+                        print("\n-------------------------------------------------------------------------------")
                     
                     else:
-
-                        print("Invalid choice. Please enter a number between 1 and ", len(subjects), sep=None)
-                        print()
-                        print('Which subject does this Jupyter Notebook belong in?\n')
-
-
-                #Getting from the user which image they wish to upload, if any
-                
-                uploadImageForNotebook = True #True for staying in the loop, False otherwise
-
-                while uploadImageForNotebook == True:
-
-                    print()
-                    print("Is there an image you would like to upload with this Notebook?")
-                    print()
-                    print("1) Yes")
-                    print("2) No")
-
-                    try:
-                        uploadImageForNotebookOption = int(input('Enter your choice: '))
-                    except:
-                        print('Wrong input. Please enter either 1 or 2.')
-                    
-                    if uploadImageForNotebookOption == 1 or uploadImageForNotebookOption == 2:
-
-                        uploadImageForNotebook = False
-
-                    else:
-
-                        print("Invalid choice. Please enter either 1 or 2.")
-
-                os.chdir(jupyterImages)
-                existingNotebookImages = []
-
-                for x in os.listdir(): #Getting images from users image directory
-                    existingNotebookImages.append(x)
-
-                if uploadImageForNotebookOption == 1:
-
-                    whichImageToUploadNotebook = True
-
-                    while whichImageToUploadNotebook == True:
-                    
-                        print('Which image would you like to upload?\n')
-
-                        for i in range(len(existingNotebookImages)):
-                        
-                            print(i+1, ')', existingNotebookImages[i], sep=None)
                         
                         print()
-
-                        try:
-                            whichImageToUploadNotebookOption = int(input('Enter your choice: '))
-
-                        except:
-                            print('Wrong input. Please enter a number between 1 and ', len(existingNotebookImages), '.', sep=None)
-                        
-                        if whichImageToUploadNotebookOption > 0 and whichImageToUploadNotebookOption <= len(existingNotebookImages):
-
-                            whichImageToUploadNotebook = False
-                            nImage = existingNotebookImages[whichImageToUploadNotebookOption - 1]
-                            shutil.copy(nImage, eswatiniRepositoryImages)
-                            notebookImage = 'Img/' + nImage
-                        
-                        else:
-
-                            print('Invalid choice. Please enter a number between 1 and ', len(existingNotebookImages), sep=None)
-                            print()
-
-                if uploadImageForNotebookOption == 2:
-
-                    notebookImage = ""           
+                        continue
 
                 os.chdir(eswatiniRepository)
 
@@ -836,17 +1043,18 @@ while mainLoopConditional == True:
                 notebookDescription = input("Please enter a short description of your Notebook: ")
                 print()
                 
-                # Testing to make sure input is saved correctly
-                # print()
-                # print('Name:', notebookName, sep=None)
-                # print('Class:', notebookClass, sep=None)
-                # print('Author:', notebookAuthor, sep=None)
-                # print('Description:', notebookDescription, sep=None)
+                #Testing to make sure input is saved correctly
+                # print("-------------------------------------------------------------------------------")
                 # print('File:', notebookFile, sep=None)
-                # print('File:', 'books/juypterNotebooks/teset.ipynb', sep=None)
+                # print('HTML:', notebookHTML, sep=None)
+                # print('Name:', notebookName, sep=None)
+                # print('Description:', notebookDescription, sep=None)
+                # print('Author:', notebookAuthor, sep=None)
+                # print('Class:', notebookClass, sep=None)
+                # print('Image:', notebookImage, sep=None)
+                # print("-------------------------------------------------------------------------------\n")
 
                 #Writing notebook data to json file
-
                 jsonData = {
                     "file": notebookFile,
                     "zip": "", #Should always be "" for notebooks
@@ -867,37 +1075,12 @@ while mainLoopConditional == True:
                 os.chdir(jupyterDirectory)
 
                 #Getting users GitHub username to add to pull request title
-                configOb = ConfigParser()
-                configOb.read('config.ini')
+                configObj = ConfigParser()
+                configObj.read('config.ini')
                 userInfo = configOb['USERINFO']
                 tempUsername = userInfo['username']
 
                 os.chdir(eswatiniRepository)
-
-                branchName = input("Enter a name for your pull requests branch: ")
-                branchName = branchName.replace(" ","")
-                branchName = branchName.replace("'", "")
-                branchName = branchName.replace("-", "")
-
-                #Stashing local changes
-                gitStash = subprocess.Popen(['git', 'stash'])
-                gitStash.communicate()
-
-                #Creating new branch for pull request
-                gitMakeNewBranch = subprocess.Popen(['git', 'branch', branchName])
-                gitMakeNewBranch.communicate()
-
-                #Updating local repository before commiting changes
-                gitUpdate= subprocess.Popen(['git', 'pull'])
-                gitUpdate.communicate()
-
-                #Applying stashed local changes
-                gitStashApply = subprocess.Popen(['git', 'stash', 'apply'])
-                gitStashApply.communicate()
-
-                #Checking out new branch for pull request
-                gitCheckOutNewBranch = subprocess.Popen(['git', 'checkout', branchName])
-                gitCheckOutNewBranch.communicate()
 
                 #Git adding all changes to be commited
                 gitAdd = subprocess.Popen(['git', 'add', '.'])
@@ -908,36 +1091,87 @@ while mainLoopConditional == True:
                 gitCommit.communicate()
 
                 print()
-                print("-----------------------------------------------------------------------------------------------------")
+                print("------------------------------------------------------------------------------------------------------------")
                 print("The program will now create a pull request to the Eswatini Repository")
-                print("Please select the first option 'University-of-Eswatini/Eswatini-Project'")
-                print("The program will then generate a title for your pull request with your username. Please press enter.")
-                print("If you then wish to add comments you can do so by pressing 'e'. Press enter to skip.")
-                print("Finally select the first option 'Submit' to submit your pull request.")
-                print("-----------------------------------------------------------------------------------------------------")
+                print("     1. Please select the first option 'University-of-Eswatini/Eswatini-Project'")
+                print("     2. The program will then generate a title for your pull request with your username. Please press enter.")
+                print("     3. If you then wish to add comments you can do so by pressing 'e'. Press enter to skip.")
+                print("     4. Finally select the first option 'Submit' to submit your pull request.")
+                print("------------------------------------------------------------------------------------------------------------")
                 print()
 
                 #Creating pull request for commited changes
                 ghPullRequest = subprocess.Popen(['gh', 'pr', 'create'])
-                prOutput = ghPullRequest.communicate()
-                print("\n-----------------------------------------\n")
-                print(prOutput)
-                print("\n-----------------------------------------\n")
+                ghPullRequest.communicate()
 
                 #Checking out the main branch
                 gitCheckOutMain = subprocess.Popen(['git', 'checkout', 'main'])
                 gitCheckOutMain.communicate()
 
-                #Deleting pull request branch to keep local repository up to date and prventing branch bloat
-                gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branchName])
-                gitDeleteBranch.communicate()
+                if ghPullRequest.returncode == 0: #Exit Code 0 on PR means successful PR completion
 
-                print()
+                    #merging PR branch into main after PR
+                    gitMerge = subprocess.Popen(['git', 'merge', branchName])
+                    gitMerge.communicate()
+
+                    os.chdir(jupyterDirectory)
+
+                    configOb = ConfigParser()
+                    configOb.read('config.ini')
+                    configOb.set('USERINFO', 'branch', '')
+
+                    with open('config.ini', 'w') as conf:
+                        configOb.write(conf)
+                    
+                    os.chdir(eswatiniRepository)
+
+                    #Deleting pull request branch to keep local repository up to date and prventing branch bloat
+                    gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branchName])
+                    gitDeleteBranch.communicate()
+
+                else:
+
+                    deleteBranch()
+
+                updateRepository()
+
                 print()
 
         #Uploading a Jupyter Book
 
         elif bookOrNotebookMenuOption == 2:
+
+            updateRepository()
+
+            os.chdir(jupyterDirectory)
+
+            time = datetime.now().strftime('%H:%M:%S')
+
+            configOb = ConfigParser()
+            configOb.read('config.ini')
+            userInfo = configOb['USERINFO']
+            tempBranchUsername = userInfo['username']
+
+            branchName = tempBranchUsername + "_PullRequest_" + time
+            branchName = branchName.replace(" ","")
+            branchName = branchName.replace("'", "")
+            branchName = branchName.replace(":", "")
+
+            configOb.set('USERINFO', 'branch', branchName)
+
+            with open('config.ini', 'w') as conf:
+                configOb.write(conf)
+
+            os.chdir(eswatiniRepository)
+
+            gitMakeNewBranch = subprocess.Popen(['git', 'branch', branchName])
+            gitMakeNewBranch.communicate()
+
+            #Checking out new branch for pull request
+            gitCheckOutNewBranch = subprocess.Popen(['git', 'checkout', branchName])
+            gitCheckOutNewBranch.communicate()
+
+            print()
 
             os.chdir(jupyterBooks)
 
@@ -961,77 +1195,297 @@ while mainLoopConditional == True:
                 else:
                     existingBooks.append(x)
 
-            print('Which Jupyter Book would you like to upload?\n')
-
             whichBookAnswer = True #True for staying in the loop, False for exiting the loop
 
-            while whichBookAnswer == True: 
+            skipIsFileCheck = 0 #Causes program to skip checking if the picked file exists in the Eswatini Repository (0: check, 1: skip)
 
-                for i in range(len(existingBooks)):
+            if not existingBooks: #No books in the users repository
 
-                    print(i+1, ')', existingBooks[i], sep=None)
+                print('You have no Jupyter Books in this directory.')
+                print('Returning to Main Menu\n')
+                deleteBranch()
+                print("\n-------------------------------------------------------------------------------\n")
+                skipIsFileCheck = 1 #Causes the program to skip the isFile check next.
+                whichBookAnswer = False #True for staying in the loop, False for exiting the loop
+            
+            else:
+
+                existingBooks.insert(0, 'Which Jupyter Book would you like to upload?')
+
+            #Getting the user to select which book they want to upload
+            while whichBookAnswer == True:
+
+                print("-------------------------------------------------------------------------------\n")
                 
+                existingBooksCaptions = [0]
+                bookToBeUploaded = existingBooks[cutie.select(existingBooks, caption_indices = existingBooksCaptions, selected_index = 1)]
+
                 print()
 
-                try:
-                    whichBookOption = int(input('Enter your choice: '))
-                except:
-                    print('Wrong input. Please enter a number between 1 and ', len(existingBooks), '.', sep=None)
-                
-                if whichBookOption > 0 and whichBookOption <= len(existingBooks):
+                if cutie.prompt_yes_or_no("You have selected " + bookToBeUploaded + ". Is this correct?"):
 
+                    print()
                     whichBookAnswer = False
-                    bookToBeUploaded = existingBooks[whichBookOption-1]
                 
                 else:
 
-                    print("Invalid choice. Please enter a number between 1 and ", len(existingBooks), sep=None)
                     print()
-                    print('Which Jupyter Book would you like to upload?\n')
-            
+
+                    if cutie.prompt_yes_or_no("Would you like to select a different Book?"):
+
+                        print()
+                        continue
+
+                    else:
+
+                        whichBookAnswer = False
+                        skipIsFileCheck = 1
+                        print("\nReturning to Main Menu\n")
+                        deleteBranch()
+                        print("\n-------------------------------------------------------------------------------\n")
+
             os.chdir(eswatiniRepositoryBooks)
 
-            #Checking if that notebook name already exists
+            #Checking if that book name already exists
+            if skipIsFileCheck == 0:
 
-            if os.path.isdir(bookToBeUploaded) == True: #Stops user from uploading a Book thats name already exists
-                                                        #Prevents pathing issues on the website
-                print()
-                print("A Jupyter Book by that name already exists.")
-                print("Please contact the website moderator to remove the book, or choose a different name for the book.")
-                exitBook = 0
-            
-            else:
+                if os.path.isdir(bookToBeUploaded) == True: #Stops user from uploading a Book thats name already exists
+                                                            #Prevents pathing issues on the website
+                    print()
+                    print("A Jupyter Book by that name already exists.")
+                    print("Please contact the website moderator to remove the book, or choose a different name for the book.")
+                    print("Returning to the Main Menu\n")
+                    deleteBranch()
+                    print("\n-------------------------------------------------------------------------------\n")
+                    exitBook = 0
                 
-                os.chdir(jupyterBooks)
+                else:
 
-                print("Building Jupyer Book...\n")
+                    print("Building Jupyer Book...\n")
 
-                #Building HTML version of the Book to be uploaded
-                buildBook = subprocess.Popen(['jupyter-book', 'build', bookToBeUploaded])
-                buildBook.communicate()
+                    #Adding the book name to the config file
+                    os.chdir(jupyterDirectory)
+                    configOb = ConfigParser()
+                    configOb.read('config.ini')
+                    configOb.set('USERINFO', 'book', bookToBeUploaded)
 
-                #Copying book into the correct folder in eswatini repository
-                tempBookPath = os.path.join(eswatiniRepositoryBooks, bookToBeUploaded)
-                shutil.copytree(bookToBeUploaded, tempBookPath)
+                    with open('config.ini', 'w') as conf:
+                        configOb.write(conf)                   
+                    print("ADDED TO CONFIG")
 
-                #Copying book to the zipped books folder to be zipped
-                tempBookPath = os.path.join(zippedJupyterBooks, bookToBeUploaded)
-                shutil.copytree(bookToBeUploaded, tempBookPath)
+                    os.chdir(jupyterBooks)
 
-                #Zipping the Book to be uploaded and removing the unzipped version
-                os.chdir(zippedJupyterBooks)
-                make_archive(bookToBeUploaded, "zip")
-                shutil.rmtree(tempBookPath)
+                    #Building HTML version of the Book to be uploaded
+                    buildBook = subprocess.Popen(['jupyter-book', 'build', bookToBeUploaded], stdout=DEVNULL, stderr=STDOUT)
+                    buildBook.communicate()
+                    print("HTML BOOK BUILT")
 
-                #Copying Zipped Book to be uploaded to the correct folder in eswatini repository
-                zippedBook = bookToBeUploaded + ".zip"
-                tempBookPath = os.path.join(eswatiniRepositoryZippedBooks, zippedBook)
-                shutil.copy(zippedBook, eswatiniRepositoryZippedBooks)
+                    #Copying book into the correct folder in eswatini repository
+                    tempBookPath = os.path.join(eswatiniRepositoryBooks, bookToBeUploaded)
+                    shutil.copytree(bookToBeUploaded, tempBookPath)
+                    print("BOOK COPIED")
 
-                #Creating the path(s) for zipped and unzipped books that the website will use
-                bookFile = "books/juypterBooks/" + bookToBeUploaded + "/_build/html/index.html"
-                zippedBookFile = "books/zippedJuypterBooks/" + bookToBeUploaded + ".zip"
-                exitBook = 1
+                    #Zipping the Book to be 
+                    make_archive(bookToBeUploaded, "zip")
+                    print("BOOK ZIPPED")
+
+                    # #Copying book to the zipped books folder to be zipped
+                    # tempBookPath = os.path.join(zippedJupyterBooks, bookToBeUploaded)
+                    # shutil.copytree(bookToBeUploaded, tempBookPath)
+                    # print("BOOK COPIED FOR ZIP")
+
+                    # #Zipping the Book to be uploaded and removing the unzipped version
+                    # os.chdir(zippedJupyterBooks)
+                    # make_archive(bookToBeUploaded, "zip")
+                    # shutil.rmtree(bookToBeUploaded)
+                    
+                    #Copying Zipped Book to be uploaded to the correct folder in eswatini repository
+                    zippedBook = bookToBeUploaded + ".zip"
+                    tempBookPath = os.path.join(eswatiniRepositoryZippedBooks, zippedBook)
+                    print("Attempting to copy zipped file")
+                    shutil.copy(zippedBook, eswatiniRepositoryZippedBooks)
+                    print("ZIP COPIED")
+
+                    #Deleting zipped file
+                    os.remove(zippedBook)
+
+                    #Creating the path(s) for zipped and unzipped books that the website will use
+                    bookFile = "books/juypterBooks/" + bookToBeUploaded + "/_build/html/index.html"
+                    zippedBookFile = "books/zippedJuypterBooks/" + bookToBeUploaded + ".zip"
+                    print("BOOK AND ZIP FILES MADE")
+
+                    os.chdir(jupyterBooks)
+
+                    exitBook = 1
+
+            else:
+
+                exitBook = 0
+
+            #Getting from the user which image the wish to upload, if any
+            if exitBook == 1:
+                
+                uploadImageForBook = True #True for staying in the loop, False otherwise
+
+                while uploadImageForBook == True:
+                    
+                    # print()
+                    # print("Is there an image you would like to upload with this Book?")
+                    # print("1) Yes")
+                    # print("2) No")
+
+                    # try:
+                    #     uploadImageForBookOption = int(input('Enter your choice: '))
+                    
+                    # except:
+                    #     print('Wrong input. Please enter either 1 or 2')
+                    
+                    # if uploadImageForBookOption == 1 or uploadImageForBookOption == 2:
+
+                    #     uploadImageForBook = False
+
+                    # else:
+
+                    #     print("Invalid choice. Please enter either 1 or 2")
+
+                    print("-------------------------------------------------------------------------------\n")
+
+                    if cutie.prompt_yes_or_no("Is there an image you would like to upload with this Book?"):
+
+                        print()
+                        uploadImageForBookOption = 1
+                        uploadImageForBook = False
+                    
+                    else:
+
+                        uploadImageForBookOption = 2
+                        uploadImageForBook = False
+                
+                os.chdir(jupyterImages)
+
+                existingBookImages = []
+
+                #No images in the users repository but user wants one
+                for x in os.listdir(): #Getting images from users image directory
+                    existingBookImages.append(x)
+                
+                if not existingBookImages and uploadImageForBookOption == 1:
+
+                    noBookImages = True
+
+                    while noBookImages == True:
+
+                        # print()
+                        # print('There are no images currently in your Image directory, would you like to continue without an image?')
+                        # print('Selecting NO will return you to the main menu')
+                        # print()
+                        # print("1) Yes")
+                        # print("2) No")
+
+                        # try:
+                        #     noBookImagesOption = int(input('Enter your choice: '))
+                        # except:
+                        #     print('Invalid choice. Please enter either 1 or 2.')
+                            
+                        # if noBookImagesOption == 1:
+
+                        #     noBookImages = False
+                        #     uploadImageForBookOption = 2
+
+                        # elif noBookImagesOption == 2:
+
+                        #     uploadImageForBookOption = 3
+                        #     exitBook = 0
+                        #     noBookImages = False
+                        #     deleteBranch()
+
+                        # else:
+
+                        #     print("Invalid choice. Please enter either 1 or 2.\n")
+
+                        print()
+                        print("There are no images currently in your Image directory, would you like to continue without an image?")
+                        if cutie.prompt_yes_or_no("Selecting NO will return you to the Main Menu"):
+
+                            noBookImages = False
+                            uploadImageForBookOption = 2
+
+                        else:
+
+                            uploadImageForBookOption = 3
+                            exitBook = 0
+                            noBookImages = False
+                            print("\nReturning to Main Menu\n")
+                            deleteBranch()
+                            print("\n-------------------------------------------------------------------------------\n")                    
+
+                if uploadImageForBookOption == 1:
+
+                    whichImageToUploadBook = True
+
+                    existingBookImages.insert(0, 'Which image would you like to upload?')
+
+                    while whichImageToUploadBook == True:
+
+                        existingBookImagesCaptions = [0]
+                        bImage = existingBookImages[cutie.select(existingBookImages, caption_indices = existingBookImagesCaptions, selected_index = 1)]
+
+                        print()
+
+                        if cutie.prompt_yes_or_no("You have selected " + bImage + ". Is this correct?"):
+
+                            os.chdir(eswatiniRepositoryImages)
+
+                            if os.path.isfile(bImage):
+
+                                print()
+                                print("An image by that name already exists.")
+                                print("Please rename your image before attempting to upload this Notebook again.")
+                                print("Returning to the Main Menu\n")
+                                deleteBranch()
+                                print("\n-------------------------------------------------------------------------------\n")
+
+                                whichImageToUploadBook = False
+                                uploadImageForBookOption = 3
+                                exitBook = 0
+
+                            else:
+
+                                os.chdir(jupyterImages)
+                                whichImageToUploadBook = False
+                                shutil.copy(bImage, eswatiniRepositoryImages)
+                                bookImage = 'Img/' + bImage
+                        
+                        else:
+
+                            print()
+
+                            if cutie.prompt_yes_or_no("Would you like to select a different Image?"):
+
+                                print()
+                                continue
+
+                            else:
+
+                                print()
+
+                                if cutie.prompt_yes_or_no("Would you like to continue without an Image?"):
+
+                                    uploadImageForBookOption = 2
+                                    whichImageToUploadBook = False
+                                
+                                else:
+
+                                    uploadImageForBookOption = 3
+                                    exitBook = 0
+                                    whichImageToUploadBook = False
+                                    print("\nReturning to Main Menu\n")
+                                    deleteBranch()
+                                    print("\n-------------------------------------------------------------------------------\n")
+                
+                if uploadImageForBookOption == 2:
+
+                    bookImage = ""
 
             if exitBook == 1: #Book did not already exist and the user wishes to upload it
 
@@ -1049,103 +1503,51 @@ while mainLoopConditional == True:
 
                     subjects.append(i)
 
-                print()
-                print('Which subject does this Jupyter Book belong in?\n')
+                print("\n-------------------------------------------------------------------------------\n")
 
                 #Picking which subject the Book belongs to
-
                 whichBookSubjectAnswer = True #True for staying in the loop, False for exiting the loop
+
+                subjects.insert(0, 'Which subject does this Jupyter Book belong in?')
 
                 while whichBookSubjectAnswer == True:
 
-                    for i in range(len(subjects)):
+                    # for i in range(len(subjects)):
 
-                        print(i+1, ')', subjects[i], sep=None)
+                    #     print(i+1, ')', subjects[i], sep=None)
                         
+                    # print()
+
+                    # try:
+                    #     whichBookSubjectOption = int(input('Enter your choice: '))
+                    # except:
+                    #     print('Wrong input. Please enter a number between 1 and ', len(subjects), '.', sep=None)
+                        
+                    # if whichBookSubjectOption > 0 and whichBookSubjectOption <= len(subjects):
+
+                    #     whichBookSubjectAnswer = False
+                    #     bookSubject = subjects[whichBookSubjectOption-1]
+                        
+                    # else:
+
+                    #     print("Invalid choice. Please enter a number between 1 and ", len(subjects), sep=None)
+                    #     print()
+                    #     print('Which subject does this Jupyter Book belong in?\n')
+
+                    subjectsCaptions = [0]
+                    bookSubject = subjects[cutie.select(subjects, caption_indices = subjectsCaptions, selected_index = 1)]
+
                     print()
 
-                    try:
-                        whichBookSubjectOption = int(input('Enter your choice: '))
-                    except:
-                        print('Wrong input. Please enter a number between 1 and ', len(subjects), '.', sep=None)
-                        
-                    if whichBookSubjectOption > 0 and whichBookSubjectOption <= len(subjects):
+                    if cutie.prompt_yes_or_no("You have selected " + bookSubject + ". Is this correct?"):
 
                         whichBookSubjectAnswer = False
-                        bookSubject = subjects[whichBookSubjectOption-1]
-                        
+                        print("\n-------------------------------------------------------------------------------")
+                    
                     else:
 
-                        print("Invalid choice. Please enter a number between 1 and ", len(subjects), sep=None)
                         print()
-                        print('Which subject does this Jupyter Book belong in?\n')
-
-                #Getting from the user which image the wish to upload, if any
-
-                uploadImageForBook = True #True for staying in the loop, False otherwise
-
-                while uploadImageForBook == True:
-                    
-                    print()
-                    print("Is there an image you would like to upload with this Book?")
-                    print("1) Yes")
-                    print("2) No")
-
-                    try:
-                        uploadImageForBookOption = int(input('Enter your choice: '))
-                    
-                    except:
-                        print('Wrong input. Please enter either 1 or 2')
-                    
-                    if uploadImageForBookOption == 1 or uploadImageForBookOption == 2:
-
-                        uploadImageForBook = False
-
-                    else:
-
-                        print("Invalid choice. Please enter either 1 or 2")
-                
-                os.chdir(jupyterImages)
-                existingBookImages = []
-
-                for x in os.listdir(): #Getting images from users image directory
-                    existingBookImages.append(x)
-                
-                if uploadImageForBookOption == 1:
-
-                    whichImageToUploadBook = True
-
-                    while whichImageToUploadBook == True:
-
-                        print('Which image would you like to upload?\n')
-
-                        for i in range(len(existingBookImages)):
-
-                            print(i+1, ')', existingBookImages[i], sep=None)
-
-                        print()
-
-                        try:
-                            whichImageToUploadBookOption = int(input('Enter you choice: '))
-                        
-                        except:
-                            print('Wrong input. Please enter a number between 1 and ', len(existingBookImages), '.', sep=None)
-                        
-                        if whichImageToUploadBookOption > 0 and whichImageToUploadBookOption <= len(existingBookImages):
-
-                            whichImageToUploadBook = False
-                            bImage = existingBookImages[whichImageToUploadBook - 1]
-                            shutil.copy(bImage, eswatiniRepositoryImages)
-                            bookImage = 'Img/' + bImage
-
-                        else:
-
-                            print('Invalid choice. Please enter a number between 1 and ', len(existingBookImages), sep=None)
-                            print()
-                
-                if uploadImageForBookOption == 2:
-
-                    bookImage = ""
+                        continue
 
                 os.chdir(eswatiniRepository)
 
@@ -1199,31 +1601,6 @@ while mainLoopConditional == True:
 
                 os.chdir(eswatiniRepository)
 
-                branchName = input("Enter a name for your pull requests branch: ")
-                branchName = branchName.replace(" ","")
-                branchName = branchName.replace("'", "")
-                branchName = branchName.replace("-", "")
-
-                #Stashing local changes
-                gitStash = subprocess.Popen(['git', 'stash'])
-                gitStash.communicate()
-
-                #Creating new branch for pull request
-                gitMakeNewBranch = subprocess.Popen(['git', 'branch', branchName])
-                gitMakeNewBranch.communicate()
-
-                #Updating local repository before commiting changes
-                gitUpdate= subprocess.Popen(['git', 'pull'])
-                gitUpdate.communicate()
-
-                #Applying stashed local changes
-                gitStashApply = subprocess.Popen(['git', 'stash', 'apply'])
-                gitStashApply.communicate()
-
-                #Checking out new branch for pull request
-                gitCheckOutNewBranch = subprocess.Popen(['git', 'checkout', branchName])
-                gitCheckOutNewBranch.communicate()
-
                 #Git adding all changes to be commited
                 gitAdd = subprocess.Popen(['git', 'add', '.'])
                 gitAdd.communicate()
@@ -1233,13 +1610,13 @@ while mainLoopConditional == True:
                 gitCommit.communicate()
 
                 print()
-                print("-----------------------------------------------------------------------------------------------------")
+                print("------------------------------------------------------------------------------------------------------------")
                 print("The program will now create a pull request to the Eswatini Repository")
-                print("Please select the first option 'University-of-Eswatini/Eswatini-Project'")
-                print("The program will then generate a title for your pull request with your username. Please press enter.")
-                print("If you then wish to add comments you can do so by pressing 'e'. Press enter to skip.")
-                print("Finally select the first option 'Submit' to submit your pull request.")
-                print("-----------------------------------------------------------------------------------------------------")
+                print("     1. Please select the first option 'University-of-Eswatini/Eswatini-Project'")
+                print("     2. The program will then generate a title for your pull request with your username. Please press enter.")
+                print("     3. If you then wish to add comments you can do so by pressing 'e'. Press enter to skip.")
+                print("     4. Finally select the first option 'Submit' to submit your pull request.")
+                print("------------------------------------------------------------------------------------------------------------")
                 print()
 
                 #Creating pull request for commited changes
@@ -1250,13 +1627,44 @@ while mainLoopConditional == True:
                 gitCheckOutMain = subprocess.Popen(['git', 'checkout', 'main'])
                 gitCheckOutMain.communicate()
 
-                #Deleting pull request branch to keep local repository up to date and prventing branch bloat
-                gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branchName])
-                gitDeleteBranch.communicate()
+                if ghPullRequest.returncode == 0: #Exit Code 0 on PR means successful PR completion
+
+                    #merging PR branch into main after PR
+                    gitMerge = subprocess.Popen(['git', 'merge', branchName])
+                    gitMerge.communicate()
+
+                    os.chdir(jupyterDirectory)
+
+                    configOb = ConfigParser()
+                    configOb.read('config.ini')
+
+                    #Don't need to remember branch name or book name as PR was successfull
+                    configOb.set('USERINFO', 'branch', '')
+                    configOb.set('USERINFO', 'book', '')
+
+                    with open('config.ini', 'w') as conf:
+                        configOb.write(conf)
+
+                    os.chdir(eswatiniRepository)
+
+                    #Deleting pull request branch to keep local repository up to date and prventing branch bloat
+                    gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branchName])
+                    gitDeleteBranch.communicate()
+                
+                else:
+
+                    deleteBranch()
+
+                updateRepository()
 
                 print()
-                print()
-        
+
+        #Returning to Main Menu
+
+        elif bookOrNotebookMenuOption == 3:
+
+            continue
+
         else:
             print('How did you get here?')
 
@@ -1273,70 +1681,76 @@ while mainLoopConditional == True:
             optionsMenuAnswer = True #True for staying in the loop, False for exiting the loop
 
             while optionsMenuAnswer == True:
-                print("-------------------------------------------------------------------------------\n")
-                print("Options Menu")
-                print("1) Update your Eswatini Repository (Git Pull)")
-                print("2) Update your GitHub credentials (Username / Email / Personal Access Token)")
-                print("3) Log out of GitHub")
-                print("4) Log into GitHub")
-                print("5) Exit to Main Menu")
+                print("\n-------------------------------------------------------------------------------\n")
+                
+                # print("Options Menu")
+                # print("1) Update your Eswatini Repository (Git Pull)")
+                # print("2) Update your GitHub credentials (Username / Email / Personal Access Token)")
+                # print("3) Log out of GitHub")
+                # print("4) Log into GitHub")
+                # print("5) Exit to Main Menu")
 
-                optionsMenuOption = ''
+                # optionsMenuOption = ''
 
-                try:
-                    optionsMenuOption = int(input('Enter your choice: '))
-                except:
-                    print('Invalid choice. Please enter a number between 1 and 5.')
+                # try:
+                #     optionsMenuOption = int(input('Enter your choice: '))
+                # except:
+                #     print('Invalid choice. Please enter a number between 1 and 5.')
+
+                optionsMenu = [
+                    "Options Menu",
+                    "Update your Eswatini Repository (Git Pull)",
+                    "Update your GitHub credentials (Username / Email / Personal Access Token)",
+                    "Log out of GitHub",
+                    "Log into GitHub",
+                    "Exit to Main Menu",
+                ]
+
+                optionsMenuCaptions = [0]
+                optionsMenuChoice = optionsMenu[cutie.select(optionsMenu, caption_indices = optionsMenuCaptions, selected_index = 1)]
 
                 #Update your Eswatini Repository (Git Pull)
-                if optionsMenuOption == 1:
-
+                if optionsMenuChoice == "Update your Eswatini Repository (Git Pull)":
+                        
                     print()
+                    optionsMenuOption = 1
                     optionsMenuAnswer = False
 
                 #Update your GitHub credentials (Username / Email / Personal Access Token)
-                elif optionsMenuOption == 2:
+                elif optionsMenuChoice == "Update your GitHub credentials (Username / Email / Personal Access Token)":
 
                     print()
+                    optionsMenuOption = 2
                     optionsMenuAnswer = False
 
                 #Log out of GitHub
-                elif optionsMenuOption == 3:
+                elif optionsMenuChoice == "Log out of GitHub":
 
                     print()
+                    optionsMenuOption = 3
                     optionsMenuAnswer = False
 
                 #Log into GitHub
-                elif optionsMenuOption == 4:
+                elif optionsMenuChoice == "Log into GitHub":
 
                     print()
+                    optionsMenuOption = 4
                     optionsMenuAnswer = False
                 
                 #Exit to Main Menu
-                elif optionsMenuOption == 5:
+                elif optionsMenuChoice == "Exit to Main Menu":
 
                     print()
+                    optionsMenuOption = 5
                     optionsMenuAnswer = False
 
                 else:
-                    print("Invalid choice. Please enter a number between 1 and 5.")
+                    print("Invalid choice.")
 
             #Update your Eswatini Repository (Git Pull)
             if optionsMenuOption == 1:
                 
                 updateRepository()
-
-                # os.chdir(jupyterDirectory)
-                # shutil.rmtree(eswatiniRepository)
-                # os.mkdir(eswatiniRepository)
-
-                # gitReclone = subprocess.Popen(['git', 'clone', 'https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository])
-                # gitReclone.communicate()
-
-                # gitPullUpdate = subprocess.Popen(['git', 'pull'])
-                # gitPullUpdate.communicate()
-
-                # os.chdir(owd)
 
             #Update your GitHub credentials (Username / Email / Personal Access Token)
             if optionsMenuOption == 2:
@@ -1418,7 +1832,8 @@ while mainLoopConditional == True:
             #Exit to Main Menu
             if optionsMenuOption == 5:
 
-                print("Exiting to Main Menu.\n")
+                print("Exiting to Main Menu.")
+                print("\n-------------------------------------------------------------------------------\n")
                 optionsMenuLoop = False
 
     ###########################################################################################################
@@ -1441,7 +1856,8 @@ while mainLoopConditional == True:
 
     elif mainMenuOption == 6:
 
-        print("Exiting...")
+        print("\n-------------------------------------------------------------------------------\n")
+        print("Exiting...\n\n-------------------------------------------------------------------------------\n")
         exit()
 
     ###########################################################################################################
