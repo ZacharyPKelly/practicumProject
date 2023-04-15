@@ -78,11 +78,11 @@ void checkModuleConstants_readchar$_win_key(void) {
 #endif
 
 // The module code objects.
-static PyCodeObject *codeobj_84e0ac70281c20c7220f4408375ac0a3;
+static PyCodeObject *codeobj_8bd779ceca1f101a1b05e374efe90b27;
 
 static void createModuleCodeObjects(void) {
-    module_filename_obj = MAKE_RELATIVE_PATH(mod_consts[62]); CHECK_OBJECT(module_filename_obj);
-    codeobj_84e0ac70281c20c7220f4408375ac0a3 = MAKE_CODE_OBJECT(module_filename_obj, 1, CO_NOFREE, mod_consts[63], mod_consts[63], NULL, NULL, 0, 0, 0);
+    module_filename_obj = mod_consts[1]; CHECK_OBJECT(module_filename_obj);
+    codeobj_8bd779ceca1f101a1b05e374efe90b27 = MAKE_CODE_OBJECT(module_filename_obj, 1, CO_NOFREE, mod_consts[63], mod_consts[63], NULL, NULL, 0, 0, 0);
 }
 
 // The module function declarations.
@@ -434,7 +434,7 @@ PyObject *modulecode_readchar$_win_key(PyObject *module, struct Nuitka_MetaPathB
 #endif
 
     // Temp variables if any
-    struct Nuitka_FrameObject *frame_84e0ac70281c20c7220f4408375ac0a3;
+    struct Nuitka_FrameObject *frame_8bd779ceca1f101a1b05e374efe90b27;
     NUITKA_MAY_BE_UNUSED char const *type_description_1 = NULL;
     bool tmp_result;
     PyObject *exception_type = NULL;
@@ -450,29 +450,29 @@ PyObject *modulecode_readchar$_win_key(PyObject *module, struct Nuitka_MetaPathB
     }
     {
         PyObject *tmp_assign_source_2;
-        tmp_assign_source_2 = module_filename_obj;
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[1], tmp_assign_source_2);
+        tmp_assign_source_2 = mod_consts[1];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[2], tmp_assign_source_2);
     }
-    frame_84e0ac70281c20c7220f4408375ac0a3 = MAKE_MODULE_FRAME(codeobj_84e0ac70281c20c7220f4408375ac0a3, module_readchar$_win_key);
+    frame_8bd779ceca1f101a1b05e374efe90b27 = MAKE_MODULE_FRAME(codeobj_8bd779ceca1f101a1b05e374efe90b27, module_readchar$_win_key);
 
     // Push the new frame as the currently active one, and we should be exclusively
     // owning it.
-    pushFrameStackCompiledFrame(frame_84e0ac70281c20c7220f4408375ac0a3);
-    assert(Py_REFCNT(frame_84e0ac70281c20c7220f4408375ac0a3) == 2);
+    pushFrameStackCompiledFrame(frame_8bd779ceca1f101a1b05e374efe90b27);
+    assert(Py_REFCNT(frame_8bd779ceca1f101a1b05e374efe90b27) == 2);
 
     // Framed code:
     {
         PyObject *tmp_assattr_value_1;
         PyObject *tmp_assattr_target_1;
-        tmp_assattr_value_1 = module_filename_obj;
-        tmp_assattr_target_1 = GET_STRING_DICT_VALUE(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[2]);
+        tmp_assattr_value_1 = mod_consts[1];
+        tmp_assattr_target_1 = GET_STRING_DICT_VALUE(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[3]);
 
         if (unlikely(tmp_assattr_target_1 == NULL)) {
-            tmp_assattr_target_1 = GET_MODULE_VARIABLE_VALUE_FALLBACK(mod_consts[2]);
+            tmp_assattr_target_1 = GET_MODULE_VARIABLE_VALUE_FALLBACK(mod_consts[3]);
         }
 
         assert(!(tmp_assattr_target_1 == NULL));
-        tmp_result = SET_ATTRIBUTE(tmp_assattr_target_1, mod_consts[3], tmp_assattr_value_1);
+        tmp_result = SET_ATTRIBUTE(tmp_assattr_target_1, mod_consts[4], tmp_assattr_value_1);
         if (tmp_result == false) {
             assert(ERROR_OCCURRED());
 
@@ -488,14 +488,14 @@ PyObject *modulecode_readchar$_win_key(PyObject *module, struct Nuitka_MetaPathB
         PyObject *tmp_assattr_value_2;
         PyObject *tmp_assattr_target_2;
         tmp_assattr_value_2 = Py_True;
-        tmp_assattr_target_2 = GET_STRING_DICT_VALUE(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[2]);
+        tmp_assattr_target_2 = GET_STRING_DICT_VALUE(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[3]);
 
         if (unlikely(tmp_assattr_target_2 == NULL)) {
-            tmp_assattr_target_2 = GET_MODULE_VARIABLE_VALUE_FALLBACK(mod_consts[2]);
+            tmp_assattr_target_2 = GET_MODULE_VARIABLE_VALUE_FALLBACK(mod_consts[3]);
         }
 
         assert(!(tmp_assattr_target_2 == NULL));
-        tmp_result = SET_ATTRIBUTE(tmp_assattr_target_2, mod_consts[4], tmp_assattr_value_2);
+        tmp_result = SET_ATTRIBUTE(tmp_assattr_target_2, mod_consts[5], tmp_assattr_value_2);
         if (tmp_result == false) {
             assert(ERROR_OCCURRED());
 
@@ -510,7 +510,7 @@ PyObject *modulecode_readchar$_win_key(PyObject *module, struct Nuitka_MetaPathB
     {
         PyObject *tmp_assign_source_3;
         tmp_assign_source_3 = Py_None;
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[5], tmp_assign_source_3);
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[6], tmp_assign_source_3);
     }
     {
         PyObject *tmp_star_imported_1;
@@ -519,12 +519,12 @@ PyObject *modulecode_readchar$_win_key(PyObject *module, struct Nuitka_MetaPathB
         PyObject *tmp_locals_arg_value_1;
         PyObject *tmp_fromlist_value_1;
         PyObject *tmp_level_value_1;
-        tmp_name_value_1 = mod_consts[6];
+        tmp_name_value_1 = mod_consts[7];
         tmp_globals_arg_value_1 = (PyObject *)moduledict_readchar$_win_key;
         tmp_locals_arg_value_1 = (PyObject *)moduledict_readchar$_win_key;
-        tmp_fromlist_value_1 = mod_consts[7];
-        tmp_level_value_1 = mod_consts[8];
-        frame_84e0ac70281c20c7220f4408375ac0a3->m_frame.f_lineno = 1;
+        tmp_fromlist_value_1 = mod_consts[8];
+        tmp_level_value_1 = mod_consts[9];
+        frame_8bd779ceca1f101a1b05e374efe90b27->m_frame.f_lineno = 1;
         tmp_star_imported_1 = IMPORT_MODULE5(tmp_name_value_1, tmp_globals_arg_value_1, tmp_locals_arg_value_1, tmp_fromlist_value_1, tmp_level_value_1);
         if (tmp_star_imported_1 == NULL) {
             assert(ERROR_OCCURRED());
@@ -551,135 +551,135 @@ PyObject *modulecode_readchar$_win_key(PyObject *module, struct Nuitka_MetaPathB
     }
     {
         PyObject *tmp_assign_source_4;
-        tmp_assign_source_4 = mod_consts[9];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[10], tmp_assign_source_4);
+        tmp_assign_source_4 = mod_consts[10];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[11], tmp_assign_source_4);
     }
     {
         PyObject *tmp_assign_source_5;
-        tmp_assign_source_5 = mod_consts[11];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[12], tmp_assign_source_5);
+        tmp_assign_source_5 = mod_consts[12];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[13], tmp_assign_source_5);
     }
     {
         PyObject *tmp_assign_source_6;
-        tmp_assign_source_6 = mod_consts[13];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[14], tmp_assign_source_6);
+        tmp_assign_source_6 = mod_consts[14];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[15], tmp_assign_source_6);
     }
     {
         PyObject *tmp_assign_source_7;
-        tmp_assign_source_7 = mod_consts[15];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[16], tmp_assign_source_7);
+        tmp_assign_source_7 = mod_consts[16];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[17], tmp_assign_source_7);
     }
     {
         PyObject *tmp_assign_source_8;
-        tmp_assign_source_8 = mod_consts[17];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[18], tmp_assign_source_8);
+        tmp_assign_source_8 = mod_consts[18];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[19], tmp_assign_source_8);
     }
     {
         PyObject *tmp_assign_source_9;
-        tmp_assign_source_9 = mod_consts[19];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[20], tmp_assign_source_9);
+        tmp_assign_source_9 = mod_consts[20];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[21], tmp_assign_source_9);
     }
     {
         PyObject *tmp_assign_source_10;
-        tmp_assign_source_10 = mod_consts[21];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[22], tmp_assign_source_10);
+        tmp_assign_source_10 = mod_consts[22];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[23], tmp_assign_source_10);
     }
     {
         PyObject *tmp_assign_source_11;
-        tmp_assign_source_11 = mod_consts[23];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[24], tmp_assign_source_11);
+        tmp_assign_source_11 = mod_consts[24];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[25], tmp_assign_source_11);
     }
     {
         PyObject *tmp_assign_source_12;
-        tmp_assign_source_12 = mod_consts[25];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[26], tmp_assign_source_12);
+        tmp_assign_source_12 = mod_consts[26];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[27], tmp_assign_source_12);
     }
     {
         PyObject *tmp_assign_source_13;
-        tmp_assign_source_13 = mod_consts[27];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[28], tmp_assign_source_13);
+        tmp_assign_source_13 = mod_consts[28];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[29], tmp_assign_source_13);
     }
     {
         PyObject *tmp_assign_source_14;
-        tmp_assign_source_14 = mod_consts[29];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[30], tmp_assign_source_14);
+        tmp_assign_source_14 = mod_consts[30];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[31], tmp_assign_source_14);
     }
     {
         PyObject *tmp_assign_source_15;
-        tmp_assign_source_15 = mod_consts[31];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[32], tmp_assign_source_15);
+        tmp_assign_source_15 = mod_consts[32];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[33], tmp_assign_source_15);
     }
     {
         PyObject *tmp_assign_source_16;
-        tmp_assign_source_16 = mod_consts[33];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[34], tmp_assign_source_16);
+        tmp_assign_source_16 = mod_consts[34];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[35], tmp_assign_source_16);
     }
     {
         PyObject *tmp_assign_source_17;
-        tmp_assign_source_17 = mod_consts[35];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[36], tmp_assign_source_17);
+        tmp_assign_source_17 = mod_consts[36];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[37], tmp_assign_source_17);
     }
     {
         PyObject *tmp_assign_source_18;
-        tmp_assign_source_18 = mod_consts[37];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[38], tmp_assign_source_18);
+        tmp_assign_source_18 = mod_consts[38];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[39], tmp_assign_source_18);
     }
     {
         PyObject *tmp_assign_source_19;
-        tmp_assign_source_19 = mod_consts[39];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[40], tmp_assign_source_19);
+        tmp_assign_source_19 = mod_consts[40];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[41], tmp_assign_source_19);
     }
     {
         PyObject *tmp_assign_source_20;
-        tmp_assign_source_20 = mod_consts[41];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[42], tmp_assign_source_20);
+        tmp_assign_source_20 = mod_consts[42];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[43], tmp_assign_source_20);
     }
     {
         PyObject *tmp_assign_source_21;
-        tmp_assign_source_21 = mod_consts[43];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[44], tmp_assign_source_21);
+        tmp_assign_source_21 = mod_consts[44];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[45], tmp_assign_source_21);
     }
     {
         PyObject *tmp_assign_source_22;
-        tmp_assign_source_22 = mod_consts[45];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[46], tmp_assign_source_22);
+        tmp_assign_source_22 = mod_consts[46];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[47], tmp_assign_source_22);
     }
     {
         PyObject *tmp_assign_source_23;
-        tmp_assign_source_23 = mod_consts[47];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[48], tmp_assign_source_23);
+        tmp_assign_source_23 = mod_consts[48];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[49], tmp_assign_source_23);
     }
     {
         PyObject *tmp_assign_source_24;
-        tmp_assign_source_24 = mod_consts[49];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[50], tmp_assign_source_24);
+        tmp_assign_source_24 = mod_consts[50];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[51], tmp_assign_source_24);
     }
     {
         PyObject *tmp_assign_source_25;
-        tmp_assign_source_25 = mod_consts[51];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[52], tmp_assign_source_25);
+        tmp_assign_source_25 = mod_consts[52];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[53], tmp_assign_source_25);
     }
     {
         PyObject *tmp_assign_source_26;
-        tmp_assign_source_26 = mod_consts[53];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[54], tmp_assign_source_26);
+        tmp_assign_source_26 = mod_consts[54];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[55], tmp_assign_source_26);
     }
     {
         PyObject *tmp_assign_source_27;
-        tmp_assign_source_27 = mod_consts[55];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[56], tmp_assign_source_27);
+        tmp_assign_source_27 = mod_consts[56];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[57], tmp_assign_source_27);
     }
     {
         PyObject *tmp_assign_source_28;
-        tmp_assign_source_28 = mod_consts[57];
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[58], tmp_assign_source_28);
+        tmp_assign_source_28 = mod_consts[58];
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[59], tmp_assign_source_28);
     }
     {
         PyObject *tmp_assign_source_29;
-        tmp_assign_source_29 = GET_STRING_DICT_VALUE(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[59]);
+        tmp_assign_source_29 = GET_STRING_DICT_VALUE(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[60]);
 
         if (unlikely(tmp_assign_source_29 == NULL)) {
-            tmp_assign_source_29 = GET_MODULE_VARIABLE_VALUE_FALLBACK(mod_consts[59]);
+            tmp_assign_source_29 = GET_MODULE_VARIABLE_VALUE_FALLBACK(mod_consts[60]);
         }
 
         if (tmp_assign_source_29 == NULL) {
@@ -692,7 +692,7 @@ PyObject *modulecode_readchar$_win_key(PyObject *module, struct Nuitka_MetaPathB
 
             goto frame_exception_exit_1;
         }
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[60], tmp_assign_source_29);
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[61], tmp_assign_source_29);
     }
 
 
@@ -704,14 +704,14 @@ PyObject *modulecode_readchar$_win_key(PyObject *module, struct Nuitka_MetaPathB
 
 
     if (exception_tb == NULL) {
-        exception_tb = MAKE_TRACEBACK(frame_84e0ac70281c20c7220f4408375ac0a3, exception_lineno);
-    } else if (exception_tb->tb_frame != &frame_84e0ac70281c20c7220f4408375ac0a3->m_frame) {
-        exception_tb = ADD_TRACEBACK(exception_tb, frame_84e0ac70281c20c7220f4408375ac0a3, exception_lineno);
+        exception_tb = MAKE_TRACEBACK(frame_8bd779ceca1f101a1b05e374efe90b27, exception_lineno);
+    } else if (exception_tb->tb_frame != &frame_8bd779ceca1f101a1b05e374efe90b27->m_frame) {
+        exception_tb = ADD_TRACEBACK(exception_tb, frame_8bd779ceca1f101a1b05e374efe90b27, exception_lineno);
     }
 
 
 
-    assertFrameObject(frame_84e0ac70281c20c7220f4408375ac0a3);
+    assertFrameObject(frame_8bd779ceca1f101a1b05e374efe90b27);
 
     // Put the previous frame back on top.
     popFrameStack();
@@ -721,14 +721,14 @@ PyObject *modulecode_readchar$_win_key(PyObject *module, struct Nuitka_MetaPathB
     frame_no_exception_1:;
     {
         PyObject *tmp_assign_source_30;
-        tmp_assign_source_30 = GET_STRING_DICT_VALUE(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[22]);
+        tmp_assign_source_30 = GET_STRING_DICT_VALUE(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[23]);
 
         if (unlikely(tmp_assign_source_30 == NULL)) {
-            tmp_assign_source_30 = GET_MODULE_VARIABLE_VALUE_FALLBACK(mod_consts[22]);
+            tmp_assign_source_30 = GET_MODULE_VARIABLE_VALUE_FALLBACK(mod_consts[23]);
         }
 
         assert(!(tmp_assign_source_30 == NULL));
-        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[61], tmp_assign_source_30);
+        UPDATE_STRING_DICT0(moduledict_readchar$_win_key, (Nuitka_StringObject *)mod_consts[62], tmp_assign_source_30);
     }
 
     // Report to PGO about leaving the module without error.
