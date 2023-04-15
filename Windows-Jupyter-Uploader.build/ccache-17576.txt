@@ -1,0 +1,1764 @@
+[2023-04-15T10:13:03.832128 16128] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:03.832128 16128] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) base_dir = 
+[2023-04-15T10:13:03.832128 16128] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:03.832128 16128] Config: (default) compiler = 
+[2023-04-15T10:13:03.832128 16128] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:03.832128 16128] Config: (default) compiler_type = auto
+[2023-04-15T10:13:03.832128 16128] Config: (default) compression = true
+[2023-04-15T10:13:03.832128 16128] Config: (default) compression_level = 0
+[2023-04-15T10:13:03.832128 16128] Config: (default) cpp_extension = 
+[2023-04-15T10:13:03.832128 16128] Config: (default) debug = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) debug_dir = 
+[2023-04-15T10:13:03.832128 16128] Config: (default) depend_mode = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) direct_mode = true
+[2023-04-15T10:13:03.832128 16128] Config: (default) disable = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:03.832128 16128] Config: (default) file_clone = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) hard_link = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) hash_dir = true
+[2023-04-15T10:13:03.832128 16128] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:03.832128 16128] Config: (default) ignore_options = 
+[2023-04-15T10:13:03.832128 16128] Config: (default) inode_cache = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:03.832128 16128] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:03.832128 16128] Config: (default) max_files = 0
+[2023-04-15T10:13:03.832128 16128] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:03.832128 16128] Config: (default) namespace = 
+[2023-04-15T10:13:03.832128 16128] Config: (default) path = 
+[2023-04-15T10:13:03.832128 16128] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) prefix_command = 
+[2023-04-15T10:13:03.832128 16128] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:03.832128 16128] Config: (default) read_only = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) read_only_direct = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) recache = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) reshare = false
+[2023-04-15T10:13:03.832128 16128] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:03.832128 16128] Config: (default) secondary_storage = 
+[2023-04-15T10:13:03.832128 16128] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:03.832128 16128] Config: (default) stats = true
+[2023-04-15T10:13:03.832128 16128] Config: (default) stats_log = 
+[2023-04-15T10:13:03.832128 16128] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:03.832128 16128] Config: (default) umask = 
+[2023-04-15T10:13:03.832128 16128] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o __constants.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src __constants.c
+[2023-04-15T10:13:03.832128 16128] Hostname: Zacks-Computer
+[2023-04-15T10:13:03.832128 16128] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:03.832128 16128] Compiler type: gcc
+[2023-04-15T10:13:03.832128 16128] Source file: __constants.c
+[2023-04-15T10:13:03.832128 16128] Object file: __constants.o
+[2023-04-15T10:13:03.832128 16128] Trying direct lookup
+[2023-04-15T10:13:03.832128 16128] No 99b67ti14c2ta2ogm43vouojfm8i7rlc2 in primary storage
+[2023-04-15T10:13:03.832128 16128] Running preprocessor
+[2023-04-15T10:13:03.847752 10408] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:03.847752 10408] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) base_dir = 
+[2023-04-15T10:13:03.847752 10408] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:03.847752 10408] Config: (default) compiler = 
+[2023-04-15T10:13:03.847752 10408] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:03.847752 10408] Config: (default) compiler_type = auto
+[2023-04-15T10:13:03.847752 10408] Config: (default) compression = true
+[2023-04-15T10:13:03.847752 10408] Config: (default) compression_level = 0
+[2023-04-15T10:13:03.847752 10408] Config: (default) cpp_extension = 
+[2023-04-15T10:13:03.847752 10408] Config: (default) debug = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) debug_dir = 
+[2023-04-15T10:13:03.847752 10408] Config: (default) depend_mode = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) direct_mode = true
+[2023-04-15T10:13:03.847752 10408] Config: (default) disable = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:03.847752 10408] Config: (default) file_clone = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) hard_link = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) hash_dir = true
+[2023-04-15T10:13:03.847752 10408] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:03.847752 10408] Config: (default) ignore_options = 
+[2023-04-15T10:13:03.847752 10408] Config: (default) inode_cache = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:03.847752 10408] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:03.847752 10408] Config: (default) max_files = 0
+[2023-04-15T10:13:03.847752 10408] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:03.847752 10408] Config: (default) namespace = 
+[2023-04-15T10:13:03.847752 10408] Config: (default) path = 
+[2023-04-15T10:13:03.847752 10408] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) prefix_command = 
+[2023-04-15T10:13:03.847752 10408] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:03.847752 10408] Config: (default) read_only = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) read_only_direct = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) recache = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) reshare = false
+[2023-04-15T10:13:03.847752 10408] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:03.847752 10408] Config: (default) secondary_storage = 
+[2023-04-15T10:13:03.847752 10408] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:03.847752 10408] Config: (default) stats = true
+[2023-04-15T10:13:03.847752 10408] Config: (default) stats_log = 
+[2023-04-15T10:13:03.847752 10408] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:03.847752 10408] Config: (default) umask = 
+[2023-04-15T10:13:03.847752 10408] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o __helpers.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src __helpers.c
+[2023-04-15T10:13:03.847752 10408] Hostname: Zacks-Computer
+[2023-04-15T10:13:03.847752 10408] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:03.847752 10408] Compiler type: gcc
+[2023-04-15T10:13:03.847752 10408] Source file: __helpers.c
+[2023-04-15T10:13:03.847752 10408] Object file: __helpers.o
+[2023-04-15T10:13:03.847752 10408] Trying direct lookup
+[2023-04-15T10:13:03.847752 10408] No 99a49ph5keardg0kgba852b7ft7cj7dl8 in primary storage
+[2023-04-15T10:13:03.847752 10408] Running preprocessor
+[2023-04-15T10:13:03.847752 12860] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:03.847752 12860] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) base_dir = 
+[2023-04-15T10:13:03.847752 12860] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:03.847752 12860] Config: (default) compiler = 
+[2023-04-15T10:13:03.847752 12860] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:03.847752 12860] Config: (default) compiler_type = auto
+[2023-04-15T10:13:03.847752 12860] Config: (default) compression = true
+[2023-04-15T10:13:03.847752 12860] Config: (default) compression_level = 0
+[2023-04-15T10:13:03.847752 12860] Config: (default) cpp_extension = 
+[2023-04-15T10:13:03.847752 12860] Config: (default) debug = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) debug_dir = 
+[2023-04-15T10:13:03.847752 12860] Config: (default) depend_mode = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) direct_mode = true
+[2023-04-15T10:13:03.847752 12860] Config: (default) disable = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:03.847752 12860] Config: (default) file_clone = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) hard_link = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) hash_dir = true
+[2023-04-15T10:13:03.847752 12860] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:03.847752 12860] Config: (default) ignore_options = 
+[2023-04-15T10:13:03.847752 12860] Config: (default) inode_cache = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:03.847752 12860] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:03.847752 12860] Config: (default) max_files = 0
+[2023-04-15T10:13:03.847752 12860] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:03.847752 12860] Config: (default) namespace = 
+[2023-04-15T10:13:03.847752 12860] Config: (default) path = 
+[2023-04-15T10:13:03.847752 12860] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) prefix_command = 
+[2023-04-15T10:13:03.847752 12860] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:03.847752 12860] Config: (default) read_only = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) read_only_direct = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) recache = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) reshare = false
+[2023-04-15T10:13:03.847752 12860] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:03.847752 12860] Config: (default) secondary_storage = 
+[2023-04-15T10:13:03.847752 12860] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:03.847752 12860] Config: (default) stats = true
+[2023-04-15T10:13:03.847752 12860] Config: (default) stats_log = 
+[2023-04-15T10:13:03.847752 12860] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:03.847752 12860] Config: (default) umask = 
+[2023-04-15T10:13:03.847752 12860] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o __loader.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src __loader.c
+[2023-04-15T10:13:03.863373 12860] Hostname: Zacks-Computer
+[2023-04-15T10:13:03.863373 12860] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:03.863373 12860] Compiler type: gcc
+[2023-04-15T10:13:03.863373 12860] Source file: __loader.c
+[2023-04-15T10:13:03.863373 12860] Object file: __loader.o
+[2023-04-15T10:13:03.863373 12860] Trying direct lookup
+[2023-04-15T10:13:03.863373 12860] No c5c9a9qca99fqo2lo42bukmoib0fj25b6 in primary storage
+[2023-04-15T10:13:03.863373 12860] Running preprocessor
+[2023-04-15T10:13:03.878995 15624] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:03.878995 15624] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) base_dir = 
+[2023-04-15T10:13:03.878995 15624] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:03.878995 15624] Config: (default) compiler = 
+[2023-04-15T10:13:03.878995 15624] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:03.878995 15624] Config: (default) compiler_type = auto
+[2023-04-15T10:13:03.878995 15624] Config: (default) compression = true
+[2023-04-15T10:13:03.878995 15624] Config: (default) compression_level = 0
+[2023-04-15T10:13:03.878995 15624] Config: (default) cpp_extension = 
+[2023-04-15T10:13:03.878995 15624] Config: (default) debug = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) debug_dir = 
+[2023-04-15T10:13:03.878995 15624] Config: (default) depend_mode = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) direct_mode = true
+[2023-04-15T10:13:03.878995 15624] Config: (default) disable = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:03.878995 15624] Config: (default) file_clone = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) hard_link = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) hash_dir = true
+[2023-04-15T10:13:03.878995 15624] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:03.878995 15624] Config: (default) ignore_options = 
+[2023-04-15T10:13:03.878995 15624] Config: (default) inode_cache = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:03.878995 15624] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:03.878995 15624] Config: (default) max_files = 0
+[2023-04-15T10:13:03.878995 15624] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:03.878995 15624] Config: (default) namespace = 
+[2023-04-15T10:13:03.878995 15624] Config: (default) path = 
+[2023-04-15T10:13:03.878995 15624] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) prefix_command = 
+[2023-04-15T10:13:03.878995 15624] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:03.878995 15624] Config: (default) read_only = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) read_only_direct = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) recache = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) reshare = false
+[2023-04-15T10:13:03.878995 15624] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:03.878995 15624] Config: (default) secondary_storage = 
+[2023-04-15T10:13:03.878995 15624] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:03.878995 15624] Config: (default) stats = true
+[2023-04-15T10:13:03.878995 15624] Config: (default) stats_log = 
+[2023-04-15T10:13:03.878995 15624] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:03.878995 15624] Config: (default) umask = 
+[2023-04-15T10:13:03.878995 15624] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.__main__.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.__main__.c
+[2023-04-15T10:13:03.878995 15624] Hostname: Zacks-Computer
+[2023-04-15T10:13:03.878995 15624] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:03.878995 15624] Compiler type: gcc
+[2023-04-15T10:13:03.878995 15624] Source file: module.__main__.c
+[2023-04-15T10:13:03.878995 15624] Object file: module.__main__.o
+[2023-04-15T10:13:03.878995 15624] Trying direct lookup
+[2023-04-15T10:13:03.878995 15624] No a367lngqfjli938dik209s4jlodhskaim in primary storage
+[2023-04-15T10:13:03.894616 15624] Running preprocessor
+[2023-04-15T10:13:03.910238 4884 ] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) base_dir = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) compiler = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) compiler_type = auto
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) compression = true
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) compression_level = 0
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) cpp_extension = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) debug = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) debug_dir = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) depend_mode = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) direct_mode = true
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) disable = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) file_clone = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) hard_link = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) hash_dir = true
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) ignore_options = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) inode_cache = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:03.910238 4884 ] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) max_files = 0
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) namespace = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) path = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) prefix_command = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) read_only = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) read_only_direct = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) recache = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) reshare = false
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) secondary_storage = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) stats = true
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) stats_log = 
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:03.910238 4884 ] Config: (default) umask = 
+[2023-04-15T10:13:03.910238 4884 ] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.__parents_main__.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.__parents_main__.c
+[2023-04-15T10:13:03.910238 4884 ] Hostname: Zacks-Computer
+[2023-04-15T10:13:03.910238 4884 ] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:03.910238 4884 ] Compiler type: gcc
+[2023-04-15T10:13:03.910238 4884 ] Source file: module.__parents_main__.c
+[2023-04-15T10:13:03.910238 4884 ] Object file: module.__parents_main__.o
+[2023-04-15T10:13:03.910238 4884 ] Trying direct lookup
+[2023-04-15T10:13:03.910238 4884 ] No 4238r8kglhf5bvdq736cns7mcohoud6gu in primary storage
+[2023-04-15T10:13:03.910238 4884 ] Running preprocessor
+[2023-04-15T10:13:03.926364 2512 ] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) base_dir = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) compiler = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) compiler_type = auto
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) compression = true
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) compression_level = 0
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) cpp_extension = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) debug = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) debug_dir = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) depend_mode = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) direct_mode = true
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) disable = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) file_clone = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) hard_link = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) hash_dir = true
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) ignore_options = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) inode_cache = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:03.926364 2512 ] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) max_files = 0
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) namespace = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) path = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) prefix_command = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) read_only = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) read_only_direct = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) recache = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) reshare = false
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) secondary_storage = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) stats = true
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) stats_log = 
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:03.926364 2512 ] Config: (default) umask = 
+[2023-04-15T10:13:03.926364 2512 ] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.colorama.ansi.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.colorama.ansi.c
+[2023-04-15T10:13:03.926364 2512 ] Hostname: Zacks-Computer
+[2023-04-15T10:13:03.926364 2512 ] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:03.926364 2512 ] Compiler type: gcc
+[2023-04-15T10:13:03.926364 2512 ] Source file: module.colorama.ansi.c
+[2023-04-15T10:13:03.926364 2512 ] Object file: module.colorama.ansi.o
+[2023-04-15T10:13:03.926364 2512 ] Trying direct lookup
+[2023-04-15T10:13:03.926364 2512 ] No 8fde7nhm3qmj157fo66ro54lgql9qk1r4 in primary storage
+[2023-04-15T10:13:03.926364 2512 ] Running preprocessor
+[2023-04-15T10:13:03.941870 10644] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:03.941870 10644] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) base_dir = 
+[2023-04-15T10:13:03.941870 10644] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:03.941870 10644] Config: (default) compiler = 
+[2023-04-15T10:13:03.941870 10644] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:03.941870 10644] Config: (default) compiler_type = auto
+[2023-04-15T10:13:03.941870 10644] Config: (default) compression = true
+[2023-04-15T10:13:03.941870 10644] Config: (default) compression_level = 0
+[2023-04-15T10:13:03.941870 10644] Config: (default) cpp_extension = 
+[2023-04-15T10:13:03.941870 10644] Config: (default) debug = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) debug_dir = 
+[2023-04-15T10:13:03.941870 10644] Config: (default) depend_mode = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) direct_mode = true
+[2023-04-15T10:13:03.941870 10644] Config: (default) disable = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:03.941870 10644] Config: (default) file_clone = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) hard_link = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) hash_dir = true
+[2023-04-15T10:13:03.941870 10644] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:03.941870 10644] Config: (default) ignore_options = 
+[2023-04-15T10:13:03.941870 10644] Config: (default) inode_cache = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:03.941870 10644] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:03.941870 10644] Config: (default) max_files = 0
+[2023-04-15T10:13:03.941870 10644] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:03.941870 10644] Config: (default) namespace = 
+[2023-04-15T10:13:03.941870 10644] Config: (default) path = 
+[2023-04-15T10:13:03.941870 10644] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) prefix_command = 
+[2023-04-15T10:13:03.941870 10644] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:03.941870 10644] Config: (default) read_only = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) read_only_direct = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) recache = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) reshare = false
+[2023-04-15T10:13:03.941870 10644] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:03.941870 10644] Config: (default) secondary_storage = 
+[2023-04-15T10:13:03.941870 10644] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:03.941870 10644] Config: (default) stats = true
+[2023-04-15T10:13:03.941870 10644] Config: (default) stats_log = 
+[2023-04-15T10:13:03.941870 10644] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:03.941870 10644] Config: (default) umask = 
+[2023-04-15T10:13:03.941870 10644] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.colorama.ansitowin32.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.colorama.ansitowin32.c
+[2023-04-15T10:13:03.941870 10644] Hostname: Zacks-Computer
+[2023-04-15T10:13:03.941870 10644] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:03.941870 10644] Compiler type: gcc
+[2023-04-15T10:13:03.941870 10644] Source file: module.colorama.ansitowin32.c
+[2023-04-15T10:13:03.941870 10644] Object file: module.colorama.ansitowin32.o
+[2023-04-15T10:13:03.941870 10644] Trying direct lookup
+[2023-04-15T10:13:03.941870 10644] No 59724nc9vjvbrb7ds3slhtrs62k188unq in primary storage
+[2023-04-15T10:13:03.941870 10644] Running preprocessor
+[2023-04-15T10:13:03.957497 12156] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:03.957497 12156] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) base_dir = 
+[2023-04-15T10:13:03.957497 12156] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:03.957497 12156] Config: (default) compiler = 
+[2023-04-15T10:13:03.957497 12156] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:03.957497 12156] Config: (default) compiler_type = auto
+[2023-04-15T10:13:03.957497 12156] Config: (default) compression = true
+[2023-04-15T10:13:03.957497 12156] Config: (default) compression_level = 0
+[2023-04-15T10:13:03.957497 12156] Config: (default) cpp_extension = 
+[2023-04-15T10:13:03.957497 12156] Config: (default) debug = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) debug_dir = 
+[2023-04-15T10:13:03.957497 12156] Config: (default) depend_mode = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) direct_mode = true
+[2023-04-15T10:13:03.957497 12156] Config: (default) disable = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:03.957497 12156] Config: (default) file_clone = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) hard_link = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) hash_dir = true
+[2023-04-15T10:13:03.957497 12156] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:03.957497 12156] Config: (default) ignore_options = 
+[2023-04-15T10:13:03.957497 12156] Config: (default) inode_cache = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:03.957497 12156] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:03.957497 12156] Config: (default) max_files = 0
+[2023-04-15T10:13:03.957497 12156] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:03.957497 12156] Config: (default) namespace = 
+[2023-04-15T10:13:03.957497 12156] Config: (default) path = 
+[2023-04-15T10:13:03.957497 12156] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) prefix_command = 
+[2023-04-15T10:13:03.957497 12156] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:03.957497 12156] Config: (default) read_only = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) read_only_direct = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) recache = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) reshare = false
+[2023-04-15T10:13:03.957497 12156] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:03.957497 12156] Config: (default) secondary_storage = 
+[2023-04-15T10:13:03.957497 12156] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:03.957497 12156] Config: (default) stats = true
+[2023-04-15T10:13:03.957497 12156] Config: (default) stats_log = 
+[2023-04-15T10:13:03.957497 12156] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:03.957497 12156] Config: (default) umask = 
+[2023-04-15T10:13:03.957497 12156] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.colorama.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.colorama.c
+[2023-04-15T10:13:03.957497 12156] Hostname: Zacks-Computer
+[2023-04-15T10:13:03.957497 12156] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:03.957497 12156] Compiler type: gcc
+[2023-04-15T10:13:03.957497 12156] Source file: module.colorama.c
+[2023-04-15T10:13:03.957497 12156] Object file: module.colorama.o
+[2023-04-15T10:13:03.957497 12156] Trying direct lookup
+[2023-04-15T10:13:03.957497 12860] Got result key from preprocessor
+[2023-04-15T10:13:03.957497 12860] No f5932f3ku7mjlfroanmunfrge2083lk7i in primary storage
+[2023-04-15T10:13:03.957497 12860] Running real compiler
+[2023-04-15T10:13:03.957497 12156] No a0c9salef032k157lthb0rf9evn241oj4 in primary storage
+[2023-04-15T10:13:03.957497 12156] Running preprocessor
+[2023-04-15T10:13:03.973117 19308] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:03.973117 19308] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) base_dir = 
+[2023-04-15T10:13:03.973117 19308] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:03.973117 19308] Config: (default) compiler = 
+[2023-04-15T10:13:03.973117 19308] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:03.973117 19308] Config: (default) compiler_type = auto
+[2023-04-15T10:13:03.973117 19308] Config: (default) compression = true
+[2023-04-15T10:13:03.973117 19308] Config: (default) compression_level = 0
+[2023-04-15T10:13:03.973117 19308] Config: (default) cpp_extension = 
+[2023-04-15T10:13:03.973117 19308] Config: (default) debug = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) debug_dir = 
+[2023-04-15T10:13:03.973117 19308] Config: (default) depend_mode = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) direct_mode = true
+[2023-04-15T10:13:03.973117 19308] Config: (default) disable = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:03.973117 19308] Config: (default) file_clone = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) hard_link = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) hash_dir = true
+[2023-04-15T10:13:03.973117 19308] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:03.973117 19308] Config: (default) ignore_options = 
+[2023-04-15T10:13:03.973117 19308] Config: (default) inode_cache = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:03.973117 19308] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:03.973117 19308] Config: (default) max_files = 0
+[2023-04-15T10:13:03.973117 19308] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:03.973117 19308] Config: (default) namespace = 
+[2023-04-15T10:13:03.973117 19308] Config: (default) path = 
+[2023-04-15T10:13:03.973117 19308] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) prefix_command = 
+[2023-04-15T10:13:03.973117 19308] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:03.973117 19308] Config: (default) read_only = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) read_only_direct = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) recache = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) reshare = false
+[2023-04-15T10:13:03.973117 19308] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:03.973117 19308] Config: (default) secondary_storage = 
+[2023-04-15T10:13:03.973117 19308] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:03.973117 19308] Config: (default) stats = true
+[2023-04-15T10:13:03.973117 19308] Config: (default) stats_log = 
+[2023-04-15T10:13:03.973117 19308] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:03.973117 19308] Config: (default) umask = 
+[2023-04-15T10:13:03.973117 19308] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.colorama.initialise.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.colorama.initialise.c
+[2023-04-15T10:13:03.973117 19308] Hostname: Zacks-Computer
+[2023-04-15T10:13:03.973117 19308] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:03.973117 19308] Compiler type: gcc
+[2023-04-15T10:13:03.973117 19308] Source file: module.colorama.initialise.c
+[2023-04-15T10:13:03.973117 19308] Object file: module.colorama.initialise.o
+[2023-04-15T10:13:03.973117 19308] Trying direct lookup
+[2023-04-15T10:13:03.973117 19308] No 876ca4vmuraaa3ipf32g8tnoj21bee0re in primary storage
+[2023-04-15T10:13:03.973117 19308] Running preprocessor
+[2023-04-15T10:13:03.988741 7188 ] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) base_dir = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) compiler = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) compiler_type = auto
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) compression = true
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) compression_level = 0
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) cpp_extension = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) debug = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) debug_dir = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) depend_mode = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) direct_mode = true
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) disable = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) file_clone = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) hard_link = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) hash_dir = true
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) ignore_options = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) inode_cache = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:03.988741 7188 ] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) max_files = 0
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) namespace = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) path = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) prefix_command = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) read_only = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) read_only_direct = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) recache = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) reshare = false
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) secondary_storage = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) stats = true
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) stats_log = 
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:03.988741 7188 ] Config: (default) umask = 
+[2023-04-15T10:13:03.988741 7188 ] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.colorama.win32.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.colorama.win32.c
+[2023-04-15T10:13:03.988741 7188 ] Hostname: Zacks-Computer
+[2023-04-15T10:13:03.988741 7188 ] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:03.988741 7188 ] Compiler type: gcc
+[2023-04-15T10:13:03.988741 7188 ] Source file: module.colorama.win32.c
+[2023-04-15T10:13:03.988741 7188 ] Object file: module.colorama.win32.o
+[2023-04-15T10:13:03.988741 7188 ] Trying direct lookup
+[2023-04-15T10:13:03.988741 7188 ] No e946200dnip8obj2heqedao4b46fpg5j4 in primary storage
+[2023-04-15T10:13:03.988741 7188 ] Running preprocessor
+[2023-04-15T10:13:04.004360 18356] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:04.004360 18356] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) base_dir = 
+[2023-04-15T10:13:04.004360 18356] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:04.004360 18356] Config: (default) compiler = 
+[2023-04-15T10:13:04.004360 18356] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:04.004360 18356] Config: (default) compiler_type = auto
+[2023-04-15T10:13:04.004360 18356] Config: (default) compression = true
+[2023-04-15T10:13:04.004360 18356] Config: (default) compression_level = 0
+[2023-04-15T10:13:04.004360 18356] Config: (default) cpp_extension = 
+[2023-04-15T10:13:04.004360 18356] Config: (default) debug = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) debug_dir = 
+[2023-04-15T10:13:04.004360 18356] Config: (default) depend_mode = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) direct_mode = true
+[2023-04-15T10:13:04.004360 18356] Config: (default) disable = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:04.004360 18356] Config: (default) file_clone = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) hard_link = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) hash_dir = true
+[2023-04-15T10:13:04.004360 18356] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:04.004360 18356] Config: (default) ignore_options = 
+[2023-04-15T10:13:04.004360 18356] Config: (default) inode_cache = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:04.004360 18356] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:04.004360 18356] Config: (default) max_files = 0
+[2023-04-15T10:13:04.004360 18356] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:04.004360 18356] Config: (default) namespace = 
+[2023-04-15T10:13:04.004360 18356] Config: (default) path = 
+[2023-04-15T10:13:04.004360 18356] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) prefix_command = 
+[2023-04-15T10:13:04.004360 18356] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:04.004360 18356] Config: (default) read_only = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) read_only_direct = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) recache = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) reshare = false
+[2023-04-15T10:13:04.004360 18356] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:04.004360 18356] Config: (default) secondary_storage = 
+[2023-04-15T10:13:04.004360 18356] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:04.004360 18356] Config: (default) stats = true
+[2023-04-15T10:13:04.004360 18356] Config: (default) stats_log = 
+[2023-04-15T10:13:04.004360 18356] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:04.004360 18356] Config: (default) umask = 
+[2023-04-15T10:13:04.004360 18356] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.colorama.winterm.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.colorama.winterm.c
+[2023-04-15T10:13:04.004360 18356] Hostname: Zacks-Computer
+[2023-04-15T10:13:04.004360 18356] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:04.004360 18356] Compiler type: gcc
+[2023-04-15T10:13:04.004360 18356] Source file: module.colorama.winterm.c
+[2023-04-15T10:13:04.004360 18356] Object file: module.colorama.winterm.o
+[2023-04-15T10:13:04.004360 18356] Trying direct lookup
+[2023-04-15T10:13:04.004360 18356] No f9c39goiejsngotrge9jl4pf5il0tgl7k in primary storage
+[2023-04-15T10:13:04.019983 18356] Running preprocessor
+[2023-04-15T10:13:04.035996 15412] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:04.035996 15412] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) base_dir = 
+[2023-04-15T10:13:04.035996 15412] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:04.035996 15412] Config: (default) compiler = 
+[2023-04-15T10:13:04.035996 15412] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:04.035996 15412] Config: (default) compiler_type = auto
+[2023-04-15T10:13:04.035996 15412] Config: (default) compression = true
+[2023-04-15T10:13:04.035996 15412] Config: (default) compression_level = 0
+[2023-04-15T10:13:04.035996 15412] Config: (default) cpp_extension = 
+[2023-04-15T10:13:04.035996 15412] Config: (default) debug = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) debug_dir = 
+[2023-04-15T10:13:04.035996 15412] Config: (default) depend_mode = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) direct_mode = true
+[2023-04-15T10:13:04.035996 15412] Config: (default) disable = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:04.035996 15412] Config: (default) file_clone = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) hard_link = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) hash_dir = true
+[2023-04-15T10:13:04.035996 15412] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:04.035996 15412] Config: (default) ignore_options = 
+[2023-04-15T10:13:04.035996 15412] Config: (default) inode_cache = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:04.035996 15412] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:04.035996 15412] Config: (default) max_files = 0
+[2023-04-15T10:13:04.035996 15412] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:04.035996 15412] Config: (default) namespace = 
+[2023-04-15T10:13:04.035996 15412] Config: (default) path = 
+[2023-04-15T10:13:04.035996 15412] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) prefix_command = 
+[2023-04-15T10:13:04.035996 15412] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:04.035996 15412] Config: (default) read_only = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) read_only_direct = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) recache = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) reshare = false
+[2023-04-15T10:13:04.035996 15412] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:04.035996 15412] Config: (default) secondary_storage = 
+[2023-04-15T10:13:04.035996 15412] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:04.035996 15412] Config: (default) stats = true
+[2023-04-15T10:13:04.035996 15412] Config: (default) stats_log = 
+[2023-04-15T10:13:04.035996 15412] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:04.035996 15412] Config: (default) umask = 
+[2023-04-15T10:13:04.035996 15412] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.cutie.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.cutie.c
+[2023-04-15T10:13:04.035996 15412] Hostname: Zacks-Computer
+[2023-04-15T10:13:04.035996 15412] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:04.035996 15412] Compiler type: gcc
+[2023-04-15T10:13:04.035996 15412] Source file: module.cutie.c
+[2023-04-15T10:13:04.035996 15412] Object file: module.cutie.o
+[2023-04-15T10:13:04.035996 15412] Trying direct lookup
+[2023-04-15T10:13:04.035996 15412] No 4c47j5q6pmvfdjtaq9dkblfhefqh7pl9i in primary storage
+[2023-04-15T10:13:04.035996 15412] Running preprocessor
+[2023-04-15T10:13:04.051622 18568] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:04.051622 18568] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) base_dir = 
+[2023-04-15T10:13:04.051622 18568] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:04.051622 18568] Config: (default) compiler = 
+[2023-04-15T10:13:04.051622 18568] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:04.051622 18568] Config: (default) compiler_type = auto
+[2023-04-15T10:13:04.051622 18568] Config: (default) compression = true
+[2023-04-15T10:13:04.051622 18568] Config: (default) compression_level = 0
+[2023-04-15T10:13:04.051622 18568] Config: (default) cpp_extension = 
+[2023-04-15T10:13:04.051622 18568] Config: (default) debug = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) debug_dir = 
+[2023-04-15T10:13:04.051622 18568] Config: (default) depend_mode = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) direct_mode = true
+[2023-04-15T10:13:04.051622 18568] Config: (default) disable = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:04.051622 18568] Config: (default) file_clone = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) hard_link = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) hash_dir = true
+[2023-04-15T10:13:04.051622 18568] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:04.051622 18568] Config: (default) ignore_options = 
+[2023-04-15T10:13:04.051622 18568] Config: (default) inode_cache = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:04.051622 18568] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:04.051622 18568] Config: (default) max_files = 0
+[2023-04-15T10:13:04.051622 18568] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:04.051622 18568] Config: (default) namespace = 
+[2023-04-15T10:13:04.051622 18568] Config: (default) path = 
+[2023-04-15T10:13:04.051622 18568] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) prefix_command = 
+[2023-04-15T10:13:04.051622 18568] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:04.051622 18568] Config: (default) read_only = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) read_only_direct = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) recache = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) reshare = false
+[2023-04-15T10:13:04.051622 18568] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:04.051622 18568] Config: (default) secondary_storage = 
+[2023-04-15T10:13:04.051622 18568] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:04.051622 18568] Config: (default) stats = true
+[2023-04-15T10:13:04.051622 18568] Config: (default) stats_log = 
+[2023-04-15T10:13:04.051622 18568] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:04.051622 18568] Config: (default) umask = 
+[2023-04-15T10:13:04.051622 18568] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.multiprocessing-postLoad.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.multiprocessing-postLoad.c
+[2023-04-15T10:13:04.051622 18568] Hostname: Zacks-Computer
+[2023-04-15T10:13:04.051622 18568] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:04.051622 18568] Compiler type: gcc
+[2023-04-15T10:13:04.051622 18568] Source file: module.multiprocessing-postLoad.c
+[2023-04-15T10:13:04.051622 18568] Object file: module.multiprocessing-postLoad.o
+[2023-04-15T10:13:04.051622 18568] Trying direct lookup
+[2023-04-15T10:13:04.051622 18568] No fc1advo4o5v98ib3rdpm1gj463o69n794 in primary storage
+[2023-04-15T10:13:04.051622 18568] Running preprocessor
+[2023-04-15T10:13:04.067244 16936] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:04.067244 16936] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) base_dir = 
+[2023-04-15T10:13:04.067244 16936] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:04.067244 16936] Config: (default) compiler = 
+[2023-04-15T10:13:04.067244 16936] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:04.067244 16936] Config: (default) compiler_type = auto
+[2023-04-15T10:13:04.067244 16936] Config: (default) compression = true
+[2023-04-15T10:13:04.067244 16936] Config: (default) compression_level = 0
+[2023-04-15T10:13:04.067244 16936] Config: (default) cpp_extension = 
+[2023-04-15T10:13:04.067244 16936] Config: (default) debug = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) debug_dir = 
+[2023-04-15T10:13:04.067244 16936] Config: (default) depend_mode = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) direct_mode = true
+[2023-04-15T10:13:04.067244 16936] Config: (default) disable = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:04.067244 16936] Config: (default) file_clone = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) hard_link = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) hash_dir = true
+[2023-04-15T10:13:04.067244 16936] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:04.067244 16936] Config: (default) ignore_options = 
+[2023-04-15T10:13:04.067244 16936] Config: (default) inode_cache = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:04.067244 16936] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:04.067244 16936] Config: (default) max_files = 0
+[2023-04-15T10:13:04.067244 16936] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:04.067244 16936] Config: (default) namespace = 
+[2023-04-15T10:13:04.067244 16936] Config: (default) path = 
+[2023-04-15T10:13:04.067244 16936] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) prefix_command = 
+[2023-04-15T10:13:04.067244 16936] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:04.067244 16936] Config: (default) read_only = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) read_only_direct = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) recache = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) reshare = false
+[2023-04-15T10:13:04.067244 16936] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:04.067244 16936] Config: (default) secondary_storage = 
+[2023-04-15T10:13:04.067244 16936] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:04.067244 16936] Config: (default) stats = true
+[2023-04-15T10:13:04.067244 16936] Config: (default) stats_log = 
+[2023-04-15T10:13:04.067244 16936] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:04.067244 16936] Config: (default) umask = 
+[2023-04-15T10:13:04.067244 16936] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.multiprocessing-preLoad.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.multiprocessing-preLoad.c
+[2023-04-15T10:13:04.067244 16936] Hostname: Zacks-Computer
+[2023-04-15T10:13:04.067244 16936] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:04.067244 16936] Compiler type: gcc
+[2023-04-15T10:13:04.067244 16936] Source file: module.multiprocessing-preLoad.c
+[2023-04-15T10:13:04.067244 16936] Object file: module.multiprocessing-preLoad.o
+[2023-04-15T10:13:04.067244 16936] Trying direct lookup
+[2023-04-15T10:13:04.067244 16936] No f9b8epr528vherktg80g5mac0rfbjg4vc in primary storage
+[2023-04-15T10:13:04.067244 16936] Running preprocessor
+[2023-04-15T10:13:04.082864 10032] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:04.082864 10032] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) base_dir = 
+[2023-04-15T10:13:04.082864 10032] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:04.082864 10032] Config: (default) compiler = 
+[2023-04-15T10:13:04.082864 10032] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:04.082864 10032] Config: (default) compiler_type = auto
+[2023-04-15T10:13:04.082864 10032] Config: (default) compression = true
+[2023-04-15T10:13:04.082864 10032] Config: (default) compression_level = 0
+[2023-04-15T10:13:04.082864 10032] Config: (default) cpp_extension = 
+[2023-04-15T10:13:04.082864 10032] Config: (default) debug = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) debug_dir = 
+[2023-04-15T10:13:04.082864 10032] Config: (default) depend_mode = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) direct_mode = true
+[2023-04-15T10:13:04.082864 10032] Config: (default) disable = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:04.082864 10032] Config: (default) file_clone = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) hard_link = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) hash_dir = true
+[2023-04-15T10:13:04.082864 10032] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:04.082864 10032] Config: (default) ignore_options = 
+[2023-04-15T10:13:04.082864 10032] Config: (default) inode_cache = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:04.082864 10032] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:04.082864 10032] Config: (default) max_files = 0
+[2023-04-15T10:13:04.082864 10032] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:04.082864 10032] Config: (default) namespace = 
+[2023-04-15T10:13:04.082864 10032] Config: (default) path = 
+[2023-04-15T10:13:04.082864 10032] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) prefix_command = 
+[2023-04-15T10:13:04.082864 10032] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:04.082864 10032] Config: (default) read_only = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) read_only_direct = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) recache = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) reshare = false
+[2023-04-15T10:13:04.082864 10032] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:04.082864 10032] Config: (default) secondary_storage = 
+[2023-04-15T10:13:04.082864 10032] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:04.082864 10032] Config: (default) stats = true
+[2023-04-15T10:13:04.082864 10032] Config: (default) stats_log = 
+[2023-04-15T10:13:04.082864 10032] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:04.082864 10032] Config: (default) umask = 
+[2023-04-15T10:13:04.082864 10032] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.pkg_resources-postLoad.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.pkg_resources-postLoad.c
+[2023-04-15T10:13:04.082864 10032] Hostname: Zacks-Computer
+[2023-04-15T10:13:04.082864 10032] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:04.082864 10032] Compiler type: gcc
+[2023-04-15T10:13:04.082864 10032] Source file: module.pkg_resources-postLoad.c
+[2023-04-15T10:13:04.082864 10032] Object file: module.pkg_resources-postLoad.o
+[2023-04-15T10:13:04.082864 10032] Trying direct lookup
+[2023-04-15T10:13:04.082864 10032] No 6027i8elsc2s75vm0nb9u225tu97c4a1o in primary storage
+[2023-04-15T10:13:04.082864 10032] Running preprocessor
+[2023-04-15T10:13:04.230644 17860] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:04.230644 17860] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) base_dir = 
+[2023-04-15T10:13:04.230644 17860] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:04.230644 17860] Config: (default) compiler = 
+[2023-04-15T10:13:04.230644 17860] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:04.230644 17860] Config: (default) compiler_type = auto
+[2023-04-15T10:13:04.230644 17860] Config: (default) compression = true
+[2023-04-15T10:13:04.230644 17860] Config: (default) compression_level = 0
+[2023-04-15T10:13:04.230644 17860] Config: (default) cpp_extension = 
+[2023-04-15T10:13:04.230644 17860] Config: (default) debug = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) debug_dir = 
+[2023-04-15T10:13:04.230644 17860] Config: (default) depend_mode = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) direct_mode = true
+[2023-04-15T10:13:04.230644 17860] Config: (default) disable = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:04.230644 17860] Config: (default) file_clone = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) hard_link = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) hash_dir = true
+[2023-04-15T10:13:04.230644 17860] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:04.230644 17860] Config: (default) ignore_options = 
+[2023-04-15T10:13:04.230644 17860] Config: (default) inode_cache = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:04.230644 17860] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:04.230644 17860] Config: (default) max_files = 0
+[2023-04-15T10:13:04.230644 17860] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:04.230644 17860] Config: (default) namespace = 
+[2023-04-15T10:13:04.230644 17860] Config: (default) path = 
+[2023-04-15T10:13:04.230644 17860] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) prefix_command = 
+[2023-04-15T10:13:04.230644 17860] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:04.230644 17860] Config: (default) read_only = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) read_only_direct = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) recache = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) reshare = false
+[2023-04-15T10:13:04.230644 17860] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:04.230644 17860] Config: (default) secondary_storage = 
+[2023-04-15T10:13:04.230644 17860] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:04.230644 17860] Config: (default) stats = true
+[2023-04-15T10:13:04.230644 17860] Config: (default) stats_log = 
+[2023-04-15T10:13:04.230644 17860] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:04.230644 17860] Config: (default) umask = 
+[2023-04-15T10:13:04.230644 17860] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.readchar._base_key.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.readchar._base_key.c
+[2023-04-15T10:13:04.230644 17860] Hostname: Zacks-Computer
+[2023-04-15T10:13:04.230644 17860] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:04.230644 17860] Compiler type: gcc
+[2023-04-15T10:13:04.230644 17860] Source file: module.readchar._base_key.c
+[2023-04-15T10:13:04.230644 17860] Object file: module.readchar._base_key.o
+[2023-04-15T10:13:04.230644 17860] Trying direct lookup
+[2023-04-15T10:13:04.246268 17860] No 1fce27rqskihfrl0t9lqj1u2silmb7or2 in primary storage
+[2023-04-15T10:13:04.246268 17860] Running preprocessor
+[2023-04-15T10:13:04.246268 12860] Using default compression level 1
+[2023-04-15T10:13:04.246268 12860] Storing embedded entry #0 .o (33111 bytes) from __loader.o
+[2023-04-15T10:13:04.246268 12860] Stored f5932f3ku7mjlfroanmunfrge2083lk7i in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/5/932f3ku7mjlfroanmunfrge2083lk7iR)
+[2023-04-15T10:13:04.246268 12860] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/5/c9a9qca99fqo2lo42bukmoib0fj25b6M
+[2023-04-15T10:13:04.246268 12860] Using default compression level 1
+[2023-04-15T10:13:04.246268 12860] Stored c5c9a9qca99fqo2lo42bukmoib0fj25b6 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/5/c9a9qca99fqo2lo42bukmoib0fj25b6M)
+[2023-04-15T10:13:04.246268 12860] Result: cache_miss
+[2023-04-15T10:13:04.246268 12860] Result: direct_cache_miss
+[2023-04-15T10:13:04.246268 12860] Result: preprocessed_cache_miss
+[2023-04-15T10:13:04.246268 12860] Result: primary_storage_miss
+[2023-04-15T10:13:04.246268 12860] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/stats.lock
+[2023-04-15T10:13:04.246268 12860] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/stats.lock
+[2023-04-15T10:13:04.246268 12860] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/stats.lock
+[2023-04-15T10:13:04.261891 12860] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/stats.lock
+[2023-04-15T10:13:04.261891 12860] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.IBtWof
+[2023-04-15T10:13:04.261891 12860] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.IDlqZb
+[2023-04-15T10:13:04.277511 12860] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.D5F3tf
+[2023-04-15T10:13:04.277511 12860] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.uUq2SW.i
+[2023-04-15T10:13:04.277511 12860] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.uUq2SW
+[2023-04-15T10:13:04.326884 6776 ] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) base_dir = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) compiler = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) compiler_type = auto
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) compression = true
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) compression_level = 0
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) cpp_extension = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) debug = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) debug_dir = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) depend_mode = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) direct_mode = true
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) disable = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) file_clone = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) hard_link = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) hash_dir = true
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) ignore_options = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) inode_cache = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:04.326884 6776 ] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) max_files = 0
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) namespace = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) path = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) prefix_command = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) read_only = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) read_only_direct = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) recache = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) reshare = false
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) secondary_storage = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) stats = true
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) stats_log = 
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:04.326884 6776 ] Config: (default) umask = 
+[2023-04-15T10:13:04.326884 6776 ] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.readchar._config.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.readchar._config.c
+[2023-04-15T10:13:04.340393 6776 ] Hostname: Zacks-Computer
+[2023-04-15T10:13:04.340393 6776 ] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:04.340393 6776 ] Compiler type: gcc
+[2023-04-15T10:13:04.340393 6776 ] Source file: module.readchar._config.c
+[2023-04-15T10:13:04.340393 6776 ] Object file: module.readchar._config.o
+[2023-04-15T10:13:04.340393 6776 ] Trying direct lookup
+[2023-04-15T10:13:04.340393 6776 ] No 7233r2j21kjujuah76klc6tggl2qet1oo in primary storage
+[2023-04-15T10:13:04.340393 6776 ] Running preprocessor
+[2023-04-15T10:13:05.128342 16128] Got result key from preprocessor
+[2023-04-15T10:13:05.128342 16128] No 3abbne8utai4b25kakogvn79kqpj20g5o in primary storage
+[2023-04-15T10:13:05.128342 16128] Running real compiler
+[2023-04-15T10:13:05.155975 10408] Got result key from preprocessor
+[2023-04-15T10:13:05.155975 10408] Retrieved 3e17k1dbr4boscgatv0lhg7u1omd8esn4 from primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/e/17k1dbr4boscgatv0lhg7u1omd8esn4R)
+[2023-04-15T10:13:05.171598 10408] Reading embedded entry #0 .o (466 bytes)
+[2023-04-15T10:13:05.171598 10408] Writing to __helpers.o
+[2023-04-15T10:13:05.171598 10408] Succeeded getting cached result
+[2023-04-15T10:13:05.171598 10408] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/9/a49ph5keardg0kgba852b7ft7cj7dl8M
+[2023-04-15T10:13:05.187218 10408] Using default compression level 1
+[2023-04-15T10:13:05.187218 10408] Stored 99a49ph5keardg0kgba852b7ft7cj7dl8 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/9/a49ph5keardg0kgba852b7ft7cj7dl8M)
+[2023-04-15T10:13:05.187218 10408] Result: direct_cache_miss
+[2023-04-15T10:13:05.187218 10408] Result: preprocessed_cache_hit
+[2023-04-15T10:13:05.187218 10408] Result: primary_storage_hit
+[2023-04-15T10:13:05.187218 10408] Result: primary_storage_miss
+[2023-04-15T10:13:05.187218 10408] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2023-04-15T10:13:05.202842 10408] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2023-04-15T10:13:05.202842 10408] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/8/stats.lock
+[2023-04-15T10:13:05.202842 10408] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/8/stats.lock
+[2023-04-15T10:13:05.202842 10408] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.wREUuF
+[2023-04-15T10:13:05.202842 10408] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.KmMwNP.i
+[2023-04-15T10:13:05.202842 10408] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.KmMwNP
+[2023-04-15T10:13:05.265746 1980 ] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) base_dir = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) compiler = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) compiler_type = auto
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) compression = true
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) compression_level = 0
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) cpp_extension = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) debug = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) debug_dir = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) depend_mode = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) direct_mode = true
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) disable = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) file_clone = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) hard_link = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) hash_dir = true
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) ignore_options = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) inode_cache = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:05.265746 1980 ] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) max_files = 0
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) namespace = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) path = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) prefix_command = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) read_only = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) read_only_direct = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) recache = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) reshare = false
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) secondary_storage = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) stats = true
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) stats_log = 
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:05.265746 1980 ] Config: (default) umask = 
+[2023-04-15T10:13:05.265746 1980 ] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.readchar._posix_key.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.readchar._posix_key.c
+[2023-04-15T10:13:05.265746 1980 ] Hostname: Zacks-Computer
+[2023-04-15T10:13:05.265746 1980 ] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:05.265746 1980 ] Compiler type: gcc
+[2023-04-15T10:13:05.265746 1980 ] Source file: module.readchar._posix_key.c
+[2023-04-15T10:13:05.265746 1980 ] Object file: module.readchar._posix_key.o
+[2023-04-15T10:13:05.265746 1980 ] Trying direct lookup
+[2023-04-15T10:13:05.265746 1980 ] No b968n7ff0qn4ultb11o3b9k82bjrgm664 in primary storage
+[2023-04-15T10:13:05.281368 1980 ] Running preprocessor
+[2023-04-15T10:13:05.344244 12156] Got result key from preprocessor
+[2023-04-15T10:13:05.344244 12156] No b63cm7q5eud5q1ddq9gp95tm0qh107352 in primary storage
+[2023-04-15T10:13:05.344244 12156] Running real compiler
+[2023-04-15T10:13:05.428864 15624] Got result key from preprocessor
+[2023-04-15T10:13:05.428864 15624] No e8d40hjllanm2g7oo5hcqe6tm43nkjnqo in primary storage
+[2023-04-15T10:13:05.428864 15624] Running real compiler
+[2023-04-15T10:13:05.438371 2512 ] Got result key from preprocessor
+[2023-04-15T10:13:05.438371 2512 ] No 33305r0l69irch6k2ongopgbav741q8a2 in primary storage
+[2023-04-15T10:13:05.438371 2512 ] Running real compiler
+[2023-04-15T10:13:05.438371 7188 ] Got result key from preprocessor
+[2023-04-15T10:13:05.438371 7188 ] No d17efrnl4dg8rt8smra9i8qf07j5v0qru in primary storage
+[2023-04-15T10:13:05.438371 7188 ] Running real compiler
+[2023-04-15T10:13:05.453996 10644] Got result key from preprocessor
+[2023-04-15T10:13:05.453996 10644] No c609jillmv2nr2ad2k4v6ro5e99iekuie in primary storage
+[2023-04-15T10:13:05.453996 10644] Running real compiler
+[2023-04-15T10:13:05.453996 18568] Got result key from preprocessor
+[2023-04-15T10:13:05.453996 18568] Retrieved d1c6aq583j84h8vr95mlov79slu8m44qo from primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/1/c6aq583j84h8vr95mlov79slu8m44qoR)
+[2023-04-15T10:13:05.453996 19308] Got result key from preprocessor
+[2023-04-15T10:13:05.453996 19308] No 5d55g6d5j9jgie4gi7sfo6nopur1i50gg in primary storage
+[2023-04-15T10:13:05.453996 19308] Running real compiler
+[2023-04-15T10:13:05.469618 18568] Reading embedded entry #0 .o (15190 bytes)
+[2023-04-15T10:13:05.469618 18568] Writing to module.multiprocessing-postLoad.o
+[2023-04-15T10:13:05.469618 18568] Succeeded getting cached result
+[2023-04-15T10:13:05.469618 18568] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/c/1advo4o5v98ib3rdpm1gj463o69n794M
+[2023-04-15T10:13:05.485239 4884 ] Got result key from preprocessor
+[2023-04-15T10:13:05.485239 4884 ] No 9d2fnmiffu5nerneiqh6037e5ngvc9c68 in primary storage
+[2023-04-15T10:13:05.485239 4884 ] Running real compiler
+[2023-04-15T10:13:05.485239 18568] Using default compression level 1
+[2023-04-15T10:13:05.485239 18568] Stored fc1advo4o5v98ib3rdpm1gj463o69n794 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/c/1advo4o5v98ib3rdpm1gj463o69n794M)
+[2023-04-15T10:13:05.485239 18568] Result: direct_cache_miss
+[2023-04-15T10:13:05.485239 18568] Result: preprocessed_cache_hit
+[2023-04-15T10:13:05.485239 18568] Result: primary_storage_hit
+[2023-04-15T10:13:05.485239 18568] Result: primary_storage_miss
+[2023-04-15T10:13:05.485239 18568] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/stats.lock
+[2023-04-15T10:13:05.485239 18568] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/stats.lock
+[2023-04-15T10:13:05.485239 18568] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/8/stats.lock
+[2023-04-15T10:13:05.485239 18568] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/8/stats.lock
+[2023-04-15T10:13:05.485239 18568] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.FFSYwy
+[2023-04-15T10:13:05.485239 18568] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.QQHwlU.i
+[2023-04-15T10:13:05.485239 18568] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.QQHwlU
+[2023-04-15T10:13:05.500862 15412] Got result key from preprocessor
+[2023-04-15T10:13:05.500862 15412] No 0046mc8sda4ca1q5gchuv0lpdaof66i5i in primary storage
+[2023-04-15T10:13:05.500862 15412] Running real compiler
+[2023-04-15T10:13:05.548135 15960] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:05.548135 15960] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) base_dir = 
+[2023-04-15T10:13:05.548135 15960] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:05.548135 15960] Config: (default) compiler = 
+[2023-04-15T10:13:05.548135 15960] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:05.548135 15960] Config: (default) compiler_type = auto
+[2023-04-15T10:13:05.548135 15960] Config: (default) compression = true
+[2023-04-15T10:13:05.548135 15960] Config: (default) compression_level = 0
+[2023-04-15T10:13:05.548135 15960] Config: (default) cpp_extension = 
+[2023-04-15T10:13:05.548135 15960] Config: (default) debug = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) debug_dir = 
+[2023-04-15T10:13:05.548135 15960] Config: (default) depend_mode = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) direct_mode = true
+[2023-04-15T10:13:05.548135 15960] Config: (default) disable = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:05.548135 15960] Config: (default) file_clone = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) hard_link = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) hash_dir = true
+[2023-04-15T10:13:05.548135 15960] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:05.548135 15960] Config: (default) ignore_options = 
+[2023-04-15T10:13:05.548135 15960] Config: (default) inode_cache = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:05.548135 15960] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:05.548135 15960] Config: (default) max_files = 0
+[2023-04-15T10:13:05.548135 15960] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:05.548135 15960] Config: (default) namespace = 
+[2023-04-15T10:13:05.548135 15960] Config: (default) path = 
+[2023-04-15T10:13:05.548135 15960] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) prefix_command = 
+[2023-04-15T10:13:05.548135 15960] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:05.548135 15960] Config: (default) read_only = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) read_only_direct = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) recache = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) reshare = false
+[2023-04-15T10:13:05.548135 15960] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:05.548135 15960] Config: (default) secondary_storage = 
+[2023-04-15T10:13:05.548135 15960] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:05.548135 15960] Config: (default) stats = true
+[2023-04-15T10:13:05.548135 15960] Config: (default) stats_log = 
+[2023-04-15T10:13:05.548135 15960] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:05.548135 15960] Config: (default) umask = 
+[2023-04-15T10:13:05.548135 15960] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.readchar._posix_read.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.readchar._posix_read.c
+[2023-04-15T10:13:05.563759 16936] Got result key from preprocessor
+[2023-04-15T10:13:05.563759 16936] Retrieved d3870nntoei0bqvkvkprdf1c47gu1no44 from primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/3/870nntoei0bqvkvkprdf1c47gu1no44R)
+[2023-04-15T10:13:05.563759 15960] Hostname: Zacks-Computer
+[2023-04-15T10:13:05.563759 15960] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:05.563759 15960] Compiler type: gcc
+[2023-04-15T10:13:05.563759 15960] Source file: module.readchar._posix_read.c
+[2023-04-15T10:13:05.563759 15960] Object file: module.readchar._posix_read.o
+[2023-04-15T10:13:05.563759 15960] Trying direct lookup
+[2023-04-15T10:13:05.563759 15960] No be6cv83bv9c4pjqji1hskpivpfhmc5qjm in primary storage
+[2023-04-15T10:13:05.563759 16936] Reading embedded entry #0 .o (9872 bytes)
+[2023-04-15T10:13:05.563759 16936] Writing to module.multiprocessing-preLoad.o
+[2023-04-15T10:13:05.563759 15960] Running preprocessor
+[2023-04-15T10:13:05.563759 16936] Succeeded getting cached result
+[2023-04-15T10:13:05.579379 16936] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/9/b8epr528vherktg80g5mac0rfbjg4vcM
+[2023-04-15T10:13:05.579379 18356] Got result key from preprocessor
+[2023-04-15T10:13:05.579379 18356] No 8c276st4elj55m241qdoafe5aaan1ghug in primary storage
+[2023-04-15T10:13:05.579379 18356] Running real compiler
+[2023-04-15T10:13:05.595001 16936] Using default compression level 1
+[2023-04-15T10:13:05.595001 16936] Stored f9b8epr528vherktg80g5mac0rfbjg4vc in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/9/b8epr528vherktg80g5mac0rfbjg4vcM)
+[2023-04-15T10:13:05.595001 16936] Result: direct_cache_miss
+[2023-04-15T10:13:05.595001 16936] Result: preprocessed_cache_hit
+[2023-04-15T10:13:05.595001 16936] Result: primary_storage_hit
+[2023-04-15T10:13:05.595001 16936] Result: primary_storage_miss
+[2023-04-15T10:13:05.595001 16936] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/stats.lock
+[2023-04-15T10:13:05.595001 16936] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/stats.lock
+[2023-04-15T10:13:05.595001 16936] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/8/stats.lock
+[2023-04-15T10:13:05.595001 16936] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/8/stats.lock
+[2023-04-15T10:13:05.595001 16936] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.bW0VaL
+[2023-04-15T10:13:05.595001 16936] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.FNp53F.i
+[2023-04-15T10:13:05.595001 10032] Got result key from preprocessor
+[2023-04-15T10:13:05.595001 16936] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.FNp53F
+[2023-04-15T10:13:05.595001 10032] Retrieved c030129atpqc593tvrme4sgq2ngopqdra from primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/0/30129atpqc593tvrme4sgq2ngopqdraR)
+[2023-04-15T10:13:05.610624 10032] Reading embedded entry #0 .o (25638 bytes)
+[2023-04-15T10:13:05.610624 10032] Writing to module.pkg_resources-postLoad.o
+[2023-04-15T10:13:05.610624 10032] Succeeded getting cached result
+[2023-04-15T10:13:05.610624 10032] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/0/27i8elsc2s75vm0nb9u225tu97c4a1oM
+[2023-04-15T10:13:05.629257 10032] Using default compression level 1
+[2023-04-15T10:13:05.629257 10032] Stored 6027i8elsc2s75vm0nb9u225tu97c4a1o in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/0/27i8elsc2s75vm0nb9u225tu97c4a1oM)
+[2023-04-15T10:13:05.629257 10032] Result: direct_cache_miss
+[2023-04-15T10:13:05.629257 10032] Result: preprocessed_cache_hit
+[2023-04-15T10:13:05.629257 10032] Result: primary_storage_hit
+[2023-04-15T10:13:05.629257 10032] Result: primary_storage_miss
+[2023-04-15T10:13:05.629257 10032] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/stats.lock
+[2023-04-15T10:13:05.629257 17860] Got result key from preprocessor
+[2023-04-15T10:13:05.629257 17860] No a6fc7p22mdq5r8ho7dqdlf2mtd26bbfu4 in primary storage
+[2023-04-15T10:13:05.629257 17860] Running real compiler
+[2023-04-15T10:13:05.642265 10032] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/6/stats.lock
+[2023-04-15T10:13:05.642265 10032] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/0/stats.lock
+[2023-04-15T10:13:05.642265 10032] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/0/stats.lock
+[2023-04-15T10:13:05.642265 10032] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.xS4nM0
+[2023-04-15T10:13:05.642265 10032] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.6iTPzw.i
+[2023-04-15T10:13:05.642265 10032] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.6iTPzw
+[2023-04-15T10:13:05.673513 13932] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:05.673513 13932] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) base_dir = 
+[2023-04-15T10:13:05.673513 13932] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:05.673513 13932] Config: (default) compiler = 
+[2023-04-15T10:13:05.673513 13932] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:05.673513 13932] Config: (default) compiler_type = auto
+[2023-04-15T10:13:05.673513 13932] Config: (default) compression = true
+[2023-04-15T10:13:05.673513 13932] Config: (default) compression_level = 0
+[2023-04-15T10:13:05.673513 13932] Config: (default) cpp_extension = 
+[2023-04-15T10:13:05.673513 13932] Config: (default) debug = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) debug_dir = 
+[2023-04-15T10:13:05.673513 13932] Config: (default) depend_mode = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) direct_mode = true
+[2023-04-15T10:13:05.673513 13932] Config: (default) disable = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:05.673513 13932] Config: (default) file_clone = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) hard_link = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) hash_dir = true
+[2023-04-15T10:13:05.673513 13932] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:05.673513 13932] Config: (default) ignore_options = 
+[2023-04-15T10:13:05.673513 13932] Config: (default) inode_cache = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:05.673513 13932] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:05.673513 13932] Config: (default) max_files = 0
+[2023-04-15T10:13:05.673513 13932] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:05.673513 13932] Config: (default) namespace = 
+[2023-04-15T10:13:05.673513 13932] Config: (default) path = 
+[2023-04-15T10:13:05.673513 13932] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) prefix_command = 
+[2023-04-15T10:13:05.673513 13932] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:05.673513 13932] Config: (default) read_only = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) read_only_direct = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) recache = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) reshare = false
+[2023-04-15T10:13:05.673513 13932] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:05.673513 13932] Config: (default) secondary_storage = 
+[2023-04-15T10:13:05.673513 13932] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:05.673513 13932] Config: (default) stats = true
+[2023-04-15T10:13:05.673513 13932] Config: (default) stats_log = 
+[2023-04-15T10:13:05.673513 13932] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:05.673513 13932] Config: (default) umask = 
+[2023-04-15T10:13:05.673513 13932] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.readchar._win_key.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.readchar._win_key.c
+[2023-04-15T10:13:05.689137 13932] Hostname: Zacks-Computer
+[2023-04-15T10:13:05.689137 13932] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:05.689137 13932] Compiler type: gcc
+[2023-04-15T10:13:05.689137 13932] Source file: module.readchar._win_key.c
+[2023-04-15T10:13:05.689137 13932] Object file: module.readchar._win_key.o
+[2023-04-15T10:13:05.689137 13932] Trying direct lookup
+[2023-04-15T10:13:05.689137 13932] No df03n2vl27j3efn1d019mdjrldnrrqioe in primary storage
+[2023-04-15T10:13:05.689137 13932] Running preprocessor
+[2023-04-15T10:13:05.736407 19388] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:05.736407 19388] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) base_dir = 
+[2023-04-15T10:13:05.736407 19388] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:05.736407 19388] Config: (default) compiler = 
+[2023-04-15T10:13:05.736407 19388] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:05.736407 19388] Config: (default) compiler_type = auto
+[2023-04-15T10:13:05.736407 19388] Config: (default) compression = true
+[2023-04-15T10:13:05.736407 19388] Config: (default) compression_level = 0
+[2023-04-15T10:13:05.736407 19388] Config: (default) cpp_extension = 
+[2023-04-15T10:13:05.736407 19388] Config: (default) debug = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) debug_dir = 
+[2023-04-15T10:13:05.736407 19388] Config: (default) depend_mode = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) direct_mode = true
+[2023-04-15T10:13:05.736407 19388] Config: (default) disable = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:05.736407 19388] Config: (default) file_clone = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) hard_link = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) hash_dir = true
+[2023-04-15T10:13:05.736407 19388] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:05.736407 19388] Config: (default) ignore_options = 
+[2023-04-15T10:13:05.736407 19388] Config: (default) inode_cache = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:05.736407 19388] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:05.736407 19388] Config: (default) max_files = 0
+[2023-04-15T10:13:05.736407 19388] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:05.736407 19388] Config: (default) namespace = 
+[2023-04-15T10:13:05.736407 19388] Config: (default) path = 
+[2023-04-15T10:13:05.736407 19388] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) prefix_command = 
+[2023-04-15T10:13:05.736407 19388] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:05.736407 19388] Config: (default) read_only = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) read_only_direct = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) recache = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) reshare = false
+[2023-04-15T10:13:05.736407 19388] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:05.736407 19388] Config: (default) secondary_storage = 
+[2023-04-15T10:13:05.736407 19388] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:05.736407 19388] Config: (default) stats = true
+[2023-04-15T10:13:05.736407 19388] Config: (default) stats_log = 
+[2023-04-15T10:13:05.736407 19388] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:05.736407 19388] Config: (default) umask = 
+[2023-04-15T10:13:05.736407 19388] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.readchar._win_read.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.readchar._win_read.c
+[2023-04-15T10:13:05.752034 19388] Hostname: Zacks-Computer
+[2023-04-15T10:13:05.752034 19388] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:05.752034 19388] Compiler type: gcc
+[2023-04-15T10:13:05.752034 19388] Source file: module.readchar._win_read.c
+[2023-04-15T10:13:05.752034 19388] Object file: module.readchar._win_read.o
+[2023-04-15T10:13:05.752034 19388] Trying direct lookup
+[2023-04-15T10:13:05.752034 19388] No 3ec2nbpvrdmsen54q4n7b13q2u9fevj76 in primary storage
+[2023-04-15T10:13:05.752034 19388] Running preprocessor
+[2023-04-15T10:13:05.783276 6776 ] Got result key from preprocessor
+[2023-04-15T10:13:05.783276 6776 ] No b3a94mm4ju6uhekjtp6uibmt31lmregqg in primary storage
+[2023-04-15T10:13:05.783276 6776 ] Running real compiler
+[2023-04-15T10:13:06.730890 1980 ] Got result key from preprocessor
+[2023-04-15T10:13:06.730890 1980 ] No bfbfv4e569e4mdntj0k7b145555h8u96q in primary storage
+[2023-04-15T10:13:06.730890 1980 ] Running real compiler
+[2023-04-15T10:13:06.871904 16128] Using default compression level 1
+[2023-04-15T10:13:06.871904 16128] Storing embedded entry #0 .o (2821 bytes) from __constants.o
+[2023-04-15T10:13:06.871904 16128] Stored 3abbne8utai4b25kakogvn79kqpj20g5o in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/a/bbne8utai4b25kakogvn79kqpj20g5oR)
+[2023-04-15T10:13:06.871904 16128] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/9/b67ti14c2ta2ogm43vouojfm8i7rlc2M
+[2023-04-15T10:13:06.887527 16128] Using default compression level 1
+[2023-04-15T10:13:06.887527 16128] Stored 99b67ti14c2ta2ogm43vouojfm8i7rlc2 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/9/b67ti14c2ta2ogm43vouojfm8i7rlc2M)
+[2023-04-15T10:13:06.903148 16128] Result: cache_miss
+[2023-04-15T10:13:06.903148 16128] Result: direct_cache_miss
+[2023-04-15T10:13:06.903148 16128] Result: preprocessed_cache_miss
+[2023-04-15T10:13:06.903148 16128] Result: primary_storage_miss
+[2023-04-15T10:13:06.903148 16128] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2023-04-15T10:13:06.903148 16128] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2023-04-15T10:13:06.903148 16128] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2023-04-15T10:13:06.903148 16128] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2023-04-15T10:13:06.903148 16128] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.nYmwby
+[2023-04-15T10:13:06.903148 16128] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.B3vqKg
+[2023-04-15T10:13:06.903148 16128] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.i09NR6
+[2023-04-15T10:13:06.903148 16128] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.AgU8OX.i
+[2023-04-15T10:13:06.903148 16128] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.AgU8OX
+[2023-04-15T10:13:07.012900 11696] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:07.012900 11696] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) base_dir = 
+[2023-04-15T10:13:07.012900 11696] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:07.012900 11696] Config: (default) compiler = 
+[2023-04-15T10:13:07.012900 11696] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:07.012900 11696] Config: (default) compiler_type = auto
+[2023-04-15T10:13:07.012900 11696] Config: (default) compression = true
+[2023-04-15T10:13:07.012900 11696] Config: (default) compression_level = 0
+[2023-04-15T10:13:07.012900 11696] Config: (default) cpp_extension = 
+[2023-04-15T10:13:07.012900 11696] Config: (default) debug = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) debug_dir = 
+[2023-04-15T10:13:07.012900 11696] Config: (default) depend_mode = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) direct_mode = true
+[2023-04-15T10:13:07.012900 11696] Config: (default) disable = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:07.012900 11696] Config: (default) file_clone = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) hard_link = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) hash_dir = true
+[2023-04-15T10:13:07.012900 11696] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:07.012900 11696] Config: (default) ignore_options = 
+[2023-04-15T10:13:07.012900 11696] Config: (default) inode_cache = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:07.012900 11696] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:07.012900 11696] Config: (default) max_files = 0
+[2023-04-15T10:13:07.012900 11696] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:07.012900 11696] Config: (default) namespace = 
+[2023-04-15T10:13:07.012900 11696] Config: (default) path = 
+[2023-04-15T10:13:07.012900 11696] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) prefix_command = 
+[2023-04-15T10:13:07.012900 11696] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:07.012900 11696] Config: (default) read_only = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) read_only_direct = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) recache = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) reshare = false
+[2023-04-15T10:13:07.012900 11696] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:07.012900 11696] Config: (default) secondary_storage = 
+[2023-04-15T10:13:07.012900 11696] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:07.012900 11696] Config: (default) stats = true
+[2023-04-15T10:13:07.012900 11696] Config: (default) stats_log = 
+[2023-04-15T10:13:07.012900 11696] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:07.012900 11696] Config: (default) umask = 
+[2023-04-15T10:13:07.012900 11696] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o module.readchar.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src module.readchar.c
+[2023-04-15T10:13:07.012900 11696] Hostname: Zacks-Computer
+[2023-04-15T10:13:07.012900 11696] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:07.012900 11696] Compiler type: gcc
+[2023-04-15T10:13:07.012900 11696] Source file: module.readchar.c
+[2023-04-15T10:13:07.012900 11696] Object file: module.readchar.o
+[2023-04-15T10:13:07.012900 11696] Trying direct lookup
+[2023-04-15T10:13:07.012900 11696] No 5818spamc02pbuqv39urkrtblq38t0ctk in primary storage
+[2023-04-15T10:13:07.012900 11696] Running preprocessor
+[2023-04-15T10:13:07.216803 15960] Got result key from preprocessor
+[2023-04-15T10:13:07.216803 15960] No e471u890ar9qer07dq017bfj9rjpdcjbk in primary storage
+[2023-04-15T10:13:07.216803 15960] Running real compiler
+[2023-04-15T10:13:07.332076 13932] Got result key from preprocessor
+[2023-04-15T10:13:07.332076 13932] No 0ff0ul5pbqaup5pl3ddj8r2ph8845d54c in primary storage
+[2023-04-15T10:13:07.332076 13932] Running real compiler
+[2023-04-15T10:13:07.373834 19388] Got result key from preprocessor
+[2023-04-15T10:13:07.373834 19388] No 8f1ab5pf0apqlmm2abm40fspv08i6ddua in primary storage
+[2023-04-15T10:13:07.373834 19388] Running real compiler
+[2023-04-15T10:13:07.559667 17860] Using default compression level 1
+[2023-04-15T10:13:07.559667 17860] Storing embedded entry #0 .o (7996 bytes) from module.readchar._base_key.o
+[2023-04-15T10:13:07.559667 17860] Stored a6fc7p22mdq5r8ho7dqdlf2mtd26bbfu4 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/6/fc7p22mdq5r8ho7dqdlf2mtd26bbfu4R)
+[2023-04-15T10:13:07.559667 17860] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/1/f/ce27rqskihfrl0t9lqj1u2silmb7or2M
+[2023-04-15T10:13:07.590910 17860] Using default compression level 1
+[2023-04-15T10:13:07.590910 17860] Stored 1fce27rqskihfrl0t9lqj1u2silmb7or2 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/1/f/ce27rqskihfrl0t9lqj1u2silmb7or2M)
+[2023-04-15T10:13:07.590910 17860] Result: cache_miss
+[2023-04-15T10:13:07.590910 17860] Result: direct_cache_miss
+[2023-04-15T10:13:07.590910 17860] Result: preprocessed_cache_miss
+[2023-04-15T10:13:07.590910 17860] Result: primary_storage_miss
+[2023-04-15T10:13:07.590910 17860] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/1/stats.lock
+[2023-04-15T10:13:07.606530 12156] Using default compression level 1
+[2023-04-15T10:13:07.606530 12156] Storing embedded entry #0 .o (10850 bytes) from module.colorama.o
+[2023-04-15T10:13:07.606530 12156] Stored b63cm7q5eud5q1ddq9gp95tm0qh107352 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/6/3cm7q5eud5q1ddq9gp95tm0qh107352R)
+[2023-04-15T10:13:07.606530 12156] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/0/c9salef032k157lthb0rf9evn241oj4M
+[2023-04-15T10:13:07.622151 12156] Using default compression level 1
+[2023-04-15T10:13:07.622151 12156] Stored a0c9salef032k157lthb0rf9evn241oj4 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/0/c9salef032k157lthb0rf9evn241oj4M)
+[2023-04-15T10:13:07.622151 12156] Result: cache_miss
+[2023-04-15T10:13:07.622151 12156] Result: direct_cache_miss
+[2023-04-15T10:13:07.622151 12156] Result: preprocessed_cache_miss
+[2023-04-15T10:13:07.622151 12156] Result: primary_storage_miss
+[2023-04-15T10:13:07.622151 12156] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2023-04-15T10:13:07.638182 17860] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/1/stats.lock
+[2023-04-15T10:13:07.638182 12156] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2023-04-15T10:13:07.638182 12156] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-15T10:13:07.638182 17860] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2023-04-15T10:13:07.638182 17860] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2023-04-15T10:13:07.638182 12156] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-15T10:13:07.638182 17860] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.D9kuPA
+[2023-04-15T10:13:07.638182 12156] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.kgI6gm
+[2023-04-15T10:13:07.638182 17860] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.8NzFWK
+[2023-04-15T10:13:07.638182 12156] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.qnllTd
+[2023-04-15T10:13:07.638182 17860] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.jOZeIG
+[2023-04-15T10:13:07.638182 12156] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.aQxIgb
+[2023-04-15T10:13:07.638182 17860] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.hZSimC.i
+[2023-04-15T10:13:07.638182 12156] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.Y9rp4U.i
+[2023-04-15T10:13:07.638182 17860] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.hZSimC
+[2023-04-15T10:13:07.638182 12156] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.Y9rp4U
+[2023-04-15T10:13:07.747943 17760] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:07.747943 17760] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) base_dir = 
+[2023-04-15T10:13:07.747943 17760] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:07.747943 17760] Config: (default) compiler = 
+[2023-04-15T10:13:07.747943 17760] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:07.747943 17760] Config: (default) compiler_type = auto
+[2023-04-15T10:13:07.747943 17760] Config: (default) compression = true
+[2023-04-15T10:13:07.747943 17760] Config: (default) compression_level = 0
+[2023-04-15T10:13:07.747943 17760] Config: (default) cpp_extension = 
+[2023-04-15T10:13:07.747943 17760] Config: (default) debug = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) debug_dir = 
+[2023-04-15T10:13:07.747943 17760] Config: (default) depend_mode = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) direct_mode = true
+[2023-04-15T10:13:07.747943 17760] Config: (default) disable = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:07.747943 17760] Config: (default) file_clone = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) hard_link = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) hash_dir = true
+[2023-04-15T10:13:07.747943 17760] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:07.747943 17760] Config: (default) ignore_options = 
+[2023-04-15T10:13:07.747943 17760] Config: (default) inode_cache = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:07.747943 17760] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:07.747943 17760] Config: (default) max_files = 0
+[2023-04-15T10:13:07.747943 17760] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:07.747943 17760] Config: (default) namespace = 
+[2023-04-15T10:13:07.747943 17760] Config: (default) path = 
+[2023-04-15T10:13:07.747943 17760] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) prefix_command = 
+[2023-04-15T10:13:07.747943 17760] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:07.747943 17760] Config: (default) read_only = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) read_only_direct = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) recache = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) reshare = false
+[2023-04-15T10:13:07.747943 17760] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:07.747943 17760] Config: (default) secondary_storage = 
+[2023-04-15T10:13:07.747943 17760] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:07.747943 17760] Config: (default) stats = true
+[2023-04-15T10:13:07.747943 17760] Config: (default) stats_log = 
+[2023-04-15T10:13:07.747943 17760] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:07.747943 17760] Config: (default) umask = 
+[2023-04-15T10:13:07.747943 17760] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o static_src\MainProgram.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src static_src\MainProgram.c
+[2023-04-15T10:13:07.747943 17760] Hostname: Zacks-Computer
+[2023-04-15T10:13:07.747943 17760] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:07.747943 17760] Compiler type: gcc
+[2023-04-15T10:13:07.747943 17760] Source file: static_src\MainProgram.c
+[2023-04-15T10:13:07.747943 17760] Object file: static_src\MainProgram.o
+[2023-04-15T10:13:07.747943 17760] Trying direct lookup
+[2023-04-15T10:13:07.747943 17760] No 2d55als0n8ial1l1ceu92ra0h51843ega in primary storage
+[2023-04-15T10:13:07.747943 17760] Running preprocessor
+[2023-04-15T10:13:07.951850 9468 ] === CCACHE 4.6 STARTED =========================================
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) absolute_paths_in_stderr = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) base_dir = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (environment) cache_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) compiler = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) compiler_check = mtime
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) compiler_type = auto
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) compression = true
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) compression_level = 0
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) cpp_extension = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) debug = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) debug_dir = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) depend_mode = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) direct_mode = true
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) disable = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) extra_files_to_hash = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) file_clone = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) hard_link = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) hash_dir = true
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) ignore_headers_in_manifest = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) ignore_options = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) inode_cache = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) keep_comments_cpp = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) limit_multiple = 0.8
+[2023-04-15T10:13:07.951850 9468 ] Config: (environment) log_file = C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) max_files = 0
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) max_size = 5.0G
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) namespace = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) path = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) pch_external_checksum = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) prefix_command = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) prefix_command_cpp = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) read_only = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) read_only_direct = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) recache = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) reshare = false
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) run_second_cpp = true
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) secondary_storage = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (environment) sloppiness = include_file_mtime, include_file_ctime
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) stats = true
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) stats_log = 
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) temporary_dir = C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp
+[2023-04-15T10:13:07.951850 9468 ] Config: (default) umask = 
+[2023-04-15T10:13:07.951850 9468 ] Command line: C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe -o static_src\CompiledFunctionType.o -c -std=c11 -fvisibility=hidden -fwrapv -pipe -fpartial-inlining -ftrack-macro-expansion=0 -Wno-deprecated-declarations -fno-var-tracking -Wno-misleading-indentation -fcompare-debug-second -O3 -D_WIN32_WINNT=0x0501 -D__NUITKA_NO_ASSERT__ -D_NUITKA_STANDALONE -DMS_WIN64 -D_NUITKA_CONSTANTS_FROM_RESOURCE -D_NUITKA_FROZEN=154 -D_NUITKA_EXE -D_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1 -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\include -I. -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\include -IC:\Users\zacha\AppData\Local\Programs\Python\Python39\lib\SITE-P~1\nuitka\build\static_src static_src\CompiledFunctionType.c
+[2023-04-15T10:13:07.967471 6776 ] Using default compression level 1
+[2023-04-15T10:13:07.967471 6776 ] Storing embedded entry #0 .o (13904 bytes) from module.readchar._config.o
+[2023-04-15T10:13:07.976575 6776 ] Stored b3a94mm4ju6uhekjtp6uibmt31lmregqg in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/3/a94mm4ju6uhekjtp6uibmt31lmregqgR)
+[2023-04-15T10:13:07.977577 6776 ] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/2/33r2j21kjujuah76klc6tggl2qet1ooM
+[2023-04-15T10:13:07.981566 9468 ] Hostname: Zacks-Computer
+[2023-04-15T10:13:07.981566 9468 ] Working directory: C:/Users/zacha/PRACTI~1/Windows-Jupyter-Uploader.build
+[2023-04-15T10:13:07.981566 9468 ] Compiler type: gcc
+[2023-04-15T10:13:07.982564 9468 ] Source file: static_src\CompiledFunctionType.c
+[2023-04-15T10:13:07.982564 9468 ] Object file: static_src\CompiledFunctionType.o
+[2023-04-15T10:13:07.982564 9468 ] Trying direct lookup
+[2023-04-15T10:13:07.982564 9468 ] No e511nckvd0gilc6vdutl9bkfd2i7ens6s in primary storage
+[2023-04-15T10:13:07.984558 9468 ] Running preprocessor
+[2023-04-15T10:13:08.005503 6776 ] Using default compression level 1
+[2023-04-15T10:13:08.008494 6776 ] Stored 7233r2j21kjujuah76klc6tggl2qet1oo in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/2/33r2j21kjujuah76klc6tggl2qet1ooM)
+[2023-04-15T10:13:08.008494 6776 ] Result: cache_miss
+[2023-04-15T10:13:08.008494 6776 ] Result: direct_cache_miss
+[2023-04-15T10:13:08.008494 6776 ] Result: preprocessed_cache_miss
+[2023-04-15T10:13:08.008494 6776 ] Result: primary_storage_miss
+[2023-04-15T10:13:08.008494 6776 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/stats.lock
+[2023-04-15T10:13:08.032562 6776 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/stats.lock
+[2023-04-15T10:13:08.032562 6776 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-15T10:13:08.032562 6776 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-15T10:13:08.032562 6776 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.nDYyYb
+[2023-04-15T10:13:08.032562 6776 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.3RtDj8
+[2023-04-15T10:13:08.032562 6776 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.WL4ybZ
+[2023-04-15T10:13:08.032562 6776 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.xEXGDB.i
+[2023-04-15T10:13:08.032562 6776 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.xEXGDB
+[2023-04-15T10:13:08.132609 19308] Using default compression level 1
+[2023-04-15T10:13:08.132609 19308] Storing embedded entry #0 .o (27339 bytes) from module.colorama.initialise.o
+[2023-04-15T10:13:08.132609 19308] Stored 5d55g6d5j9jgie4gi7sfo6nopur1i50gg in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/d/55g6d5j9jgie4gi7sfo6nopur1i50ggR)
+[2023-04-15T10:13:08.132609 19308] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/7/6ca4vmuraaa3ipf32g8tnoj21bee0reM
+[2023-04-15T10:13:08.157752 19308] Using default compression level 1
+[2023-04-15T10:13:08.157752 19308] Stored 876ca4vmuraaa3ipf32g8tnoj21bee0re in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/7/6ca4vmuraaa3ipf32g8tnoj21bee0reM)
+[2023-04-15T10:13:08.157752 19308] Result: cache_miss
+[2023-04-15T10:13:08.157752 19308] Result: direct_cache_miss
+[2023-04-15T10:13:08.157752 19308] Result: preprocessed_cache_miss
+[2023-04-15T10:13:08.157752 19308] Result: primary_storage_miss
+[2023-04-15T10:13:08.157752 19308] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2023-04-15T10:13:08.157752 19308] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2023-04-15T10:13:08.157752 19308] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/stats.lock
+[2023-04-15T10:13:08.173372 19308] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/stats.lock
+[2023-04-15T10:13:08.173372 19308] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.j1NqBU
+[2023-04-15T10:13:08.173372 19308] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.YotzFx
+[2023-04-15T10:13:08.173372 19308] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.FQBIDO
+[2023-04-15T10:13:08.173372 19308] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.a1DwcY.i
+[2023-04-15T10:13:08.173372 19308] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.a1DwcY
+[2023-04-15T10:13:08.440153 11696] Got result key from preprocessor
+[2023-04-15T10:13:08.440153 11696] No 7617mtvvf30296me7hk5nuvorp4h50d80 in primary storage
+[2023-04-15T10:13:08.440153 11696] Running real compiler
+[2023-04-15T10:13:08.565543 1980 ] Using default compression level 1
+[2023-04-15T10:13:08.565543 1980 ] Storing embedded entry #0 .o (8114 bytes) from module.readchar._posix_key.o
+[2023-04-15T10:13:08.565543 1980 ] Stored bfbfv4e569e4mdntj0k7b145555h8u96q in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/f/bfv4e569e4mdntj0k7b145555h8u96qR)
+[2023-04-15T10:13:08.565543 1980 ] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/9/68n7ff0qn4ultb11o3b9k82bjrgm664M
+[2023-04-15T10:13:08.596785 1980 ] Using default compression level 1
+[2023-04-15T10:13:08.596785 1980 ] Stored b968n7ff0qn4ultb11o3b9k82bjrgm664 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/9/68n7ff0qn4ultb11o3b9k82bjrgm664M)
+[2023-04-15T10:13:08.596785 1980 ] Result: cache_miss
+[2023-04-15T10:13:08.596785 1980 ] Result: direct_cache_miss
+[2023-04-15T10:13:08.596785 1980 ] Result: preprocessed_cache_miss
+[2023-04-15T10:13:08.596785 1980 ] Result: primary_storage_miss
+[2023-04-15T10:13:08.596785 1980 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-15T10:13:08.596785 1980 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-15T10:13:08.596785 1980 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-15T10:13:08.596785 1980 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-15T10:13:08.596785 1980 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.YCUlq5
+[2023-04-15T10:13:08.596785 1980 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.tNGjMV
+[2023-04-15T10:13:08.596785 1980 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.39fkW7
+[2023-04-15T10:13:08.596785 1980 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.Kg6VKo.i
+[2023-04-15T10:13:08.596785 1980 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.Kg6VKo
+[2023-04-15T10:13:09.098687 13932] Using default compression level 1
+[2023-04-15T10:13:09.098687 13932] Storing embedded entry #0 .o (7998 bytes) from module.readchar._win_key.o
+[2023-04-15T10:13:09.098687 13932] Stored 0ff0ul5pbqaup5pl3ddj8r2ph8845d54c in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/f/f0ul5pbqaup5pl3ddj8r2ph8845d54cR)
+[2023-04-15T10:13:09.098687 13932] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/f/03n2vl27j3efn1d019mdjrldnrrqioeM
+[2023-04-15T10:13:09.114308 13932] Using default compression level 1
+[2023-04-15T10:13:09.114308 13932] Stored df03n2vl27j3efn1d019mdjrldnrrqioe in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/f/03n2vl27j3efn1d019mdjrldnrrqioeM)
+[2023-04-15T10:13:09.114308 13932] Result: cache_miss
+[2023-04-15T10:13:09.114308 13932] Result: direct_cache_miss
+[2023-04-15T10:13:09.114308 13932] Result: preprocessed_cache_miss
+[2023-04-15T10:13:09.114308 13932] Result: primary_storage_miss
+[2023-04-15T10:13:09.114308 13932] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/stats.lock
+[2023-04-15T10:13:09.129930 13932] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/stats.lock
+[2023-04-15T10:13:09.129930 13932] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/stats.lock
+[2023-04-15T10:13:09.134440 13932] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/stats.lock
+[2023-04-15T10:13:09.134440 13932] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.8lBLw4
+[2023-04-15T10:13:09.134440 13932] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.siNYge
+[2023-04-15T10:13:09.134440 13932] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.SpAio4
+[2023-04-15T10:13:09.134440 13932] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.beNVE5.i
+[2023-04-15T10:13:09.134440 13932] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.beNVE5
+[2023-04-15T10:13:09.161581 17760] Got result key from preprocessor
+[2023-04-15T10:13:09.161581 17760] No ecf75p4rcfbnn70njrufd8l5er042799i in primary storage
+[2023-04-15T10:13:09.161581 17760] Running real compiler
+[2023-04-15T10:13:09.240084 19388] Using default compression level 1
+[2023-04-15T10:13:09.240084 19388] Storing embedded entry #0 .o (11525 bytes) from module.readchar._win_read.o
+[2023-04-15T10:13:09.240084 19388] Stored 8f1ab5pf0apqlmm2abm40fspv08i6ddua in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/f/1ab5pf0apqlmm2abm40fspv08i6dduaR)
+[2023-04-15T10:13:09.255713 19388] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/e/c2nbpvrdmsen54q4n7b13q2u9fevj76M
+[2023-04-15T10:13:09.268817 2512 ] Using default compression level 1
+[2023-04-15T10:13:09.269814 2512 ] Storing embedded entry #0 .o (48862 bytes) from module.colorama.ansi.o
+[2023-04-15T10:13:09.270811 2512 ] Stored 33305r0l69irch6k2ongopgbav741q8a2 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/3/305r0l69irch6k2ongopgbav741q8a2R)
+[2023-04-15T10:13:09.270811 2512 ] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/f/de7nhm3qmj157fo66ro54lgql9qk1r4M
+[2023-04-15T10:13:09.273803 19388] Using default compression level 1
+[2023-04-15T10:13:09.276795 19388] Stored 3ec2nbpvrdmsen54q4n7b13q2u9fevj76 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/e/c2nbpvrdmsen54q4n7b13q2u9fevj76M)
+[2023-04-15T10:13:09.276795 19388] Result: cache_miss
+[2023-04-15T10:13:09.276795 19388] Result: direct_cache_miss
+[2023-04-15T10:13:09.276795 19388] Result: preprocessed_cache_miss
+[2023-04-15T10:13:09.276795 19388] Result: primary_storage_miss
+[2023-04-15T10:13:09.276795 19388] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2023-04-15T10:13:09.277792 19388] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2023-04-15T10:13:09.277792 19388] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2023-04-15T10:13:09.278790 19388] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2023-04-15T10:13:09.278790 19388] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.SVSq3Z
+[2023-04-15T10:13:09.278790 19388] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.AVwWWQ
+[2023-04-15T10:13:09.279787 19388] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.SQybz6
+[2023-04-15T10:13:09.279787 19388] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.h3TbQw.i
+[2023-04-15T10:13:09.280784 19388] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.h3TbQw
+[2023-04-15T10:13:09.288763 2512 ] Using default compression level 1
+[2023-04-15T10:13:09.290758 2512 ] Stored 8fde7nhm3qmj157fo66ro54lgql9qk1r4 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/f/de7nhm3qmj157fo66ro54lgql9qk1r4M)
+[2023-04-15T10:13:09.290758 2512 ] Result: cache_miss
+[2023-04-15T10:13:09.290758 2512 ] Result: direct_cache_miss
+[2023-04-15T10:13:09.290758 2512 ] Result: preprocessed_cache_miss
+[2023-04-15T10:13:09.290758 2512 ] Result: primary_storage_miss
+[2023-04-15T10:13:09.290758 2512 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2023-04-15T10:13:09.292753 2512 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2023-04-15T10:13:09.292753 2512 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2023-04-15T10:13:09.293750 2512 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/3/stats.lock
+[2023-04-15T10:13:09.293750 2512 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.tiXpi8
+[2023-04-15T10:13:09.293750 2512 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.A28r6N
+[2023-04-15T10:13:09.293750 2512 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.VS0kaR
+[2023-04-15T10:13:09.294747 2512 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.8fECdV.i
+[2023-04-15T10:13:09.295744 2512 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.8fECdV
+[2023-04-15T10:13:09.377299 18356] Using default compression level 1
+[2023-04-15T10:13:09.377299 18356] Storing embedded entry #0 .o (67101 bytes) from module.colorama.winterm.o
+[2023-04-15T10:13:09.392921 18356] Stored 8c276st4elj55m241qdoafe5aaan1ghug in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/c/276st4elj55m241qdoafe5aaan1ghugR)
+[2023-04-15T10:13:09.392921 18356] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/9/c39goiejsngotrge9jl4pf5il0tgl7kM
+[2023-04-15T10:13:09.408543 18356] Using default compression level 1
+[2023-04-15T10:13:09.408543 15960] Using default compression level 1
+[2023-04-15T10:13:09.408543 15960] Storing embedded entry #0 .o (21261 bytes) from module.readchar._posix_read.o
+[2023-04-15T10:13:09.408543 18356] Stored f9c39goiejsngotrge9jl4pf5il0tgl7k in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/9/c39goiejsngotrge9jl4pf5il0tgl7kM)
+[2023-04-15T10:13:09.408543 18356] Result: cache_miss
+[2023-04-15T10:13:09.408543 18356] Result: direct_cache_miss
+[2023-04-15T10:13:09.408543 18356] Result: preprocessed_cache_miss
+[2023-04-15T10:13:09.408543 18356] Result: primary_storage_miss
+[2023-04-15T10:13:09.408543 18356] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/stats.lock
+[2023-04-15T10:13:09.408543 15960] Stored e471u890ar9qer07dq017bfj9rjpdcjbk in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/4/71u890ar9qer07dq017bfj9rjpdcjbkR)
+[2023-04-15T10:13:09.408543 18356] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/f/stats.lock
+[2023-04-15T10:13:09.408543 15960] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/e/6cv83bv9c4pjqji1hskpivpfhmc5qjmM
+[2023-04-15T10:13:09.408543 18356] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2023-04-15T10:13:09.408543 18356] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/8/stats.lock
+[2023-04-15T10:13:09.408543 18356] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.gWwb7v
+[2023-04-15T10:13:09.408543 18356] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.oE7KVw
+[2023-04-15T10:13:09.408543 18356] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.EZPKHV
+[2023-04-15T10:13:09.408543 18356] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.JA1p1U.i
+[2023-04-15T10:13:09.408543 18356] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.JA1p1U
+[2023-04-15T10:13:09.424164 15960] Using default compression level 1
+[2023-04-15T10:13:09.424164 15960] Stored be6cv83bv9c4pjqji1hskpivpfhmc5qjm in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/e/6cv83bv9c4pjqji1hskpivpfhmc5qjmM)
+[2023-04-15T10:13:09.424164 15960] Result: cache_miss
+[2023-04-15T10:13:09.424164 15960] Result: direct_cache_miss
+[2023-04-15T10:13:09.424164 15960] Result: preprocessed_cache_miss
+[2023-04-15T10:13:09.424164 15960] Result: primary_storage_miss
+[2023-04-15T10:13:09.424164 15960] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-15T10:13:09.424164 15960] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/b/stats.lock
+[2023-04-15T10:13:09.424164 15960] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/stats.lock
+[2023-04-15T10:13:09.440181 15960] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/stats.lock
+[2023-04-15T10:13:09.440181 15960] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.sObg0I
+[2023-04-15T10:13:09.440181 15960] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.Qgft1j
+[2023-04-15T10:13:09.440181 15960] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.96HIqT
+[2023-04-15T10:13:09.440181 15960] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.Gc6d3b.i
+[2023-04-15T10:13:09.440181 15960] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.Gc6d3b
+[2023-04-15T10:13:09.659694 7188 ] Using default compression level 1
+[2023-04-15T10:13:09.659694 7188 ] Storing embedded entry #0 .o (64544 bytes) from module.colorama.win32.o
+[2023-04-15T10:13:09.659694 7188 ] Stored d17efrnl4dg8rt8smra9i8qf07j5v0qru in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/1/7efrnl4dg8rt8smra9i8qf07j5v0qruR)
+[2023-04-15T10:13:09.659694 7188 ] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/9/46200dnip8obj2heqedao4b46fpg5j4M
+[2023-04-15T10:13:09.675315 7188 ] Using default compression level 1
+[2023-04-15T10:13:09.675315 7188 ] Stored e946200dnip8obj2heqedao4b46fpg5j4 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/9/46200dnip8obj2heqedao4b46fpg5j4M)
+[2023-04-15T10:13:09.675315 7188 ] Result: cache_miss
+[2023-04-15T10:13:09.675315 7188 ] Result: direct_cache_miss
+[2023-04-15T10:13:09.675315 7188 ] Result: preprocessed_cache_miss
+[2023-04-15T10:13:09.675315 7188 ] Result: primary_storage_miss
+[2023-04-15T10:13:09.675315 7188 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/stats.lock
+[2023-04-15T10:13:09.675315 7188 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/stats.lock
+[2023-04-15T10:13:09.675315 7188 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/stats.lock
+[2023-04-15T10:13:09.675315 7188 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/d/stats.lock
+[2023-04-15T10:13:09.675315 7188 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.HVv19T
+[2023-04-15T10:13:09.675315 7188 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.cWjCd7
+[2023-04-15T10:13:09.675315 7188 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.Bjj7r0
+[2023-04-15T10:13:09.675315 7188 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.Ue4eOm.i
+[2023-04-15T10:13:09.675315 7188 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.Ue4eOm
+[2023-04-15T10:13:10.004967 11696] Using default compression level 1
+[2023-04-15T10:13:10.004967 11696] Storing embedded entry #0 .o (13026 bytes) from module.readchar.o
+[2023-04-15T10:13:10.004967 11696] Stored 7617mtvvf30296me7hk5nuvorp4h50d80 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/6/17mtvvf30296me7hk5nuvorp4h50d80R)
+[2023-04-15T10:13:10.004967 11696] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/8/18spamc02pbuqv39urkrtblq38t0ctkM
+[2023-04-15T10:13:10.020584 11696] Using default compression level 1
+[2023-04-15T10:13:10.020584 11696] Stored 5818spamc02pbuqv39urkrtblq38t0ctk in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/8/18spamc02pbuqv39urkrtblq38t0ctkM)
+[2023-04-15T10:13:10.020584 11696] Result: cache_miss
+[2023-04-15T10:13:10.020584 11696] Result: direct_cache_miss
+[2023-04-15T10:13:10.020584 11696] Result: preprocessed_cache_miss
+[2023-04-15T10:13:10.020584 11696] Result: primary_storage_miss
+[2023-04-15T10:13:10.020584 11696] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/stats.lock
+[2023-04-15T10:13:10.020584 11696] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/stats.lock
+[2023-04-15T10:13:10.020584 11696] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/stats.lock
+[2023-04-15T10:13:10.035593 11696] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/7/stats.lock
+[2023-04-15T10:13:10.035593 11696] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.FJOusY
+[2023-04-15T10:13:10.035593 11696] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.Sb1WTT
+[2023-04-15T10:13:10.035593 11696] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.qHWhgw
+[2023-04-15T10:13:10.035593 11696] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.aYFS6N.i
+[2023-04-15T10:13:10.036600 11696] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.aYFS6N
+[2023-04-15T10:13:10.318581 17760] Using default compression level 1
+[2023-04-15T10:13:10.318581 17760] Storing embedded entry #0 .o (8828 bytes) from static_src\MainProgram.o
+[2023-04-15T10:13:10.318581 17760] Stored ecf75p4rcfbnn70njrufd8l5er042799i in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/c/f75p4rcfbnn70njrufd8l5er042799iR)
+[2023-04-15T10:13:10.318581 17760] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/d/55als0n8ial1l1ceu92ra0h51843egaM
+[2023-04-15T10:13:10.336207 17760] Using default compression level 1
+[2023-04-15T10:13:10.336207 17760] Stored 2d55als0n8ial1l1ceu92ra0h51843ega in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/d/55als0n8ial1l1ceu92ra0h51843egaM)
+[2023-04-15T10:13:10.336207 17760] Result: cache_miss
+[2023-04-15T10:13:10.336207 17760] Result: direct_cache_miss
+[2023-04-15T10:13:10.336207 17760] Result: preprocessed_cache_miss
+[2023-04-15T10:13:10.336207 17760] Result: primary_storage_miss
+[2023-04-15T10:13:10.336207 17760] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/stats.lock
+[2023-04-15T10:13:10.336207 17760] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/2/stats.lock
+[2023-04-15T10:13:10.336207 17760] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/stats.lock
+[2023-04-15T10:13:10.336207 17760] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/stats.lock
+[2023-04-15T10:13:10.336207 17760] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.5PWcvP
+[2023-04-15T10:13:10.336207 17760] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.qmtsQU
+[2023-04-15T10:13:10.336207 17760] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.76q8h4
+[2023-04-15T10:13:10.336207 17760] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.XpRfXM.i
+[2023-04-15T10:13:10.336207 17760] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.XpRfXM
+[2023-04-15T10:13:10.491609 15412] Using default compression level 1
+[2023-04-15T10:13:10.491609 15412] Storing embedded entry #0 .o (91709 bytes) from module.cutie.o
+[2023-04-15T10:13:10.522857 15412] Stored 0046mc8sda4ca1q5gchuv0lpdaof66i5i in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/0/46mc8sda4ca1q5gchuv0lpdaof66i5iR)
+[2023-04-15T10:13:10.522857 15412] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/c/47j5q6pmvfdjtaq9dkblfhefqh7pl9iM
+[2023-04-15T10:13:10.538870 15412] Using default compression level 1
+[2023-04-15T10:13:10.538870 15412] Stored 4c47j5q6pmvfdjtaq9dkblfhefqh7pl9i in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/c/47j5q6pmvfdjtaq9dkblfhefqh7pl9iM)
+[2023-04-15T10:13:10.538870 15412] Result: cache_miss
+[2023-04-15T10:13:10.538870 15412] Result: direct_cache_miss
+[2023-04-15T10:13:10.538870 15412] Result: preprocessed_cache_miss
+[2023-04-15T10:13:10.538870 15412] Result: primary_storage_miss
+[2023-04-15T10:13:10.538870 15412] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/stats.lock
+[2023-04-15T10:13:10.538870 15412] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/stats.lock
+[2023-04-15T10:13:10.538870 15412] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/stats.lock
+[2023-04-15T10:13:10.538870 15412] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/stats.lock
+[2023-04-15T10:13:10.538870 15412] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.Hg1H4Y
+[2023-04-15T10:13:10.538870 15412] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.27Y0Wt
+[2023-04-15T10:13:10.538870 15412] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.YbeYo8
+[2023-04-15T10:13:10.538870 15412] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.zvO9q3.i
+[2023-04-15T10:13:10.538870 15412] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.zvO9q3
+[2023-04-15T10:13:10.632600 9468 ] Got result key from preprocessor
+[2023-04-15T10:13:10.632600 9468 ] No 0ae1ev05vrcqi22gmkkshq4lbahjvvmfq in primary storage
+[2023-04-15T10:13:10.632600 9468 ] Running real compiler
+[2023-04-15T10:13:10.977931 10644] Using default compression level 1
+[2023-04-15T10:13:10.977931 10644] Storing embedded entry #0 .o (135999 bytes) from module.colorama.ansitowin32.o
+[2023-04-15T10:13:10.977931 10644] Stored c609jillmv2nr2ad2k4v6ro5e99iekuie in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/6/09jillmv2nr2ad2k4v6ro5e99iekuieR)
+[2023-04-15T10:13:10.977931 10644] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/9/724nc9vjvbrb7ds3slhtrs62k188unqM
+[2023-04-15T10:13:10.993580 10644] Using default compression level 1
+[2023-04-15T10:13:10.993580 10644] Stored 59724nc9vjvbrb7ds3slhtrs62k188unq in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/9/724nc9vjvbrb7ds3slhtrs62k188unqM)
+[2023-04-15T10:13:10.993580 10644] Result: cache_miss
+[2023-04-15T10:13:10.993580 10644] Result: direct_cache_miss
+[2023-04-15T10:13:10.993580 10644] Result: preprocessed_cache_miss
+[2023-04-15T10:13:10.993580 10644] Result: primary_storage_miss
+[2023-04-15T10:13:10.993580 10644] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/stats.lock
+[2023-04-15T10:13:10.993580 10644] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/5/stats.lock
+[2023-04-15T10:13:10.993580 10644] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/stats.lock
+[2023-04-15T10:13:10.993580 10644] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/c/stats.lock
+[2023-04-15T10:13:10.993580 10644] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.018CzR
+[2023-04-15T10:13:10.993580 10644] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.fzxuCR
+[2023-04-15T10:13:10.993580 10644] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.qaz5F6
+[2023-04-15T10:13:10.993580 10644] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.9jioi1.i
+[2023-04-15T10:13:10.993580 10644] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.9jioi1
+[2023-04-15T10:13:24.985798 15624] Using default compression level 1
+[2023-04-15T10:13:24.985798 15624] Storing embedded entry #0 .o (355090 bytes) from module.__main__.o
+[2023-04-15T10:13:24.985798 15624] Stored e8d40hjllanm2g7oo5hcqe6tm43nkjnqo in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/8/d40hjllanm2g7oo5hcqe6tm43nkjnqoR)
+[2023-04-15T10:13:24.985798 15624] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/3/67lngqfjli938dik209s4jlodhskaimM
+[2023-04-15T10:13:24.985798 15624] Using default compression level 1
+[2023-04-15T10:13:24.985798 15624] Stored a367lngqfjli938dik209s4jlodhskaim in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/3/67lngqfjli938dik209s4jlodhskaimM)
+[2023-04-15T10:13:24.985798 15624] Result: cache_miss
+[2023-04-15T10:13:24.985798 15624] Result: direct_cache_miss
+[2023-04-15T10:13:24.985798 15624] Result: preprocessed_cache_miss
+[2023-04-15T10:13:24.985798 15624] Result: primary_storage_miss
+[2023-04-15T10:13:24.985798 15624] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2023-04-15T10:13:25.001419 15624] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/a/stats.lock
+[2023-04-15T10:13:25.001419 15624] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/stats.lock
+[2023-04-15T10:13:25.001419 15624] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/stats.lock
+[2023-04-15T10:13:25.001419 15624] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.vwYsdk
+[2023-04-15T10:13:25.001419 15624] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.wpxS6I
+[2023-04-15T10:13:25.001419 15624] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.TcBtuJ
+[2023-04-15T10:13:25.001419 15624] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.yCNIiU.i
+[2023-04-15T10:13:25.001419 15624] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.yCNIiU
+[2023-04-15T10:13:25.299590 4884 ] Using default compression level 1
+[2023-04-15T10:13:25.299590 4884 ] Storing embedded entry #0 .o (327571 bytes) from module.__parents_main__.o
+[2023-04-15T10:13:25.315212 4884 ] Stored 9d2fnmiffu5nerneiqh6037e5ngvc9c68 in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/d/2fnmiffu5nerneiqh6037e5ngvc9c68R)
+[2023-04-15T10:13:25.315212 4884 ] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/2/38r8kglhf5bvdq736cns7mcohoud6guM
+[2023-04-15T10:13:25.315212 4884 ] Using default compression level 1
+[2023-04-15T10:13:25.315212 4884 ] Stored 4238r8kglhf5bvdq736cns7mcohoud6gu in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/2/38r8kglhf5bvdq736cns7mcohoud6guM)
+[2023-04-15T10:13:25.315212 4884 ] Result: cache_miss
+[2023-04-15T10:13:25.315212 4884 ] Result: direct_cache_miss
+[2023-04-15T10:13:25.315212 4884 ] Result: preprocessed_cache_miss
+[2023-04-15T10:13:25.315212 4884 ] Result: primary_storage_miss
+[2023-04-15T10:13:25.315212 4884 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/stats.lock
+[2023-04-15T10:13:25.315212 4884 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/4/stats.lock
+[2023-04-15T10:13:25.315212 4884 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2023-04-15T10:13:25.315212 4884 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/9/stats.lock
+[2023-04-15T10:13:25.315212 4884 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.lNlb6k
+[2023-04-15T10:13:25.315212 4884 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.WR7eJP
+[2023-04-15T10:13:25.315212 4884 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.MmKyJs
+[2023-04-15T10:13:25.315212 4884 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.mPKlmq.i
+[2023-04-15T10:13:25.315212 4884 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.mPKlmq
+[2023-04-15T10:13:26.695816 9468 ] Using default compression level 1
+[2023-04-15T10:13:26.695816 9468 ] Storing embedded entry #0 .o (883825 bytes) from static_src\CompiledFunctionType.o
+[2023-04-15T10:13:26.695816 9468 ] Stored 0ae1ev05vrcqi22gmkkshq4lbahjvvmfq in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/a/e1ev05vrcqi22gmkkshq4lbahjvvmfqR)
+[2023-04-15T10:13:26.695816 9468 ] Adding result key to C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/5/11nckvd0gilc6vdutl9bkfd2i7ens6sM
+[2023-04-15T10:13:26.711462 9468 ] Using default compression level 1
+[2023-04-15T10:13:26.711462 9468 ] Stored e511nckvd0gilc6vdutl9bkfd2i7ens6s in primary storage (C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/5/11nckvd0gilc6vdutl9bkfd2i7ens6sM)
+[2023-04-15T10:13:26.711462 9468 ] Result: cache_miss
+[2023-04-15T10:13:26.711462 9468 ] Result: direct_cache_miss
+[2023-04-15T10:13:26.711462 9468 ] Result: preprocessed_cache_miss
+[2023-04-15T10:13:26.711462 9468 ] Result: primary_storage_miss
+[2023-04-15T10:13:26.711462 9468 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/stats.lock
+[2023-04-15T10:13:26.711462 9468 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/e/stats.lock
+[2023-04-15T10:13:26.711462 9468 ] Acquired lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/stats.lock
+[2023-04-15T10:13:26.711462 9468 ] Releasing lock C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/0/stats.lock
+[2023-04-15T10:13:26.711462 9468 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stderr.PvroDj
+[2023-04-15T10:13:26.711462 9468 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.stdout.JvuRE0
+[2023-04-15T10:13:26.711462 9468 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stderr.zlhEOX
+[2023-04-15T10:13:26.711462 9468 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.G3EXeX.i
+[2023-04-15T10:13:26.727058 9468 ] Unlink C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache/tmp/tmp.cpp_stdout.G3EXeX

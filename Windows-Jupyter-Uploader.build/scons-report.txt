@@ -1,10 +1,10 @@
 AS=as
 CC="C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\ccache\v4.6\ccache.exe" "C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\downloads\gcc\x86_64\11.3.0-14.0.3-10.0.0-msvcrt-r3\mingw64\bin\gcc.exe"
 CCACHE_DIR=C:\Users\zacha\AppData\Local\Nuitka\Nuitka\Cache\ccache
-CCACHE_LOGFILE=C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-4076.txt
+CCACHE_LOGFILE=C:\Users\zacha\PRACTI~1\Windows-Jupyter-Uploader.build\ccache-17576.txt
 CCCOM=$CC -o $TARGET -c $CFLAGS $CCFLAGS $_CCCOMCOM $SOURCES
 CFILESUFFIX=.c
-CPPDEFINES=['_WIN32_WINNT=0x0501', '__NUITKA_NO_ASSERT__', 'MS_WIN64', '_NUITKA_CONSTANTS_FROM_RESOURCE', '_NUITKA_FROZEN=0', '_NUITKA_EXE']
+CPPDEFINES=['_WIN32_WINNT=0x0501', '__NUITKA_NO_ASSERT__', '_NUITKA_STANDALONE', 'MS_WIN64', '_NUITKA_CONSTANTS_FROM_RESOURCE', '_NUITKA_FROZEN=154', '_NUITKA_EXE', '_NUITKA_PLUGIN_MULTIPROCESSING_ENABLED=1']
 CPPDEFPREFIX=-D
 CPPDEFSUFFIX=
 CPPPATH=['C:\\Users\\zacha\\AppData\\Local\\Programs\\Python\\Python39\\include', '.', 'C:\\Users\\zacha\\AppData\\Local\\Programs\\Python\\Python39\\lib\\SITE-P~1\\nuitka\\build\\include', 'C:\\Users\\zacha\\AppData\\Local\\Programs\\Python\\Python39\\lib\\SITE-P~1\\nuitka\\build\\static_src']
