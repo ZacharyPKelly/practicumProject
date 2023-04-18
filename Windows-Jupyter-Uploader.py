@@ -864,7 +864,7 @@ while mainLoopConditional == True:
 
                     #Creating the path the website will use
                     notebookFile = "books/juypterNotebooks/" + notebookToBeUploaded
-                    notebookHTML = "books/jupyterHTML/" + htmlFile
+                    notebookHTML = "books/jupyterNotebookHTML/" + htmlFile
                     exitNotebook = 1
                 
             else:
