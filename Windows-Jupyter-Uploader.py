@@ -1,4 +1,7 @@
-#IMPORTS
+###########################################################################################################
+#Imports
+###########################################################################################################
+
 from ast import main
 from asyncio import subprocess
 from configparser import ConfigParser
@@ -18,6 +21,12 @@ from datetime import datetime
 ###########################################################################################################
 #Functions
 ###########################################################################################################
+
+""" createPaths:
+
+Creates paths for all the relevent folders needed for the program. Determines if the user has OneDrive in the pathways
+creates correct paths for the program.
+"""
 
 def createPaths():
 
@@ -93,6 +102,12 @@ def createPaths():
         print('Exiting...')
         quit()
 
+""" createFileFolders:
+
+Creates the file folder system used by the program to store Jupyter Materials and the local repository. Uses the
+paths created by createPaths() in order to create the directories.
+"""
+
 def createFileFolders():
 
     #creating Jupyter Directory
@@ -120,6 +135,12 @@ def createFileFolders():
     os.mkdir(eswatiniRepository)
 
     print('File Folder system created!\n')
+
+""" createConfigFile:
+
+Creates a config file in the users file folder system to store their GitHub credentials, as well as
+for storing the branch, and if applicable, the book name of their last attempted pull request creation.
+"""
 
 def createConfigFile():
 
@@ -156,6 +177,12 @@ def createConfigFile():
 
     os.chdir(owd)
 
+""" logIntoGitHub:
+
+Logs the user into GitHub. Prints the users GitHub credentials to the terminal to help them log in, as well as instructions
+for how to log into GitHub.
+"""
+
 def logIntoGitHub():
 
     print("Logging into GitHub...\n")
@@ -165,7 +192,7 @@ def logIntoGitHub():
     checkStatus = subprocess.Popen(["powershell", "gh auth status"], stderr=subprocess.PIPE)
     checkStatusOutput = checkStatus.communicate()
 
-    if checkStatusOutput == loggedOutMessage:
+    if checkStatusOutput == loggedOutMessage: #If not already logged in
 
         os.chdir(jupyterDirectory)
 
@@ -191,11 +218,16 @@ def logIntoGitHub():
 
         os.chdir(owd)
     
-    else:
+    else: #If already logged in
 
         subprocess.run(["powershell", "gh auth status"])
 
         print("\nIf this is not you, you can log out and back in in the options menu.\n")
+
+""" cloneRepository:
+
+Clones the Eswatini Website's Repository to the users file folder system.
+"""
 
 def cloneRepository():
 
@@ -203,6 +235,11 @@ def cloneRepository():
 
     gitClone = subprocess.Popen(['git', 'clone', 'https://github.com/University-of-Eswatini/Eswatini-Project.git', eswatiniRepository])
     gitClone.communicate()
+
+""" setGitConfig:
+
+Sets the users local git config settings to be that of their GitHub credentials.
+"""
 
 def setGitConfig():
 
@@ -225,6 +262,12 @@ def setGitConfig():
 
     print('Git config settings set!\n')
 
+""" updateRepository:
+
+Uses the users stored GitHub credentials in order to 'git pull' the Eswatini Website's GitHub Repository
+and update the local repository.
+"""
+
 def updateRepository():
 
     print('Updating Eswatini Repository\n')
@@ -240,13 +283,18 @@ def updateRepository():
 
     os.chdir(eswatiniRepository)
 
-    #gitRemoteSet = subprocess.Popen(['git', 'remote', 'set-url', 'origin', gitAuth])
-
     gitPullUpdate = subprocess.Popen(['git', 'pull', gitAuth])
     
     gitPullUpdate.communicate()
 
     os.chdir(owd)
+
+""" deleteBranch:
+
+Removes any unwanted changes to the users local repository. Called when the user prematurely exits the pull request creation workflow,
+if the pull request creation was unsuccessful, and at the start of the program to catch if the program was exited during the pull
+request creation workflow.
+"""
 
 def deleteBranch():
 
@@ -262,37 +310,44 @@ def deleteBranch():
 
         os.chdir(eswatiniRepository)
 
-        gitFetch = subprocess.Popen(['git', 'fetch'])
+        gitFetch = subprocess.Popen(['git', 'fetch']) #removes extra unwanted commits
         gitFetch.communicate()
 
-        gitStash = subprocess.Popen(['git', 'stash'])
+        gitStash = subprocess.Popen(['git', 'stash']) #Stores and removes tracked and uncommited local changes
         gitStash.communicate()
 
-        gitStashDrop = subprocess.Popen(['git', 'stash', 'drop'])
+        gitStashDrop = subprocess.Popen(['git', 'stash', 'drop']) #Deletes stored tracked local changes
         gitStashDrop.communicate()
 
-        gitClean = subprocess.Popen(['git', 'clean', '-fd'])
+        gitClean = subprocess.Popen(['git', 'clean', '-fd']) #Removes untracked changes
         gitClean.communicate()
 
-        gitCheckOutMain = subprocess.Popen(['git', 'checkout', 'main'])
+        gitCheckOutMain = subprocess.Popen(['git', 'checkout', 'main']) #Checkout main branch
         gitCheckOutMain.communicate()
 
-        gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branch])
+        gitDeleteBranch = subprocess.Popen(['git', 'branch', '-D', branch]) #Delete the pull request branch
         gitDeleteBranch.communicate()
 
-        if book != '':
+        if book != '': #There was a book attempted to be uploaded 
 
             os.chdir(eswatiniRepositoryBooks)
 
-            shutil.rmtree(book)
+            shutil.rmtree(book) #Delete the book's directory
 
         os.chdir(jupyterDirectory)
 
+        #Remove the branch and book name from the config file
         configOb.set('USERINFO', 'branch', '')
         configOb.set('USERINFO', 'book', '')
 
         with open('config.ini', 'w') as conf:
             configOb.write(conf)
+
+""" launchJupyterLabs:
+
+Launches Jupyter Labs to be opened in a new web browser tab, as well as the back-end server terminal for
+Jupyter Labs to run.
+"""
 
 def launchJupyterLabs():
 
@@ -346,53 +401,6 @@ createPaths()
 # print('eswatiniRepositoryImages: ', eswatiniRepositoryImages, sep=None)
 # print("---------------------------------")
 
-# ###########################################################################################################
-# #Installing Dependencies
-# ###########################################################################################################
-
-# required  = {'jupyterlab', 'jupyter-book', 'nbconvert[webpdf]'} 
-# installed = {pkg.key for pkg in pkg_resources.working_set}
-# missing   = required - installed
-
-# if missing:
-
-#     #implementing pip as a subprocess:
-#     subprocess.check_call([sys.executable, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-# #Githubs CLI must be installed with Scoop
-# #Installing Scoop
-# subprocess.run(["powershell", "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"]) #sets permissions on PowerShell so that scoop can be installed
-
-# updateScoop = os.path.expanduser('~')
-# updateScoop = updateScoop + "\scoop\shims\scoop update scoop"
-
-# try: #Try to update Scoop
-#     subprocess.run(["powershell", "-Command", updateScoop], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-# except subprocess.CalledProcessError: #If we can't update scoop it must not be installed so install scoop
-
-#     subprocess.run(["powershell", "-Command", "iwr -useb get.scoop.sh | iex"])
-
-# #Installing GitHubs CLI
-# installGH = os.path.expanduser('~')
-# installGH = installGH + "\scoop\shims\scoop install gh"
-
-# updateGH = os.path.expanduser('~')
-# updateGH = updateGH + "\scoop\shims\scoop update gh"
-
-# ghPath = os.path.expanduser('~')
-# ghPath = ghPath + "\scoop\shims\gh.exe"
-
-# if os.path.isfile(ghPath) == False:
-
-#     subprocess.run(["powershell", "-Command", installGH])
-
-#     print('Your computer now needs to restart in order to ensure Scoop and GH are on PATH')
-#     print('Once this program has closed, please restart your computer before running this program again')
-#     print('Running this program before restarting your computer may result in errors in the program.')
-#     tempRestart = input("Press enter to exit") #RESTARTING BUT NOT TAKING IO AFTER RESTARTING
-#     exit()
-
 ###########################################################################################################
 #First Time Setup
 ###########################################################################################################
@@ -441,7 +449,7 @@ if (os.path.exists(jupyterDirectory)) is False:
     ghPath = os.path.expanduser('~')
     ghPath = ghPath + "\scoop\shims\gh.exe"
 
-    if os.path.isfile(ghPath) == False:
+    if os.path.isfile(ghPath) == False: #If github not yet installed
 
         subprocess.run(["powershell", "-Command", installGH])
 
@@ -644,7 +652,7 @@ while mainLoopConditional == True:
                 subprocess.call(jbCommand)
                 print("-------------------------------------------------------------------------------\n")
             
-            else:
+            else: #There already exists a book by that name
 
                 print("\nThat book already exists, please either delete it or choose a different name\n")
 
@@ -681,7 +689,7 @@ while mainLoopConditional == True:
 
         bookOrNotebookMenuAnswer = True #True for staying in the loop, False for exiting the loop
 
-        while bookOrNotebookMenuAnswer == True:
+        while bookOrNotebookMenuAnswer == True: #Choosing what type of Jupyter Material to upload
 
             print("\n-------------------------------------------------------------------------------\n")
 
@@ -1288,16 +1296,6 @@ while mainLoopConditional == True:
                     #Zipping the Book to be 
                     make_archive(bookToBeUploaded, "zip")
                     print("BOOK ZIPPED")
-
-                    # #Copying book to the zipped books folder to be zipped
-                    # tempBookPath = os.path.join(zippedJupyterBooks, bookToBeUploaded)
-                    # shutil.copytree(bookToBeUploaded, tempBookPath)
-                    # print("BOOK COPIED FOR ZIP")
-
-                    # #Zipping the Book to be uploaded and removing the unzipped version
-                    # os.chdir(zippedJupyterBooks)
-                    # make_archive(bookToBeUploaded, "zip")
-                    # shutil.rmtree(bookToBeUploaded)
                     
                     #Copying Zipped Book to be uploaded to the correct folder in eswatini repository
                     zippedBook = bookToBeUploaded + ".zip"
@@ -1328,25 +1326,6 @@ while mainLoopConditional == True:
                 uploadImageForBook = True #True for staying in the loop, False otherwise
 
                 while uploadImageForBook == True:
-                    
-                    # print()
-                    # print("Is there an image you would like to upload with this Book?")
-                    # print("1) Yes")
-                    # print("2) No")
-
-                    # try:
-                    #     uploadImageForBookOption = int(input('Enter your choice: '))
-                    
-                    # except:
-                    #     print('Wrong input. Please enter either 1 or 2')
-                    
-                    # if uploadImageForBookOption == 1 or uploadImageForBookOption == 2:
-
-                    #     uploadImageForBook = False
-
-                    # else:
-
-                    #     print("Invalid choice. Please enter either 1 or 2")
 
                     print("-------------------------------------------------------------------------------\n")
 
@@ -1375,34 +1354,6 @@ while mainLoopConditional == True:
 
                     while noBookImages == True:
 
-                        # print()
-                        # print('There are no images currently in your Image directory, would you like to continue without an image?')
-                        # print('Selecting NO will return you to the main menu')
-                        # print()
-                        # print("1) Yes")
-                        # print("2) No")
-
-                        # try:
-                        #     noBookImagesOption = int(input('Enter your choice: '))
-                        # except:
-                        #     print('Invalid choice. Please enter either 1 or 2.')
-                            
-                        # if noBookImagesOption == 1:
-
-                        #     noBookImages = False
-                        #     uploadImageForBookOption = 2
-
-                        # elif noBookImagesOption == 2:
-
-                        #     uploadImageForBookOption = 3
-                        #     exitBook = 0
-                        #     noBookImages = False
-                        #     deleteBranch()
-
-                        # else:
-
-                        #     print("Invalid choice. Please enter either 1 or 2.\n")
-
                         print()
                         print("There are no images currently in your Image directory, would you like to continue without an image?")
                         if cutie.prompt_yes_or_no("Selecting NO will return you to the Main Menu"):
@@ -1419,7 +1370,7 @@ while mainLoopConditional == True:
                             deleteBranch()
                             print("\n-------------------------------------------------------------------------------\n")                    
 
-                if uploadImageForBookOption == 1:
+                if uploadImageForBookOption == 1: #User wants an image and has them in their image directory
 
                     whichImageToUploadBook = True
 
@@ -1511,28 +1462,6 @@ while mainLoopConditional == True:
                 subjects.insert(0, 'Which subject does this Jupyter Book belong in?')
 
                 while whichBookSubjectAnswer == True:
-
-                    # for i in range(len(subjects)):
-
-                    #     print(i+1, ')', subjects[i], sep=None)
-                        
-                    # print()
-
-                    # try:
-                    #     whichBookSubjectOption = int(input('Enter your choice: '))
-                    # except:
-                    #     print('Wrong input. Please enter a number between 1 and ', len(subjects), '.', sep=None)
-                        
-                    # if whichBookSubjectOption > 0 and whichBookSubjectOption <= len(subjects):
-
-                    #     whichBookSubjectAnswer = False
-                    #     bookSubject = subjects[whichBookSubjectOption-1]
-                        
-                    # else:
-
-                    #     print("Invalid choice. Please enter a number between 1 and ", len(subjects), sep=None)
-                    #     print()
-                    #     print('Which subject does this Jupyter Book belong in?\n')
 
                     subjectsCaptions = [0]
                     bookSubject = subjects[cutie.select(subjects, caption_indices = subjectsCaptions, selected_index = 1)]
@@ -1682,20 +1611,6 @@ while mainLoopConditional == True:
 
             while optionsMenuAnswer == True:
                 print("\n-------------------------------------------------------------------------------\n")
-                
-                # print("Options Menu")
-                # print("1) Update your Eswatini Repository (Git Pull)")
-                # print("2) Update your GitHub credentials (Username / Email / Personal Access Token)")
-                # print("3) Log out of GitHub")
-                # print("4) Log into GitHub")
-                # print("5) Exit to Main Menu")
-
-                # optionsMenuOption = ''
-
-                # try:
-                #     optionsMenuOption = int(input('Enter your choice: '))
-                # except:
-                #     print('Invalid choice. Please enter a number between 1 and 5.')
 
                 optionsMenu = [
                     "Options Menu",
